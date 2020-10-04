@@ -1,4 +1,5 @@
-﻿using System;
+//Вадим Щеголев
+using System;
 
 namespace geht1
 {
