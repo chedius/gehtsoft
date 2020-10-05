@@ -1,0 +1,13 @@
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\bin\Debug\netcoreapp3.1\My_jambs.exe
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\bin\Debug\netcoreapp3.1\My_jambs.deps.json
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\bin\Debug\netcoreapp3.1\My_jambs.runtimeconfig.json
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\bin\Debug\netcoreapp3.1\My_jambs.runtimeconfig.dev.json
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\bin\Debug\netcoreapp3.1\My_jambs.dll
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\bin\Debug\netcoreapp3.1\My_jambs.pdb
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\obj\Debug\netcoreapp3.1\My_jambs.csprojAssemblyReference.cache
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\obj\Debug\netcoreapp3.1\My_jambs.AssemblyInfoInputs.cache
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\obj\Debug\netcoreapp3.1\My_jambs.AssemblyInfo.cs
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\obj\Debug\netcoreapp3.1\My_jambs.csproj.CoreCompileInputs.cache
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\obj\Debug\netcoreapp3.1\My_jambs.dll
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\obj\Debug\netcoreapp3.1\My_jambs.pdb
+C:\Users\Дмитрий\Desktop\Razhev\My_jambs\obj\Debug\netcoreapp3.1\My_jambs.genruntimeconfig.cache
