@@ -1,0 +1,13 @@
+C:\Users\aovchinnikov\Desktop\day 2\main\obj\Debug\netcoreapp3.1\main.csprojAssemblyReference.cache
+C:\Users\aovchinnikov\Desktop\day 2\main\obj\Debug\netcoreapp3.1\main.AssemblyInfoInputs.cache
+C:\Users\aovchinnikov\Desktop\day 2\main\obj\Debug\netcoreapp3.1\main.AssemblyInfo.cs
+C:\Users\aovchinnikov\Desktop\day 2\main\obj\Debug\netcoreapp3.1\main.csproj.CoreCompileInputs.cache
+C:\Users\aovchinnikov\Desktop\day 2\main\bin\Debug\netcoreapp3.1\main.exe
+C:\Users\aovchinnikov\Desktop\day 2\main\bin\Debug\netcoreapp3.1\main.deps.json
+C:\Users\aovchinnikov\Desktop\day 2\main\bin\Debug\netcoreapp3.1\main.runtimeconfig.json
+C:\Users\aovchinnikov\Desktop\day 2\main\bin\Debug\netcoreapp3.1\main.runtimeconfig.dev.json
+C:\Users\aovchinnikov\Desktop\day 2\main\bin\Debug\netcoreapp3.1\main.dll
+C:\Users\aovchinnikov\Desktop\day 2\main\bin\Debug\netcoreapp3.1\main.pdb
+C:\Users\aovchinnikov\Desktop\day 2\main\obj\Debug\netcoreapp3.1\main.dll
+C:\Users\aovchinnikov\Desktop\day 2\main\obj\Debug\netcoreapp3.1\main.pdb
+C:\Users\aovchinnikov\Desktop\day 2\main\obj\Debug\netcoreapp3.1\main.genruntimeconfig.cache
