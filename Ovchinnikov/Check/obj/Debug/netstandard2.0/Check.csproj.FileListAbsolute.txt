@@ -1,9 +1,0 @@
-C:\Users\aovchinnikov\Desktop\day 2\check\bin\Debug\netstandard2.0\Check.deps.json
-C:\Users\aovchinnikov\Desktop\day 2\check\bin\Debug\netstandard2.0\Check.dll
-C:\Users\aovchinnikov\Desktop\day 2\check\bin\Debug\netstandard2.0\Check.pdb
-C:\Users\aovchinnikov\Desktop\day 2\check\obj\Debug\netstandard2.0\Check.csprojAssemblyReference.cache
-C:\Users\aovchinnikov\Desktop\day 2\check\obj\Debug\netstandard2.0\Check.AssemblyInfoInputs.cache
-C:\Users\aovchinnikov\Desktop\day 2\check\obj\Debug\netstandard2.0\Check.AssemblyInfo.cs
-C:\Users\aovchinnikov\Desktop\day 2\check\obj\Debug\netstandard2.0\Check.csproj.CoreCompileInputs.cache
-C:\Users\aovchinnikov\Desktop\day 2\check\obj\Debug\netstandard2.0\Check.dll
-C:\Users\aovchinnikov\Desktop\day 2\check\obj\Debug\netstandard2.0\Check.pdb
