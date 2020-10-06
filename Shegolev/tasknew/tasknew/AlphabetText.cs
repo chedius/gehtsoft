@@ -13,18 +13,24 @@ namespace tasknew
             mTxt = txt;
         }
 
-        public int Sort()
+        public void Sort()
         {
             var result = (from c in mTxt where Char.IsLetter(c) select c).ToArray();
-            for (int i = 1; i < mTxt.Length; i++)
+            int count = 0;
+            for (int i = 1; i < result.Length; i++)
             {
-                if (mTxt[i - 1] > mTxt[i])
+                if (result[i - 1] > result[i])
                 {
-                    return i + 1;
+                    Console.WriteLine(i + 1);
+                    count++;
                 }
+                 
             }
-            Console.WriteLine("Текст в алфавитном порядке");
-            return 0;
+            
+            if(count == 0)
+            {
+                Console.WriteLine("Текст в алфавитном порядке");
+            } 
         }
     }
 }

@@ -8,10 +8,8 @@ namespace tasknew
         static void Main(string[] args)
         {
             Console.WriteLine("Программа для вывода позиции символа, который нарушает алфавитный порядок");
-            Console.WriteLine("Enter");
-
             new GeneratedText();
-            
+
         }
     }
 }
