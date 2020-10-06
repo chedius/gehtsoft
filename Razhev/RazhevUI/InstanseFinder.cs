@@ -1,5 +1,4 @@
 using System;
-
 public class InstanseFinder : Spliter
 {
     private string mStr;
@@ -23,11 +22,18 @@ public class InstanseFinder : Spliter
             }
             else
             {
-                k++;
                 int count = (mStr.Length - mStr.Replace(i, "").Length) / i.Length;
-                Console.WriteLine("{0} Число вхождений данного слова в строку {1}: {2}", k, i, count);
+                mStr = mStr.Replace(i, "");
+                if (count == 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    k++;
+                    Console.WriteLine("{0}) Число вхождений данного слова в строку {1}: {2}", k, i, count);
+                }
             }
         }
     }
-
 }
