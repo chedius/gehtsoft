@@ -26,12 +26,14 @@ namespace Alphabetical_text
             switch(key)
             {
                 case 1:
+                Console.Clear();
                 Console.WriteLine("Введите текст: ");
                 string ConsoleString = Console.ReadLine();
                 ChangeText.ModificationText(ConsoleString);
                 break;
 
                 case 2:
+                Console.Clear();
                 string Text = "asdjkhija&*%^!@..#87124687ячс.юьисмбюэжджлолдорпаыавыфйцугшекегшщзхъъйД,ЛФЫ,!*ВЛДПТЬБФЫВЙЩЦШКГЕН";
                 Console.WriteLine("Первоначальный текст:\n" + Text);
                 ChangeText.ModificationText(Text);
