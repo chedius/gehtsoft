@@ -11,7 +11,7 @@ namespace tasknew
             string str = "АБВГДЕЖАВГ.";
             Console.WriteLine("Исходный текст: " + str);
             AlphabetText newtxt = new AlphabetText(str);
-            newtxt.Sort();
+            //newtxt.Sort();
         }
     }
 }
