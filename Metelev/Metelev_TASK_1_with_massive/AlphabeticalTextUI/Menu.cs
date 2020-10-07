@@ -5,6 +5,9 @@ namespace Task_1_with_massive
 {
     class Menu
     {   
+        /*
+            Метод Main выполняет вывод пользовательского меню, вызов доступных методов для генерации и преобразования строки, и вывод результата
+        */
         static void Main(string[] args)
         {
             Console.Clear();
