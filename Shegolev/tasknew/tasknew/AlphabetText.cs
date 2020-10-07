@@ -16,7 +16,6 @@ namespace tasknew
         {
 
             var result = (from c in mTxt where Char.IsLetter(c) select c).ToArray();
-
             int count = 0;
 
             for (int i = 1; i < result.Length; i++)
@@ -33,6 +32,13 @@ namespace tasknew
             {
                 Console.WriteLine("Текст в алфавитном порядке");
             } 
+
+            /*foreach (char a in result.Where(char.IsUpper))
+             
+             */
+
+
+
         }
     }
 }
