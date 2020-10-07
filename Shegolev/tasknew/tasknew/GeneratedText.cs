@@ -8,7 +8,7 @@ namespace tasknew
     {
         public GeneratedText()
         {
-            string str = "АБ АВ";
+            string str = "АБВГДЕЖАВГ.";
             Console.WriteLine("Исходный текст: " + str);
             AlphabetText newtxt = new AlphabetText(str);
             newtxt.Sort();
