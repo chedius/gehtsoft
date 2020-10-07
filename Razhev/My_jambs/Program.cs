@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Numerics;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Library_lab2;
 
-namespace Study
+namespace My_jambs
 {
+
+    //////////////////////////////////////КОСЯК В ТОМ ЧТО Я ЗАЛИЛ ГОЛЫЙ CS ФАЙЛ на GITHUB А НЕ ПОЛНОСТЬЮ ПРОЕКТ ТЕМ САМЫМ НЕ ВЫПОЛНИЛ ПОСТАВЛЕННЫЕ ТРЕБОВАНИЯ
     class Program
     {
-
-        static string[] SearchWords(string text) {
+        static string[] SearchWords(string text)
+        {
             char[] delete_symbol = { ' ', ',', '.' };
             text = text.ToLower();
             text = text.Trim(delete_symbol);
@@ -24,11 +15,13 @@ namespace Study
             return arr_words;
         }
 
-        static void Contains(string str, string[] arr_words) {
+        static void Contains(string str, string[] arr_words)
+        {
             int k = 0;
             foreach (string i in arr_words)
             {
-                if (i.Length < 1 || i.Length > 5) {
+                if (i.Length < 1 || i.Length > 5)
+                {
                     Console.WriteLine("Символ не проходит условие: " + i);
                     break;
                 }
