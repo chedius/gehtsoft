@@ -1,13 +1,13 @@
 using System;
 using System.Linq;
-public class OurText
+public class Modification
 {  
     private string mTxt;
-    public OurText(string txt)
+    public Modification(string txt)
     {
         mTxt = txt;
     }
-    public void Modification()
+    public void Modificate()
     {
         Console.WriteLine("Измененный текст:");
         Console.WriteLine(new string(mTxt
