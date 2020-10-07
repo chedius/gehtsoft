@@ -96,7 +96,7 @@ namespace ClassTable
                 int dim;
 
                 Console.WriteLine("Выберите одно из предложенных действий:");
-                Console.WriteLine("1.Вывести таблицу умножения в 16СС \n2.Вывести рандомный массив");
+                Console.WriteLine("1.Вывести таблицу умножения в 16СС \n2.Вывести рандомный массив \n3.Выход");
                 key = Convert.ToInt32(Console.ReadLine());
                 switch (key)
                 {
@@ -112,6 +112,11 @@ namespace ClassTable
                         dim = Convert.ToInt32(Console.ReadLine());
                         mOut.TableRandomOutput(dim);
                         break;
+
+                    case 3:
+                        Environment.Exit(0);
+                        break;
+
 
                     default:
                         Console.WriteLine("Введите номер действия");
