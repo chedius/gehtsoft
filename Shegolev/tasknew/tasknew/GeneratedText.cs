@@ -4,14 +4,12 @@ using System.Text;
 
 namespace tasknew
 {
-    class GeneratedText
+    class GenerateText
     {
-        public GeneratedText()
+        public int GeneratedText(string str)
         {
-            string str = "АБВГДЕЖАВГ.";
-            Console.WriteLine("Исходный текст: " + str);
             AlphabetText newtxt = new AlphabetText(str);
-            //newtxt.Sort();
+            return newtxt.Sort(str);
         }
     }
 }
