@@ -15,30 +15,44 @@ namespace Task_1_with_massive
             string Text;
             Modification Obj = new Modification();
             StrBuilder genStr = new StrBuilder();
-            Console.WriteLine("Программа возвращает все строчные русские буквы из текста в алфавитном порядке");
-            Console.WriteLine("1.Ввести текст в консоли");
-            Console.WriteLine("2.Использовать готовый текст");
-            key = Convert.ToInt32(Console.ReadLine());
-            switch(key)
+            bool f =  true;
+            while(f == true)
             {
-                case 1:
-                Console.Clear();
-                Console.WriteLine("Введите текст:");
-                Text = Console.ReadLine();
-                Console.WriteLine("Строчные русские буквы из текста в алфавитном порядке:\n" + Obj.Modificate(Text)); 
-                break;
+                Console.Clear();    
+                Console.WriteLine("Программа возвращает все строчные русские буквы из текста в алфавитном порядке");
+                Console.WriteLine("1.Ввести текст в консоли");
+                Console.WriteLine("2.Использовать готовый текст");
+                Console.WriteLine("3.Выход");
+                key = Convert.ToInt32(Console.ReadLine());
+                switch(key)
+                {
+                    case 1:
+                    Console.Clear();
+                    Console.WriteLine("Введите текст:");
+                    Text = Console.ReadLine();
+                    Console.WriteLine("Строчные русские буквы из текста в алфавитном порядке:\n" + Obj.Modificate(Text));
+                    Console.ReadKey(); 
+                    break;
 
-                case 2:
-                Console.Clear();
+                    case 2:
+                    Console.Clear();
 
-                Text = genStr.StrBuild("ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuiopasdfghjklzxcvbnmабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789!№;%:?*().><,", 141, 7);
-                Console.WriteLine("Используется генерируемый текст:\n" + Text);
-                Console.WriteLine("Строчные русские буквы из текста в алфавитном порядке:\n" + Obj.Modificate(Text)); 
-                break;
+                    Text = genStr.StrBuild("ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuiopasdfghjklzxcvbnmабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789!№;%:?*().><,", 141, 7);
+                    Console.WriteLine("Используется генерируемый текст:\n" + Text);
+                    Console.WriteLine("Строчные русские буквы из текста в алфавитном порядке:\n" + Obj.Modificate(Text)); 
+                    Console.ReadKey();
+                    break;
+                    
+                    case 3:
+                    Console.Clear();
+                    f=false;
+                    break;
 
-                default:
-                Console.WriteLine("Введите номер функции");
-                break;
+                    default:
+                    Console.WriteLine("Введите номер функции");
+                    Console.ReadKey();
+                    break;
+                }
 
             }
         }   
