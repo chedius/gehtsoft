@@ -1,0 +1,13 @@
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\bin\Debug\netcoreapp3.1\tasknew.exe
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\bin\Debug\netcoreapp3.1\tasknew.deps.json
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\bin\Debug\netcoreapp3.1\tasknew.runtimeconfig.json
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\bin\Debug\netcoreapp3.1\tasknew.runtimeconfig.dev.json
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\bin\Debug\netcoreapp3.1\tasknew.dll
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\bin\Debug\netcoreapp3.1\tasknew.pdb
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\obj\Debug\netcoreapp3.1\tasknew.csprojAssemblyReference.cache
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\obj\Debug\netcoreapp3.1\tasknew.AssemblyInfoInputs.cache
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\obj\Debug\netcoreapp3.1\tasknew.AssemblyInfo.cs
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\obj\Debug\netcoreapp3.1\tasknew.csproj.CoreCompileInputs.cache
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\obj\Debug\netcoreapp3.1\tasknew.dll
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\obj\Debug\netcoreapp3.1\tasknew.pdb
+D:\repo\gehtsoft\Shegolev\tasknew\tasknew\obj\Debug\netcoreapp3.1\tasknew.genruntimeconfig.cache

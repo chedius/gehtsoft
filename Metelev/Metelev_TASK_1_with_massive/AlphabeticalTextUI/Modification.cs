@@ -5,9 +5,13 @@ using System.Collections.Generic;
 
 namespace Task_1_with_massive
 {
+
     public class Modification
     {
-        public static void Modificate(string Text)
+        /*
+            Функция Modificate выполняет преобразование принятого текста Text, и возвращает преобразованную строку
+        */
+        public string Modificate(string Text)
         {
             int lenght = Text.Length;
             char[] letters = Text.ToCharArray();
@@ -41,8 +45,7 @@ namespace Task_1_with_massive
                 count--;
             
             } while(swaped);
-            string newText = new string(newLetters);
-            Console.WriteLine("Строчные русские буквы из текста в алфавитном порядке:\n" + newText);
+            return new string(newLetters);
         }
     }
 }

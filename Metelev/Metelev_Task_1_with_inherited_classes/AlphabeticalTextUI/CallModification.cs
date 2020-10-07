@@ -1,13 +1,13 @@
 using System;
 
-public class NewText
+public class CallModification
 {
-    public NewText()
+    public CallModification()
     {
         string str = "asdjkhija&*%^!@..#87124687ячс.юьисмбюэжджлолдорпаыавыфйцугшекегшщзхъъйД,ЛФЫ,!*ВЛДПТЬБФЫВЙЩЦШКГЕН";
         Console.WriteLine("Исходный текст:\n" + str);
-        OurText newtxt = new OurText(str);
-        newtxt.Modification();
+        Modification newtxt = new Modification(str);
+        newtxt.Modificate();
 
     }
 }

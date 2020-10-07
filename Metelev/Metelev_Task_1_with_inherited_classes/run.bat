@@ -1,4 +1,4 @@
 cd /d %~dp0
-cd ModificationText
+cd AlphabeticalTextUI
 dotnet run
 pause
