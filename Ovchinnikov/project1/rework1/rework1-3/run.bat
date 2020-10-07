@@ -1,4 +1,4 @@
 cd /d %~dp0
-cd rework1-3
-dotnet run
+cd why/obj/Debug
+why.exe
 pause
