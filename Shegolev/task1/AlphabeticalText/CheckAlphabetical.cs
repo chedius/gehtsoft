@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace AlphabeticalText
 {
@@ -6,7 +7,17 @@ namespace AlphabeticalText
     {
         public static int Sort(string text)
         {
+
+            var result = (from c in text where Char.IsLetter(c) select c).ToArray();
+            Console.WriteLine(result);
+            return 0;
+
+
+
             text = text.Replace(" ", "").Replace(",", "").Replace(".", "");
+
+            
+
             for (int i = 1; i < text.Length; i++)
             {
                 if(text[i - 1] > text[i])
