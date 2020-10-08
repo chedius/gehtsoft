@@ -4,31 +4,38 @@ namespace tasknew
 {
     public class Tests
     {
-        public bool TestCase() {
-            string txt = "АБВ ГА.";
-            AlphabetText text = new AlphabetText(txt);
-            //int pos;
-            int i = text.Sort(txt);
+       String TestEmptyString(string s) {
+           if (String.IsNullOrEmpty(s))
+                return "Пустая строка";
+            else
+                return String.Format("(\"{0}\") is neither null nor empty", s);
+       }
+
+        public static void TestCase1() {
+            string str1 = "АБВГДЕЕЖ";
+            int i = 0;
+            Console.WriteLine("Исходная строка: " + str1);
+            AlphabetText teststs = new AlphabetText(str1);
+            i = teststs.Sort(str1);
             if (i == 0)
             {
-                return true;
+                Console.WriteLine("В алфавитном порядке");
             }
-            else 
-            //Console.WriteLine(i);
-            return false;
+            else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
         }
-    
-        public bool TestCase2() 
-        {
-            string txt = "А БВ ГДЕ.";
-            AlphabetText text = new AlphabetText(txt);
-            //int pos;
-            int i = text.Sort(txt);
+
+        public static void TestCase2() {
+            string str1 = "АбаГДеЕЖ";
+            int i = 0;
+            Console.WriteLine("Исходная строка: " + str1);
+            AlphabetText teststs = new AlphabetText(str1);
+            i = teststs.Sort(str1);
             if (i == 0)
             {
-                return true;
+                Console.WriteLine("В алфавитном порядке");
             }
-            else return false;
+            else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
         }
+
     }
 }
