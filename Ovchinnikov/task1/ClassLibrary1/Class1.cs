@@ -134,15 +134,39 @@ namespace CheckLib
         {
             Console.WriteLine("Есть символы, не являющиеся строчными латинскими буквами");
         }
+        public void sendAbtInput()
+        {
+             Console.WriteLine("Введите слова через запятую на латинском алфавите с точкой в конце");
+        }
+        public void sendHello()
+        {
+            Console.WriteLine("Выберете способ ввода");
+            Console.WriteLine("1:Ввод с консоли");
+            Console.WriteLine("2:Использовать готовую строку");
+            Console.WriteLine("3:Использовать генератор строки");
+        }
     }
 
-    /*  public class generator 
+    /  public class generator 
       {
-          public string generate(int maxLong)
+          Random rnd = new Random();
+          
+          public void generate(int maxLong, char[] Alphabet)
           {
-              for (int i = 0; i <= ; i++)
-                 rand.Next(27));
+            char[] str;
+            int value = rnd.Next();
+            int length = rnd.Next(0,30);
+            for (int i = 0; i < length; i++)
+            {
 
+                int Position = rnd.Next(0, Alphabet.Length-1);
+
+                str[i] = Alphabet[Position];
+                return stri;
+
+            }
+            
+            //char[] Alphabet= new List<string> {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'};
           }
-      }*/
+      }
 }
