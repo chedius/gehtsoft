@@ -16,6 +16,9 @@ namespace Task_1_with_massive
             int lenght = Text.Length;
             char[] letters = Text.ToCharArray();
             List<char> ListLetters = new List<char>();
+            bool isNotNull;
+            string nullStr = "В тексте не найдено строчных русских букв";
+            Tester test2 = new Tester();
             int a=0;
             for(int i=0; i<lenght; i++)
             {
@@ -45,7 +48,13 @@ namespace Task_1_with_massive
                 count--;
             
             } while(swaped);
-            return new string(newLetters);
+            string newStr = string.Join("",newLetters);
+            isNotNull = test2.TestNullStr(newStr);
+            if (isNotNull == true)
+            {
+                return newStr;
+            }
+            else return nullStr;
         }
     }
 }
