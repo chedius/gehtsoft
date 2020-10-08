@@ -21,7 +21,8 @@ namespace tasknew
             {
                 if (result[i - 1] > result[i])
                 {
-                    num = i;
+                    num = i + 1;
+                    break;
                 }
             }
             return num;

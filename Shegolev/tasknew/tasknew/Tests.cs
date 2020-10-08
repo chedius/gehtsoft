@@ -7,7 +7,7 @@ namespace tasknew
         public bool TestCase() {
             string txt = "АБВ ГА.";
             AlphabetText text = new AlphabetText(txt);
-            int pos;
+            //int pos;
             int i = text.Sort(txt);
             if (i == 0)
             {
@@ -22,8 +22,8 @@ namespace tasknew
         {
             string txt = "А БВ ГДЕ.";
             AlphabetText text = new AlphabetText(txt);
-            int pos;
-            int i = text.Sort(txt,out pos);
+            //int pos;
+            int i = text.Sort(txt);
             if (i == 0)
             {
                 return true;
