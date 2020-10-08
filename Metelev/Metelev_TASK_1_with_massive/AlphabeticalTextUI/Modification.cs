@@ -45,7 +45,8 @@ namespace Task_1_with_massive
                 count--;
             
             } while(swaped);
-            return new string(newLetters);
+            string newStr = string.Join("",newLetters);
+            return newStr;
         }
     }
 }
