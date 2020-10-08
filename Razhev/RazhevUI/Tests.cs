@@ -1,14 +1,17 @@
 using System;
-using RazhevUI;
+using IntroUI;
 using System.Collections.Generic;
 public class Tests
 {
-    Tests tests = new Tests();
+    //Tests tests = new Tests();
     Program InstanceProgramTest = new Program();
+    Spliter InstanceSpliterTest = new Spliter();
+    public string testfindesowrds = "a,b,c,d,e.";
     public bool RandomWordsTest()
     {
-        List<string> tTest1 = InstanceProgramTest.RandomWords(0, 0);
-        List<string> tTest2 = InstanceProgramTest.RandomWords(2, 4);
+        char[] setTest = "abcd".ToLower().ToCharArray();
+        List<string> tTest1 = InstanceProgramTest.RandomWords(0, 0,setTest);
+        List<string> tTest2 = InstanceProgramTest.RandomWords(2, 4,setTest);
         if (tTest2.Count == 4)
         {
             foreach (var tTemp in tTest2)
@@ -45,7 +48,7 @@ public class Tests
             return true;
         }
     }
-    Spliter InstanceSpliterTest = new Spliter();
+    
     public bool SpliterWordsTest()
     {
         string test1 = "a,b,c.";
@@ -62,6 +65,22 @@ public class Tests
         }
     }
 
-    public string tstrTest = "a,b,c,d,v.";
-    Finder InstanceFinderTest = new Finder(tests.tstrTest);
+    
+    public bool FinderWordsTest() {
+        List<int> Occurrencestest ;
+        List<string> wWordstest;
+        string[] massivetestfindesowrds =  InstanceSpliterTest.SpliterWords(testfindesowrds);
+        Finder testcase = new Finder(testfindesowrds);
+        List<string> failedwWordstest = testcase.FinderWords(massivetestfindesowrds, out Occurrencestest , out wWordstest);
+        if(failedwWordstest.Count == 0 & Occurrencestest.Count == 5 & wWordstest.Count == 5) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    
 }
