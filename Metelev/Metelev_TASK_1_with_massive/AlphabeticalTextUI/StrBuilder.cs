@@ -11,23 +11,19 @@ namespace Task_1_with_massive
         */
         public string StrBuild(string validSymbols, int strLength, int maxWordLength) 
         {
-            TestCases test = new TestCases();
             ifStrNull:
+            Tester test = new Tester();
             Random rnd = new Random(DateTime.Now.Millisecond);
 
             StringBuilder rndStr = new StringBuilder(strLength - 1);
             int position = 0;
             for (int i = 0; i < strLength; i++)
             {
-                position = rnd.Next(0, strLength-1);
+                position = rnd.Next(0, validSymbols.Length-1);
                 rndStr.Append(validSymbols[position]);
                 if (rndStr.Length % rnd.Next(1, maxWordLength) == 0)
                 {
                     rndStr.Append(" ");
-                }
-                if(rndStr.Length % 30 == 0)
-                {
-                    rndStr.Append("\n");
                 }
             }
             string rndStrng = rndStr.ToString();

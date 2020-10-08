@@ -15,7 +15,7 @@ namespace Task_1_with_massive
             string text;
             Modification Obj = new Modification();
             StrBuilder genStr = new StrBuilder();
-            TestCases test1 = new TestCases();
+            Tester test1 = new Tester();
             bool f =  true;
             bool b;
             while(f == true)
@@ -24,7 +24,8 @@ namespace Task_1_with_massive
                 Console.WriteLine("Программа возвращает все строчные русские буквы из текста в алфавитном порядке");
                 Console.WriteLine("1.Ввести текст в консоли");
                 Console.WriteLine("2.Использовать готовый текст");
-                Console.WriteLine("3.Выход");
+                Console.WriteLine("3.Тесты");
+                Console.WriteLine("4.Выход");
                 key = Console.ReadKey().KeyChar;
                 switch(key)
                 {
@@ -55,6 +56,30 @@ namespace Task_1_with_massive
                     break;
                     
                     case '3':
+                    Console.Clear();
+                    Console.WriteLine("Введите номер теста");
+                    Console.WriteLine("1.Тестирование функции модификации текста(правильно возвращает текст)");
+                    Console.WriteLine("2.Тестирование функции генерации строки(максимальные длины строки и слова не превышаются)");
+                    key = Console.ReadKey().KeyChar;
+                    if (key == '1')
+                    {
+                        Console.WriteLine("\n" + test1.TestMod());
+                        Console.ReadKey();
+                    }
+                    else if (key == '2')
+                    {
+                        Console.WriteLine(test1.TestGen());
+                        Console.ReadKey();
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Укажите номер теста, который хотите провести!");
+                        Console.ReadKey();
+                        goto case '3';
+                    }
+                    break;
+
+                    case '4':
                     Console.Clear();
                     f=false;
                     break;
