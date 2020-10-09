@@ -3,15 +3,15 @@ using IntroUI;
 using System.Collections.Generic;
 public class Tests
 {
-    //Tests tests = new Tests();
-    Program InstanceProgramTest = new Program();
+    ModificationsStr InstanceModificationsStrTest = new ModificationsStr();
     Spliter InstanceSpliterTest = new Spliter();
+    GeneratorRandowWords InstanceGeneratorRandowWordsTest = new GeneratorRandowWords();
     public string testfindesowrds = "a,b,c,d,e.";
     public bool RandomWordsTest()
     {
         char[] setTest = "abcd".ToLower().ToCharArray();
-        List<string> tTest1 = InstanceProgramTest.RandomWords(0, 0,setTest);
-        List<string> tTest2 = InstanceProgramTest.RandomWords(2, 4,setTest);
+        List<string> tTest1 = InstanceGeneratorRandowWordsTest.RandomWords(0, 0, setTest);
+        List<string> tTest2 = InstanceGeneratorRandowWordsTest.RandomWords(2, 4, setTest);
         if (tTest2.Count == 4)
         {
             foreach (var tTemp in tTest2)
@@ -36,8 +36,8 @@ public class Tests
         tTest1.Add("a");
         tTest1.Add("b");
         tTest1.Add("c");
-        string test = InstanceProgramTest.GenerateStr(tTest1);
-        InstanceProgramTest.GenerateStr(tTest2);
+        string test = InstanceModificationsStrTest.GenerateStr(tTest1);
+        InstanceModificationsStrTest.GenerateStr(tTest2);
         string tStr = "a,b,c.";
         if (tStr != test)
         {
@@ -48,7 +48,7 @@ public class Tests
             return true;
         }
     }
-    
+
     public bool SpliterWordsTest()
     {
         string test1 = "a,b,c.";
@@ -64,15 +64,14 @@ public class Tests
             return true;
         }
     }
-
-    
-    public bool FinderWordsTest() {
-        List<int> Occurrencestest ;
+    public bool FinderWordsTest()
+    {
+        List<int> Occurrencestest;
         List<string> wWordstest;
-        string[] massivetestfindesowrds =  InstanceSpliterTest.SpliterWords(testfindesowrds);
+        string[] massivetestfindesowrds = InstanceSpliterTest.SpliterWords(testfindesowrds);
         Finder testcase = new Finder(testfindesowrds);
-        List<string> failedwWordstest = testcase.FinderWords(massivetestfindesowrds, out Occurrencestest , out wWordstest);
-        if(failedwWordstest.Count == 0 & Occurrencestest.Count == 5 & wWordstest.Count == 5) 
+        List<string> failedwWordstest = testcase.FinderWords(massivetestfindesowrds, out Occurrencestest, out wWordstest);
+        if (failedwWordstest.Count == 0 & Occurrencestest.Count == 5 & wWordstest.Count == 5)
         {
             return true;
         }
@@ -81,6 +80,4 @@ public class Tests
             return false;
         }
     }
-    
-    
 }
