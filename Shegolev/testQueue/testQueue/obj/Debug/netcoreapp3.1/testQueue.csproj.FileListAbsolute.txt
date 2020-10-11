@@ -1,0 +1,13 @@
+C:\Users\vadim\source\repos\testQueue\testQueue\bin\Debug\netcoreapp3.1\testQueue.exe
+C:\Users\vadim\source\repos\testQueue\testQueue\bin\Debug\netcoreapp3.1\testQueue.deps.json
+C:\Users\vadim\source\repos\testQueue\testQueue\bin\Debug\netcoreapp3.1\testQueue.runtimeconfig.json
+C:\Users\vadim\source\repos\testQueue\testQueue\bin\Debug\netcoreapp3.1\testQueue.runtimeconfig.dev.json
+C:\Users\vadim\source\repos\testQueue\testQueue\bin\Debug\netcoreapp3.1\testQueue.dll
+C:\Users\vadim\source\repos\testQueue\testQueue\bin\Debug\netcoreapp3.1\testQueue.pdb
+C:\Users\vadim\source\repos\testQueue\testQueue\obj\Debug\netcoreapp3.1\testQueue.csprojAssemblyReference.cache
+C:\Users\vadim\source\repos\testQueue\testQueue\obj\Debug\netcoreapp3.1\testQueue.AssemblyInfoInputs.cache
+C:\Users\vadim\source\repos\testQueue\testQueue\obj\Debug\netcoreapp3.1\testQueue.AssemblyInfo.cs
+C:\Users\vadim\source\repos\testQueue\testQueue\obj\Debug\netcoreapp3.1\testQueue.csproj.CoreCompileInputs.cache
+C:\Users\vadim\source\repos\testQueue\testQueue\obj\Debug\netcoreapp3.1\testQueue.dll
+C:\Users\vadim\source\repos\testQueue\testQueue\obj\Debug\netcoreapp3.1\testQueue.pdb
+C:\Users\vadim\source\repos\testQueue\testQueue\obj\Debug\netcoreapp3.1\testQueue.genruntimeconfig.cache
