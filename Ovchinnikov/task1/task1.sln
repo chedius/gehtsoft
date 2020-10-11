@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{1BA3AE68-9742-4FBE-9726-9D8A559D8E82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "main", "ConsoleApp1\main.csproj", "{1BA3AE68-9742-4FBE-9726-9D8A559D8E82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{56119ED9-E571-4519-AC49-232DCCDFBB83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "check", "ClassLibrary1\check.csproj", "{56119ED9-E571-4519-AC49-232DCCDFBB83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sender", "sender\sender.csproj", "{9114D6E5-91C1-4525-906B-3CFFC47D9CF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{D96CF055-4700-4AD9-AD90-DC79E46AEB51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wokrWithString", "wokrWithString\wokrWithString.csproj", "{065FAF10-41D6-4706-831E-0F08AFDB3E61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{56119ED9-E571-4519-AC49-232DCCDFBB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56119ED9-E571-4519-AC49-232DCCDFBB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56119ED9-E571-4519-AC49-232DCCDFBB83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9114D6E5-91C1-4525-906B-3CFFC47D9CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9114D6E5-91C1-4525-906B-3CFFC47D9CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9114D6E5-91C1-4525-906B-3CFFC47D9CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9114D6E5-91C1-4525-906B-3CFFC47D9CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96CF055-4700-4AD9-AD90-DC79E46AEB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96CF055-4700-4AD9-AD90-DC79E46AEB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96CF055-4700-4AD9-AD90-DC79E46AEB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96CF055-4700-4AD9-AD90-DC79E46AEB51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065FAF10-41D6-4706-831E-0F08AFDB3E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065FAF10-41D6-4706-831E-0F08AFDB3E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065FAF10-41D6-4706-831E-0F08AFDB3E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065FAF10-41D6-4706-831E-0F08AFDB3E61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
