@@ -69,7 +69,7 @@ namespace ConsoleApplication
         {
             if (count == 0) 
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -86,7 +86,7 @@ namespace ConsoleApplication
         {
             if(count == 0)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -106,7 +106,7 @@ namespace ConsoleApplication
         {
             if (count == 0) 
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -123,7 +123,7 @@ namespace ConsoleApplication
         {
             if(count == 0)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
