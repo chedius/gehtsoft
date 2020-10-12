@@ -5,11 +5,10 @@ namespace tasknew
 {
     public class AlphabetText
     {
-        private string mTxt;
+        //private string mTxt;
 
         public AlphabetText(string txt)
         {
-            mTxt = txt;
         }
 
         public int Sort(string mTxt)
