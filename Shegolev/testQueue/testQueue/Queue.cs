@@ -72,7 +72,7 @@ namespace testQueue
         {
             if (mHead == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else return mHead.Value;
         }
@@ -86,7 +86,7 @@ namespace testQueue
         {
             if (mHead == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -106,7 +106,7 @@ namespace testQueue
         {
             if (mTail == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else return mTail.Value;
         }
@@ -120,7 +120,7 @@ namespace testQueue
         {
             if (mTail == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
