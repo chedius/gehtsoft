@@ -193,7 +193,6 @@ namespace ConsoleApplication
             int firstElem = mLinkedList.GetFirst();
             mLinkedList.RemoveFirst();
             return firstElem;
-            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -204,7 +203,6 @@ namespace ConsoleApplication
         public int Peek()
         {
             return mLinkedList.GetFirst();
-            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -214,7 +212,6 @@ namespace ConsoleApplication
         public int GetCount()
         {
             return mLinkedList.GetCount();
-            //throw new NotImplementedException();
         }
     }
 
@@ -231,8 +228,6 @@ namespace ConsoleApplication
         static void Main(string[] args)
         {
             // Проверяющий код.
-            // Закомментируйте в начале работы, чтоб он не "валил" приложеине, 
-            // пока вы не закончили реализовывать структуры данных.
 
             MyQueue queue = new MyQueue();
             queue.Enqueue(10);
