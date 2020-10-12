@@ -35,10 +35,6 @@ namespace ConsoleApplication
         // 3) Если в списке больше одного элемента MyNode, то на самый первый указывает mHead,
         //    а на самый последний mTail.
 
-        public MyLinkedList()
-        {
-        }
-
         /// <summary>
         /// Добавить элемент в начало списка.
         /// Сложность: O(1).
@@ -50,7 +46,7 @@ namespace ConsoleApplication
             MyNode temp = mHead;
             node.Value = value;
             node.Next = temp;
-            if(mHead == null)
+            if(count == 0)
             {
                 mHead = node;
                 mTail = node;
@@ -94,9 +90,9 @@ namespace ConsoleApplication
             }
             else
             {
-                MyNode current = mHead;
-                current = current.Next;
-                mHead = current;
+                MyNode temp = mHead;
+                temp = temp.Next;
+                mHead = temp;
                 count--;
             }
         }
@@ -131,9 +127,9 @@ namespace ConsoleApplication
             }
             else
             {
-                MyNode current = mTail;
-                current = current.Prev;
-                mTail = current;
+                MyNode temp = mTail;
+                temp = temp.Prev;
+                mTail = temp;
                 count--;
             }
         }
@@ -147,7 +143,7 @@ namespace ConsoleApplication
         {
             MyNode node = new MyNode();
             node.Value = value;
-            if (mHead == null)
+            if (count == 0)
             {
                 mHead = node;
                 mTail = node;
@@ -167,9 +163,7 @@ namespace ConsoleApplication
         /// </summary>
         public int GetCount()
         {
-
                 return count;
-
         }
     }
 
