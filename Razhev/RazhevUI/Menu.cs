@@ -10,14 +10,12 @@ namespace IntroUI
             List<string> failedwWords = new List<string>();
             List<int> Occurrences = new List<int>();
             List<string> wWords = new List<string>();
-            Spliter InstanceSpliter1 = new Spliter();
-            Print InstancePrint1 = new Print();
-            Spliter InstanceSpliter2 = new Spliter();
-            Print InstancePrint2 = new Print();
-            ModificationsStr InstanceModificationsStr2 = new ModificationsStr();
-            Spliter InstanceSpliter3 = new Spliter();
-            Print InstancePrint3 = new Print();
-            GeneratorRandowWords InstanceGeneratorRandowWords = new GeneratorRandowWords();
+            Spliter InstanceSpliter = new Spliter();
+            Finder InstanceFinder = new Finder();
+            ModificationsStr InstanceModificationsStr = new ModificationsStr();
+            Printer InstancePrint = new Printer();
+            GeneratorRandowWords InstanceGeneratorRandomWords = new GeneratorRandowWords();
+            Tests tests = new Tests();
             bool cycle = true;
             while (cycle == true)
             {
@@ -33,30 +31,27 @@ namespace IntroUI
                 {
                     case 1:
                         Console.Clear();
-                        Finder InstanceFinder1 = new Finder(strDef);
-                        failedwWords = InstanceFinder1.FinderWords(InstanceSpliter1.SpliterWords(strDef), out Occurrences, out wWords);
-                        InstancePrint1.PrintFailedWords(failedwWords);
-                        InstancePrint1.PrintResult(wWords, Occurrences);
+                        failedwWords = InstanceFinder.FinderWords(strDef, InstanceSpliter.SpliterWords(strDef), out Occurrences, out wWords);
+                        InstancePrint.PrintFailedWords(failedwWords);
+                        InstancePrint.PrintResult(wWords, Occurrences);
                         break;
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Введите символы из которых хотели бы сгенерировать строку.");
                         string setUserStr = Console.ReadLine();
-                        string str = InstanceModificationsStr2.GenerateStr(InstanceGeneratorRandowWords.RandomWords(5, 10, InstanceModificationsStr2.UserSetSymbols(setUserStr)));
+                        string str = InstanceModificationsStr.GenerateStr(InstanceGeneratorRandomWords.GenerateRandomWords(5, 10, InstanceModificationsStr.UserSetSymbols(setUserStr)));
                         Console.WriteLine("Сгенерированная строка: " + str);
-                        Finder InstanceFinder2 = new Finder(str);
-                        failedwWords = InstanceFinder2.FinderWords(InstanceSpliter2.SpliterWords(str), out Occurrences, out wWords);
-                        InstancePrint2.PrintFailedWords(failedwWords);
-                        InstancePrint2.PrintResult(wWords, Occurrences);
+                        failedwWords = InstanceFinder.FinderWords(str, InstanceSpliter.SpliterWords(str), out Occurrences, out wWords);
+                        InstancePrint.PrintFailedWords(failedwWords);
+                        InstancePrint.PrintResult(wWords, Occurrences);
                         break;
                     case 3:
                         Console.Clear();
                         Console.WriteLine("Вводите строку:");
                         string strUser = Console.ReadLine();
-                        Finder InstanceFinder3 = new Finder(strUser);
-                        failedwWords = InstanceFinder3.FinderWords(InstanceSpliter3.SpliterWords(strUser), out Occurrences, out wWords);
-                        InstancePrint3.PrintFailedWords(failedwWords);
-                        InstancePrint3.PrintResult(wWords, Occurrences);
+                        failedwWords = InstanceFinder.FinderWords(strUser, InstanceSpliter.SpliterWords(strUser), out Occurrences, out wWords);
+                        InstancePrint.PrintFailedWords(failedwWords);
+                        InstancePrint.PrintResult(wWords, Occurrences);
                         break;
                     case 4:
                         Console.Clear();
@@ -67,11 +62,11 @@ namespace IntroUI
                     case 5:
                         Console.Clear();
                         Console.WriteLine("Тесты:");
-                        Tests tests = new Tests();
                         Console.WriteLine(tests.RandomWordsTest());
                         Console.WriteLine(tests.GenerateStrTest());
                         Console.WriteLine(tests.SpliterWordsTest());
                         Console.WriteLine(tests.FinderWordsTest());
+                        Console.WriteLine("----------------------");
                         break;
                     case 6:
                         cycle = false;

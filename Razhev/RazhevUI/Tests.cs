@@ -6,12 +6,13 @@ public class Tests
     ModificationsStr InstanceModificationsStrTest = new ModificationsStr();
     Spliter InstanceSpliterTest = new Spliter();
     GeneratorRandowWords InstanceGeneratorRandowWordsTest = new GeneratorRandowWords();
+    Finder testcase = new Finder();
     public string testfindesowrds = "a,b,c,d,e.";
     public bool RandomWordsTest()
     {
         char[] setTest = "abcd".ToLower().ToCharArray();
-        List<string> tTest1 = InstanceGeneratorRandowWordsTest.RandomWords(0, 0, setTest);
-        List<string> tTest2 = InstanceGeneratorRandowWordsTest.RandomWords(2, 4, setTest);
+        List<string> tTest1 = InstanceGeneratorRandowWordsTest.GenerateRandomWords(0, 0, setTest);
+        List<string> tTest2 = InstanceGeneratorRandowWordsTest.GenerateRandomWords(2, 4, setTest);
         if (tTest2.Count == 4)
         {
             foreach (var tTemp in tTest2)
@@ -69,8 +70,7 @@ public class Tests
         List<int> Occurrencestest;
         List<string> wWordstest;
         string[] massivetestfindesowrds = InstanceSpliterTest.SpliterWords(testfindesowrds);
-        Finder testcase = new Finder(testfindesowrds);
-        List<string> failedwWordstest = testcase.FinderWords(massivetestfindesowrds, out Occurrencestest, out wWordstest);
+        List<string> failedwWordstest = testcase.FinderWords(testfindesowrds, massivetestfindesowrds, out Occurrencestest, out wWordstest);
         if (failedwWordstest.Count == 0 & Occurrencestest.Count == 5 & wWordstest.Count == 5)
         {
             return true;
