@@ -45,7 +45,7 @@ namespace Task2
         public void AddFirst(int value)
         {
             MyNode node = new MyNode();
-            MyNode temp = new MyNode();
+            MyNode current = new MyNode();
             node.Value = value;
             if (mHead == null)
             {
@@ -54,8 +54,8 @@ namespace Task2
             }
             else
             {
-                temp = mHead;
-                node.Next = temp;
+                current = mHead;
+                node.Next = current;
                 mHead = node;
             }
             //throw new NotImplementedException();
