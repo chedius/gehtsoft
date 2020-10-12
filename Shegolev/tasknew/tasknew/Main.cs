@@ -35,7 +35,7 @@ namespace tasknew
                         i = text1.Sort(txt);
                         if (i == 0)
                         {
-                            Console.WriteLine("В алфавитном порядке");
+                            Console.WriteLine("Текст в алфавитном порядке");
                         }
                         else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
                         Console.ReadKey();
@@ -49,7 +49,7 @@ namespace tasknew
                         i = asd.GeneratedText(str);
                         if (i == 0)
                         {
-                            Console.WriteLine("В алфавитном порядке");
+                            Console.WriteLine("Текст в алфавитном порядке");
                         }
                         else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
                         Console.ReadKey();
@@ -71,7 +71,7 @@ namespace tasknew
                         i = text3.Sort(stringg);
                         if (i == 0)
                         {
-                            Console.WriteLine("В алфавитном порядке");
+                            Console.WriteLine("Текст в алфавитном порядке");
                         }
                         else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
                         Console.ReadKey();
