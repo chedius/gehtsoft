@@ -227,7 +227,7 @@ namespace ConsoleApplication
 
         static void Main(string[] args)
         {
-            // Проверяющий код.
+            // Проверяющий код
 
             MyQueue queue = new MyQueue();
             queue.Enqueue(10);
