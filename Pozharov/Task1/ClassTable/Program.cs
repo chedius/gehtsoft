@@ -57,13 +57,12 @@ namespace ClassTable
 
     public class Output
     {
-        TableCreator tableCreator_1 = new TableCreator();
-        TableCreator tableCreator_2 = new TableCreator();
+        
 
         //Вывод обычной таблицы умножения
         public void TableNormalOutput(int dim)
         {
-            int[,] normalTable = tableCreator_1.CreateNormalTable(dim);
+            
 
             for (int i = 1; i < dim; i++)
             {
@@ -78,7 +77,7 @@ namespace ClassTable
         //Вывод произвольной таблицы
         public void TableRandomOutput(int dim)
         {
-            int[,] randomTable = tableCreator_2.CreateRandomTable(dim);
+            
 
             for (int i = 0; i < dim; i++)
             {
@@ -92,7 +91,9 @@ namespace ClassTable
 
         class Program
         {
-            Output mOut = new Output();
+            TableCreator tableCreator_1 = new TableCreator();
+            TableCreator tableCreator_2 = new TableCreator();
+            //Output mOut = new Output();
             static public void Main(string[] args)
             {
                 Output mOut = new Output();
@@ -108,6 +109,7 @@ namespace ClassTable
                     case 1:
                         Console.Clear();
                         dim = 16;
+                        int[,] normalTable = tableCreator_1.CreateNormalTable(dim);
                         mOut.TableNormalOutput(dim);
                         break;
 
@@ -115,6 +117,7 @@ namespace ClassTable
                         Console.Clear();
                         Console.WriteLine("Введите размерность массива:");
                         dim = Convert.ToInt32(Console.ReadLine());
+                        int[,] randomTable = tableCreator_2.CreateRandomTable(dim);
                         mOut.TableRandomOutput(dim);
                         break;
 
