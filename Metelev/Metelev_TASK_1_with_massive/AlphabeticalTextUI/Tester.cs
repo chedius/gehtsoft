@@ -8,22 +8,14 @@ namespace Task_1_with_massive
     */
     public class Tester
     {
-        Modification test3 = new Modification();
+        AlphabetSort test3 = new AlphabetSort();
         StrBuilder test4 = new StrBuilder();
-        public bool TestNullStr(string str)
-        {
-            if (str == "")
-            {
-                return false;
-            }
-            else return true;
-        }
 
         public bool TestMod()
         {   
             string tstStr = "вадим";
             string res = "авдим";
-            if (res == test3.Modificate(tstStr))
+            if (res == test3.Sort(tstStr))
             {
                 return true;
             }
@@ -35,7 +27,7 @@ namespace Task_1_with_massive
         {
             string tAlphabet = "qwertyйцуке12345";
             int tStrLength = 70;
-            int tMaxLengthWord = 5;
+            int tMaxLengthWord = 7;
             string genStr = test4.StrBuild(tAlphabet, tStrLength, tMaxLengthWord);
             var tWords = genStr.Split(' ').ToList();
             if(genStr.Replace(" ", "").Length == tStrLength)
@@ -49,7 +41,6 @@ namespace Task_1_with_massive
                     else 
                     {
                         return false;
-                        break;
                     }
                 }
                 return true;

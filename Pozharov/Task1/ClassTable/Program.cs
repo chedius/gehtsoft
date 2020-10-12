@@ -5,6 +5,8 @@ namespace ClassTable
     public class TableCreator
     {
         Random mRnd = new Random();
+
+        //Создание упорядоченной таблицы умножения
         public int[,] CreateNormalTable(int dim)
         {
             int[,] result = new int[dim, dim];
@@ -18,6 +20,7 @@ namespace ClassTable
             return result;
         }
 
+        //Создание таблицы с произвольной расстановкой
         public int[,] CreateRandomTable(int dim)
         {
             int[,] result = new int[dim, dim];
@@ -54,11 +57,12 @@ namespace ClassTable
 
     public class Output
     {
+        
+
+        //Вывод обычной таблицы умножения
         public void TableNormalOutput(int dim)
         {
-            TableCreator tableCreator_1 = new TableCreator();
-
-            int[,] normalTable = tableCreator_1.CreateNormalTable(dim);
+            
 
             for (int i = 1; i < dim; i++)
             {
@@ -69,11 +73,11 @@ namespace ClassTable
                 Console.WriteLine();
             }
         }
+
+        //Вывод произвольной таблицы
         public void TableRandomOutput(int dim)
         {
-            TableCreator tableCreator_2 = new TableCreator();
-
-            int[,] randomTable = tableCreator_2.CreateRandomTable(dim);
+            
 
             for (int i = 0; i < dim; i++)
             {
@@ -87,7 +91,9 @@ namespace ClassTable
 
         class Program
         {
-
+            TableCreator tableCreator_1 = new TableCreator();
+            TableCreator tableCreator_2 = new TableCreator();
+            //Output mOut = new Output();
             static public void Main(string[] args)
             {
                 Output mOut = new Output();
@@ -103,6 +109,7 @@ namespace ClassTable
                     case 1:
                         Console.Clear();
                         dim = 16;
+                        int[,] normalTable = tableCreator_1.CreateNormalTable(dim);
                         mOut.TableNormalOutput(dim);
                         break;
 
@@ -110,6 +117,7 @@ namespace ClassTable
                         Console.Clear();
                         Console.WriteLine("Введите размерность массива:");
                         dim = Convert.ToInt32(Console.ReadLine());
+                        int[,] randomTable = tableCreator_2.CreateRandomTable(dim);
                         mOut.TableRandomOutput(dim);
                         break;
 

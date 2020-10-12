@@ -6,19 +6,20 @@ using System.Collections.Generic;
 namespace Task_1_with_massive
 {
 
-    public class Modification
+    public class AlphabetSort
     {
         /*
-            Функция Modificate выполняет преобразование принятого текста Text, и возвращает преобразованную строку
+            Функция Sort выполняет преобразование принятого текста Text, и возвращает преобразованную строку
         */
-        public string Modificate(string Text)
+        NullStrTester test2 = new NullStrTester();
+        
+        public string Sort(string Text)
         {
             int lenght = Text.Length;
             char[] letters = Text.ToCharArray();
             List<char> ListLetters = new List<char>();
             bool isNotNull;
-            string nullStr = "В тексте не найдено строчных русских букв";
-            Tester test2 = new Tester();
+            string nullStr = "No lowercase Russian letters found in the text";
             int a=0;
             for(int i=0; i<lenght; i++)
             {
@@ -42,7 +43,7 @@ namespace Task_1_with_massive
                         char temp = newLetters[i];
                         newLetters[i]=newLetters[i-1];
                         newLetters[i-1]=temp;
-                        swaped=true;
+                        swaped = true;
                     }
                 }
                 count--;
