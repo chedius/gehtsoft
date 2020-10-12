@@ -60,6 +60,7 @@ namespace ClassTable
         TableCreator tableCreator_1 = new TableCreator();
         TableCreator tableCreator_2 = new TableCreator();
 
+        //Вывод обычной таблицы умножения
         public void TableNormalOutput(int dim)
         {
             int[,] normalTable = tableCreator_1.CreateNormalTable(dim);
@@ -73,6 +74,8 @@ namespace ClassTable
                 Console.WriteLine();
             }
         }
+
+        //Вывод произвольной таблицы
         public void TableRandomOutput(int dim)
         {
             int[,] randomTable = tableCreator_2.CreateRandomTable(dim);
