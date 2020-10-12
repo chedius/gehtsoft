@@ -1,0 +1,86 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "sender/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/sender.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/sender.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "sender/1.0.0": {
+      "type": "project",
+      "path": "../sender/sender.csproj",
+      "msbuildProject": "../sender/sender.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "sender >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\aovchinnikov\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\aovchinnikov\\Desktop\\git\\gehtsoft\\Ovchinnikov\\task1\\ClassLibrary1\\check.csproj",
+      "projectName": "check",
+      "projectPath": "C:\\Users\\aovchinnikov\\Desktop\\git\\gehtsoft\\Ovchinnikov\\task1\\ClassLibrary1\\check.csproj",
+      "packagesPath": "C:\\Users\\aovchinnikov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aovchinnikov\\Desktop\\git\\gehtsoft\\Ovchinnikov\\task1\\ClassLibrary1\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\aovchinnikov\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Users\\aovchinnikov\\Desktop\\git\\gehtsoft\\Ovchinnikov\\task1\\sender\\sender.csproj": {
+              "projectPath": "C:\\Users\\aovchinnikov\\Desktop\\git\\gehtsoft\\Ovchinnikov\\task1\\sender\\sender.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

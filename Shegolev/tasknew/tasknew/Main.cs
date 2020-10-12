@@ -11,6 +11,12 @@ namespace tasknew
         {
             Console.Clear();
             Console.WriteLine("Программа для вывода позиции символа, который нарушает алфавитный порядок");
+            string txt = "";
+            //char[] alphabet = null;
+            AlphabetText str = new AlphabetText(txt);
+            GenerateText str1 = new GenerateText();
+            //Generator generator = new Generator(alphabet);
+            //Generator generator = new Generator(setUserSymbols);
 
             while (true) 
             {
@@ -21,7 +27,6 @@ namespace tasknew
                 Console.WriteLine("4. Тесты");
                 Console.WriteLine("5. Выход");
                 
-                GenerateText asd = new GenerateText();
                 int i;
                 char key = Console.ReadKey().KeyChar;
 
@@ -30,9 +35,8 @@ namespace tasknew
                     case '1': 
                         Console.Clear();
                         Console.Write("Введите текст: ");
-                        string txt = Console.ReadLine().ToUpper();
-                        AlphabetText text1 = new AlphabetText(txt);
-                        i = text1.Sort(txt);
+                        txt = Console.ReadLine().ToUpper();
+                        i = str.Sort(txt);
                         if (i == 0)
                         {
                             Console.WriteLine("Текст в алфавитном порядке");
@@ -43,10 +47,9 @@ namespace tasknew
 
                     case '2': 
                         Console.Clear();
-                        string str = "АБВГДЕЖАВГ.";
-                        Console.WriteLine("Исходный текст: " + str);
-                        AlphabetText text2 = new AlphabetText(str);
-                        i = asd.GeneratedText(str);
+                        txt = "АБВГДЕЖАВГ.";
+                        Console.WriteLine("Исходный текст: " + txt);
+                        i = str1.GeneratedText(txt);
                         if (i == 0)
                         {
                             Console.WriteLine("Текст в алфавитном порядке");
@@ -64,11 +67,10 @@ namespace tasknew
 
                         Console.Write("Введите количество букв в слове: ");
                         int letters = Convert.ToInt32(Console.ReadLine());
-                        string stringg = generator.Generation(letters);
+                        txt = generator.Generation(letters);
 
-                        Console.WriteLine("Сгенерированный текст: " + stringg);
-                        AlphabetText text3 = new AlphabetText(stringg);
-                        i = text3.Sort(stringg);
+                        Console.WriteLine("Сгенерированный текст: " + txt);
+                        i = str.Sort(txt);
                         if (i == 0)
                         {
                             Console.WriteLine("Текст в алфавитном порядке");

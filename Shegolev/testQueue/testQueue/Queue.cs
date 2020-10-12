@@ -72,7 +72,7 @@ namespace testQueue
         {
             if (mHead == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else return mHead.Value;
         }
@@ -86,7 +86,7 @@ namespace testQueue
         {
             if (mHead == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -106,7 +106,7 @@ namespace testQueue
         {
             if (mTail == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else return mTail.Value;
         }
@@ -120,7 +120,7 @@ namespace testQueue
         {
             if (mTail == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -140,7 +140,7 @@ namespace testQueue
         {
             MyNode node = new MyNode();
             node.Value = value;
-            if (mTail == null)
+            if (mHead == null)
             {
                 mHead = node;
                 mTail = node;
@@ -148,10 +148,9 @@ namespace testQueue
             else
             {
                 mTail.Next = node;
-                node.Prev = mTail;
+                mTail.Prev = mTail;
                 mTail = node;
             }
-            
             count++;
         }
 
@@ -173,7 +172,7 @@ namespace testQueue
 
     public class MyQueue
     {
-        private MyLinkedList mLinkedList; // очередь делаем на основе MyLinkedList
+        private MyLinkedList mLinkedList = new MyLinkedList(); // очередь делаем на основе MyLinkedList
 
         /// <summary>
         /// Добавляет элемент в конец очереди. 
@@ -240,21 +239,21 @@ namespace testQueue
             queue.Enqueue(11);
             queue.Enqueue(12);
             queue.Enqueue(13);
-
+            Console.WriteLine(queue.GetCount());
             Assert(queue.GetCount() == 4);
-
+            Console.WriteLine(queue.GetCount());
             Assert(queue.Dequeue() == 10);
             Assert(queue.Dequeue() == 11);
-
+            Console.WriteLine(queue.GetCount());
             Assert(queue.GetCount() == 2);
-
+            Console.WriteLine(queue.GetCount());
             Assert(queue.Peek() == 12);
-
+            Console.WriteLine(queue.GetCount());
             Assert(queue.GetCount() == 2);
-
+            Console.WriteLine(queue.GetCount());
             Assert(queue.Dequeue() == 12);
             Assert(queue.Dequeue() == 13);
-
+            Console.WriteLine(queue.GetCount());
             Assert(queue.GetCount() == 0);
         }
     }
