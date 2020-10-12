@@ -2,10 +2,7 @@ using System;
 
 namespace Task_1_with_massive
 {
-    /*
-        Класс TestCases с тестирующими функциями
-    */
-    public class TestCases
+    public class NullStrTester
     {
         public bool TestNullStr(string str)
         {
