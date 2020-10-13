@@ -19,13 +19,7 @@ namespace IntroUI
             bool cycle = true;
             while (cycle == true)
             {
-                Console.WriteLine("Выберите действие: ");
-                Console.WriteLine("1.Выполнить программу с заданной строкой: " + strDef);
-                Console.WriteLine("2.Выполнить программу при этом строка будет сгенерированна,введите символы из которых хотите сгенерировать строку.");
-                Console.WriteLine("3.Выполнить программу строку вы вводите сами.");
-                Console.WriteLine("4.Ознакомится с условиями ввода строки.");
-                Console.WriteLine("5.Запустить тесты.");
-                Console.WriteLine("6.Выход из программы.");
+                InstancePrint.OutputMenu(strDef);
                 int sWarg = Convert.ToInt32(Console.ReadLine());
                 switch (sWarg)
                 {
@@ -54,18 +48,15 @@ namespace IntroUI
                         InstancePrint.OutputResult(wWords, Occurrences);
                         break;
                     case 4:
-                        Console.Clear();
-                        Console.WriteLine("Длина символа не должна быть меньше чем 1 или больше чем 5.");
-                        Console.WriteLine("Слов в строке должно быть не больше чем 30.");
-                        Console.WriteLine("Соседниеи слова разделены (,) а в конце (.).");
+                        InstancePrint.FamiliarizesWithConditions();
                         break;
                     case 5:
                         Console.Clear();
                         Console.WriteLine("Тесты:");
-                        Console.WriteLine(tests.RandomWordsTest());
-                        Console.WriteLine(tests.GenerateStrTest());
-                        Console.WriteLine(tests.SpliterWordsTest());
-                        Console.WriteLine(tests.FinderWordsTest());
+                        tests.RandomWordsTest();
+                        tests.GenerateStrTest();
+                        tests.SpliterWordsTest();
+                        tests.FinderWordsTest();
                         Console.WriteLine("----------------------");
                         break;
                     case 6:
