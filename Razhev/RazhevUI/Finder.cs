@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 public class Finder
 {
+    /* Метод  FinderWords считает количество вхождений слова в строке и возвращает слова которые не прошли проверку
+       так же возвращает лист вхождений через out и лист слов
+    */
     public List<string> FinderWords(string inputStr, string[] wWords, out List<int> collectionOccurrences, out List<string> collectionWords)
     {
         List<string> collectionWordFailed = new List<string>();

@@ -33,7 +33,7 @@ namespace IntroUI
                         Console.Clear();
                         Console.WriteLine("Введите символы из которых хотели бы сгенерировать строку.");
                         string setUserStr = Console.ReadLine();
-                        string str = InstanceModificationsStr.GenerateStr(InstanceGeneratorRandomWords.GenerateRandomWords(5, 10, InstanceModificationsStr.UserSetSymbols(setUserStr)));
+                        string str = InstanceModificationsStr.GenerateStr(InstanceGeneratorRandomWords.GenerateRandomWords(5, 10, InstanceModificationsStr.InputUserSymbols(setUserStr)));
                         Console.WriteLine("Сгенерированная строка: " + str);
                         failedwWords = InstanceFinder.FinderWords(str, InstanceSpliter.SpliterWords(str), out Occurrences, out wWords);
                         InstancePrint.OutputFailedWords(failedwWords);

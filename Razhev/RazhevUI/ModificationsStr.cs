@@ -2,11 +2,18 @@ using System;
 using System.Collections.Generic;
 class ModificationsStr
 {
-    public char[] UserSetSymbols(string SetUserStr)
+    /* Метод InputUserSymbols разбивает строку символов на массив символов */
+    public char[] InputUserSymbols(string SetUserStr)
     {
         char[] symbols = SetUserStr.ToLower().ToCharArray();
         return symbols;
     }
+
+    /* Метод GenerateStr из массива символов создаёт строку по условию 
+       Пример:
+       abc
+       a,b,c.
+     */
     public string GenerateStr(List<string> collStr)
     {
         string resStr = "";

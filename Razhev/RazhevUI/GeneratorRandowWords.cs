@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 class GeneratorRandowWords
 {
+    /* Метод GenerateRandomWords генерирует рандомные слова в диапазоне от количества символов в слове до количества слов */
     Random rnd = new Random();
 
     public List<string> GenerateRandomWords(int lenghtSymbols, int countWords, char[] symbols)

@@ -3,6 +3,7 @@ using System;
 
 public class Spliter
 {
+    /* Метод SpliterWords разбивает строку на отдельные слова складывает их в массив и возвращает его*/
     public string[] SpliterWords(string str)
     {
         char[] delete_symbol = { ',', '.', ' ' };
