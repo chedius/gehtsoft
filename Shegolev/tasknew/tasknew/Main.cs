@@ -17,12 +17,7 @@ namespace tasknew
 
             while (true) 
             {
-                Console.Clear();
-                Console.WriteLine("1. Enter the text by hand");
-                Console.WriteLine("2. Enter a prepared text");
-                Console.WriteLine("3. Generator of text");
-                Console.WriteLine("4. Tests");
-                Console.WriteLine("5. Exit");
+                Printer.Menu();
                 
                 //int i = 0;
                 bool testres;
@@ -31,9 +26,8 @@ namespace tasknew
 
                 switch(key) 
                 {
-                    case '1': 
-                        Console.Clear();
-                        Console.WriteLine("Enter the text: ");
+                    case '1':
+                        Printer.EnText();
                         txt = Console.ReadLine().ToUpper();
                         str.Sort(txt, out num);
                         Console.ReadKey();
@@ -50,25 +44,25 @@ namespace tasknew
 
                     case '3':
                         Console.Clear();
-                        Console.WriteLine("Enter the alphabet: ");
+                        Printer.EnAlphabet();
                         string userString = Console.ReadLine();
-                        Console.WriteLine("Enter count of letters: ");
+                        Printer.EnCountLet();
                         int letters = Convert.ToInt32(Console.ReadLine());
                         txt = generator.Generation(userString, letters);
-                        Console.WriteLine("Generated text: " + txt);
+                        Printer.GenText(txt);
                         str.Sort(txt, out num);
                         Console.ReadKey();
                     break;
 
                     case '4':
                         Console.Clear();
-                        Console.WriteLine("Test №1");
+                        Printer.Test(1);
                         testres = test.TestCase1();
                         Console.WriteLine(testres);
-                        Console.WriteLine("Test №2");
+                        Printer.Test(2);
                         testres = test.TestCase2();
                         Console.WriteLine(testres);
-                        Console.WriteLine("Test №3");
+                        Printer.Test(3);
                         testres = test.TestCase3();
                         Console.WriteLine(testres);
                         Console.ReadKey();
@@ -79,9 +73,7 @@ namespace tasknew
                     break;   
 
                     default:
-                    Console.Clear();
-                    Console.WriteLine("Enter correct value!");
-                    Console.ReadKey();
+                        Printer.EnCorrValue();
                     break;
                 }
             }
