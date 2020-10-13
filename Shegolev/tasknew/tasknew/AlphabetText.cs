@@ -22,9 +22,9 @@ namespace tasknew
             }
             if (num == 0)
             {
-                Console.WriteLine("Текст в алфавитном порядке");
+                Console.WriteLine("Alphabetical text");
             }
-            else Console.WriteLine("{0} - первый символ, который нарушает порядок", num);
+            else Console.WriteLine("{0} - first symbol, that out of order", num);
         }
     }
 }

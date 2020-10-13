@@ -9,8 +9,6 @@ namespace tasknew
     {
         static void Main(string[] args)
         {
-            Console.Clear();
-            Console.WriteLine("Программа для вывода позиции символа, который нарушает алфавитный порядок");
             string txt = "";
             AlphabetText str = new AlphabetText();
             GenerateText str1 = new GenerateText();
@@ -20,11 +18,11 @@ namespace tasknew
             while (true) 
             {
                 Console.Clear();
-                Console.WriteLine("1. Ввести текст вручную");
-                Console.WriteLine("2. Ввод заранее подготовленного текста");
-                Console.WriteLine("3. Генератор строки");
-                Console.WriteLine("4. Тесты");
-                Console.WriteLine("5. Выход");
+                Console.WriteLine("1. Enter the text by hand");
+                Console.WriteLine("2. Enter a prepared text");
+                Console.WriteLine("3. Generator of text");
+                Console.WriteLine("4. Tests");
+                Console.WriteLine("5. Exit");
                 
                 //int i = 0;
                 bool testres;
@@ -35,7 +33,7 @@ namespace tasknew
                 {
                     case '1': 
                         Console.Clear();
-                        Console.Write("Введите текст: ");
+                        Console.WriteLine("Enter the text: ");
                         txt = Console.ReadLine().ToUpper();
                         str.Sort(txt, out num);
                         Console.ReadKey();
@@ -45,7 +43,7 @@ namespace tasknew
                         Console.Clear();
                         string genStr;
                         //GeneratedText(out genStr);
-                        //Console.WriteLine("Заранее созданный текст: " + genStr);
+                        //Console.WriteLine("Prepared text: " + genStr);
                         str1.GeneratedText(out genStr);
                         Console.ReadKey();
                     break;
@@ -82,7 +80,7 @@ namespace tasknew
 
                     default:
                     Console.Clear();
-                    Console.WriteLine("Введите корректное значение!");
+                    Console.WriteLine("Enter correct value!");
                     Console.ReadKey();
                     break;
                 }
