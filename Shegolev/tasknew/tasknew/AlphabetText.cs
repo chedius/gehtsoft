@@ -5,16 +5,12 @@ namespace tasknew
 {
     public class AlphabetText
     {
-        //private string mTxt;
+        
 
-        public AlphabetText(string txt)
-        {
-        }
-
-        public int Sort(string mTxt)
+        public void Sort(string mTxt, out int num)
         {
             var result = (from c in mTxt where Char.IsLetter(c) select c).ToArray();
-            int num = 0;
+            num = 0;
 
             for (int i = 1; i < result.Length; i++)
             {
@@ -24,7 +20,11 @@ namespace tasknew
                     break;
                 }
             }
-            return num;
+            if (num == 0)
+            {
+                Console.WriteLine("Alphabetical text");
+            }
+            else Console.WriteLine("{0} - first symbol, that out of order", num);
         }
     }
 }

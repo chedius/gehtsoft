@@ -1,26 +1,22 @@
 using System;
+using System.Text;
 
 namespace tasknew
 {
     public class Generator
     {
-        private char[] userSymbols;
-        public Generator(char[] alphabet)
+        public string Generation(string alphabet, int lenght)
         {
-            userSymbols = alphabet;
-        }
-
-        public string Generation(int letters) 
-        {
-            string str = "";          
-
-            Random rand = new Random();
-
-            for (int i = 1; i <= letters; i++) {
-                int letters_num = rand.Next(0, userSymbols.Length - 1);
-                str += userSymbols[letters_num];
+            Random rnd = new Random();
+            StringBuilder sb = new StringBuilder(lenght - 1);
+            
+            for (int i = 1; i <= lenght; i++)
+            {
+                int position = rnd.Next(0, alphabet.Length - 1);
+                sb.Append(alphabet[position]);
             }
-            return str;
+
+            return sb.ToString().ToUpper();
         }
     }
 }

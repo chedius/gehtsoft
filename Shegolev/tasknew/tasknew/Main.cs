@@ -9,80 +9,62 @@ namespace tasknew
     {
         static void Main(string[] args)
         {
-            Console.Clear();
-            Console.WriteLine("Программа для вывода позиции символа, который нарушает алфавитный порядок");
             string txt = "";
-            //char[] alphabet = null;
-            AlphabetText str = new AlphabetText(txt);
+            AlphabetText str = new AlphabetText();
             GenerateText str1 = new GenerateText();
-            //Generator generator = new Generator(alphabet);
-            //Generator generator = new Generator(setUserSymbols);
+            Tester test = new Tester();
+            Generator generator = new Generator();
 
             while (true) 
             {
-                Console.Clear();
-                Console.WriteLine("1. Ввести текст вручную");
-                Console.WriteLine("2. Ввод заранее подготовленного текста");
-                Console.WriteLine("3. Генератор строки");
-                Console.WriteLine("4. Тесты");
-                Console.WriteLine("5. Выход");
+                Printer.Menu();
                 
-                int i;
+                //int i = 0;
+                bool testres;
                 char key = Console.ReadKey().KeyChar;
+                int num;
 
                 switch(key) 
                 {
-                    case '1': 
-                        Console.Clear();
-                        Console.Write("Введите текст: ");
+                    case '1':
+                        Printer.EnText();
                         txt = Console.ReadLine().ToUpper();
-                        i = str.Sort(txt);
-                        if (i == 0)
-                        {
-                            Console.WriteLine("Текст в алфавитном порядке");
-                        }
-                        else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
+                        str.Sort(txt, out num);
                         Console.ReadKey();
                     break;
 
                     case '2': 
                         Console.Clear();
-                        txt = "АБВГДЕЖАВГ.";
-                        Console.WriteLine("Исходный текст: " + txt);
-                        i = str1.GeneratedText(txt);
-                        if (i == 0)
-                        {
-                            Console.WriteLine("Текст в алфавитном порядке");
-                        }
-                        else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
+                        string genStr;
+                        //GeneratedText(out genStr);
+                        //Console.WriteLine("Prepared text: " + genStr);
+                        str1.GeneratedText(out genStr);
                         Console.ReadKey();
                     break;
 
-                    case '3': 
+                    case '3':
                         Console.Clear();
-                        Console.WriteLine("Введите алфавит.");
-                        string setUserStr = Console.ReadLine();
-                        char[] setUserSymbols = setUserStr.ToUpper().ToCharArray();
-                        Generator generator = new Generator(setUserSymbols);
-
-                        Console.Write("Введите количество букв в слове: ");
+                        Printer.EnAlphabet();
+                        string userString = Console.ReadLine();
+                        Printer.EnCountLet();
                         int letters = Convert.ToInt32(Console.ReadLine());
-                        txt = generator.Generation(letters);
-
-                        Console.WriteLine("Сгенерированный текст: " + txt);
-                        i = str.Sort(txt);
-                        if (i == 0)
-                        {
-                            Console.WriteLine("Текст в алфавитном порядке");
-                        }
-                        else Console.WriteLine("{0} - первый символ, который нарушает порядок", i);
+                        txt = generator.Generation(userString, letters);
+                        Printer.GenText(txt);
+                        str.Sort(txt, out num);
                         Console.ReadKey();
                     break;
 
                     case '4':
                         Console.Clear();
-                        Tests.TestCase1();
-                        Tests.TestCase2();
+                        Printer.Test(1);
+                        testres = test.TestCase1();
+                        Console.WriteLine(testres);
+                        Printer.Test(2);
+                        testres = test.TestCase2();
+                        Console.WriteLine(testres);
+                        Printer.Test(3);
+                        testres = test.TestCase3();
+                        Console.WriteLine(testres);
                         Console.ReadKey();
                         break;
 
@@ -91,9 +73,7 @@ namespace tasknew
                     break;   
 
                     default:
-                    Console.Clear();
-                    Console.WriteLine("Введите корректное значение!");
-                    Console.ReadKey();
+                        Printer.EnCorrValue();
                     break;
                 }
             }
