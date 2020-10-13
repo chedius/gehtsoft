@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 public class Finder
 {
-    public List<string> FinderWords(string outputStr, string[] wWords, out List<int> collectionOccurrences, out List<string> collectionWords)
+    public List<string> FinderWords(string inputStr, string[] wWords, out List<int> collectionOccurrences, out List<string> collectionWords)
     {
         List<string> collectionWordFailed = new List<string>();
         collectionWords = new List<string>();
@@ -16,8 +16,8 @@ public class Finder
             }
             else
             {
-                int countOccurrences = (outputStr.Length - outputStr.Replace(i, "").Length) / i.Length;
-                outputStr = outputStr.Replace(i, "");
+                int countOccurrences = (inputStr.Length - inputStr.Replace(i, "").Length) / i.Length;
+                inputStr = inputStr.Replace(i, "");
                 if (countOccurrences == 0)
                 {
                     continue;

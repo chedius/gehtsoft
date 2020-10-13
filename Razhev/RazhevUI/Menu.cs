@@ -32,8 +32,8 @@ namespace IntroUI
                     case 1:
                         Console.Clear();
                         failedwWords = InstanceFinder.FinderWords(strDef, InstanceSpliter.SpliterWords(strDef), out Occurrences, out wWords);
-                        InstancePrint.PrintFailedWords(failedwWords);
-                        InstancePrint.PrintResult(wWords, Occurrences);
+                        InstancePrint.OutputFailedWords(failedwWords);
+                        InstancePrint.OutputResult(wWords, Occurrences);
                         break;
                     case 2:
                         Console.Clear();
@@ -42,16 +42,16 @@ namespace IntroUI
                         string str = InstanceModificationsStr.GenerateStr(InstanceGeneratorRandomWords.GenerateRandomWords(5, 10, InstanceModificationsStr.UserSetSymbols(setUserStr)));
                         Console.WriteLine("Сгенерированная строка: " + str);
                         failedwWords = InstanceFinder.FinderWords(str, InstanceSpliter.SpliterWords(str), out Occurrences, out wWords);
-                        InstancePrint.PrintFailedWords(failedwWords);
-                        InstancePrint.PrintResult(wWords, Occurrences);
+                        InstancePrint.OutputFailedWords(failedwWords);
+                        InstancePrint.OutputResult(wWords, Occurrences);
                         break;
                     case 3:
                         Console.Clear();
                         Console.WriteLine("Вводите строку:");
                         string strUser = Console.ReadLine();
                         failedwWords = InstanceFinder.FinderWords(strUser, InstanceSpliter.SpliterWords(strUser), out Occurrences, out wWords);
-                        InstancePrint.PrintFailedWords(failedwWords);
-                        InstancePrint.PrintResult(wWords, Occurrences);
+                        InstancePrint.OutputFailedWords(failedwWords);
+                        InstancePrint.OutputResult(wWords, Occurrences);
                         break;
                     case 4:
                         Console.Clear();
