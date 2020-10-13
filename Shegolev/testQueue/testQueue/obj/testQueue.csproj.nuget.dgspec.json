@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\tasknew\\tasknew\\tasknew.csproj": {}
+    "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\testQueue\\testQueue\\testQueue.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\tasknew\\tasknew\\tasknew.csproj": {
+    "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\testQueue\\testQueue\\testQueue.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\tasknew\\tasknew\\tasknew.csproj",
-        "projectName": "tasknew",
-        "projectPath": "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\tasknew\\tasknew\\tasknew.csproj",
+        "projectUniqueName": "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\testQueue\\testQueue\\testQueue.csproj",
+        "projectName": "testQueue",
+        "projectPath": "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\testQueue\\testQueue\\testQueue.csproj",
         "packagesPath": "C:\\Users\\vadim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\tasknew\\tasknew\\obj\\",
+        "outputPath": "C:\\Users\\vadim\\source\\repos\\GitHub\\repo\\gehtsoft\\Shegolev\\testQueue\\testQueue\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",

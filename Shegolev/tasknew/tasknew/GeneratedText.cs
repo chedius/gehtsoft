@@ -6,10 +6,14 @@ namespace tasknew
 {
     class GenerateText
     {
-        public int GeneratedText(string str)
+        AlphabetText newtxt = new AlphabetText();
+        int num;
+
+        public int GeneratedText(out string genStr)
         {
-            AlphabetText newtxt = new AlphabetText(str);
-            return newtxt.Sort(str);
+            genStr = "АБВГДАБВЖАЗ.";
+            newtxt.Sort(genStr, out num);
+            return num;
         }
     }
 }
