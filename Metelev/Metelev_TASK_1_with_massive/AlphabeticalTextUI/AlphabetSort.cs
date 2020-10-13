@@ -12,6 +12,7 @@ namespace Task_1_with_massive
             Функция Sort выполняет преобразование принятого текста Text, и возвращает преобразованную строку
         */
         NullStrTester test2 = new NullStrTester();
+        StrPrinter msg1 = new StrPrinter();
         
         public string Sort(string Text)
         {
@@ -19,7 +20,7 @@ namespace Task_1_with_massive
             char[] letters = Text.ToCharArray();
             List<char> ListLetters = new List<char>();
             bool isNotNull;
-            string nullStr = "No lowercase Russian letters found in the text";
+            string nullStrng = msg1.nullStr;
             int a=0;
             for(int i=0; i<lenght; i++)
             {
@@ -55,7 +56,7 @@ namespace Task_1_with_massive
             {
                 return newStr;
             }
-            else return nullStr;
+            else return nullStrng;
         }
     }
 }
