@@ -18,13 +18,13 @@ namespace main
             while (true)
             {
                 msg.SendHello();
-                int answ = Console.ReadKey().KeyChar;
+                int answ = msg.ReadKeyChar();
                 switch (answ)
                 {
                     case '1':
                         msg.Clear();
                         msg.SendAbtInput();
-                        string str = Console.ReadLine();
+                        string str = msg.ReadLine();
                         work.Working(str);
 
                         break;
@@ -39,23 +39,23 @@ namespace main
                         Generator generator = new Generator();
                         Tester tester = new Tester();
                         msg.SendHelloTest();
-                        int ans = Console.ReadKey().KeyChar;
+                        int ans = msg.ReadKeyChar();
                         msg.Clear();
                         //string str2 = generator.generate(5, "qwertyuioplkjhgfdsazxcvbnm", 31);
                         switch (ans) {
                             case '1':
                                 test.TestLong();
-                                Console.ReadKey();
+                                msg.ReadKey();
                                 msg.Clear();
                                 break;
                             case '2':
                                 test.TestAbc();
-                                Console.ReadKey();
+                                msg.ReadKey();
                                 msg.Clear();
                                 break;
                             case '3':
                                 test.TestLong();
-                                Console.ReadKey();
+                                msg.ReadKey();
                                 msg.Clear();
                                 break;
                         }
