@@ -1,23 +1,21 @@
 ﻿using System;
 
-namespace ConsoleApplication
+namespace QueueLib
 {
-    ///////////// MyNode //////////////////
-
-    public class MyNode
+    public class MyNode<T>
     {
-        public int Value { get; set; }
-        public MyNode Next { get; set; }
-        public MyNode Prev { get; set; }
+        public T Value { get; set; }
+        public MyNode<T> Next { get; set; }
+        public MyNode<T> Prev { get; set; }
     }
 
     ///////////// MyLinkedList //////////////////
 
-    public class MyLinkedList
+    public class MyLinkedList<T>
     {
         int count = 0;
-        private MyNode mHead; // голова списка (первый элемент в списке)
-        private MyNode mTail; // хвост списка (последний элемент в списке)
+        private MyNode<T> mHead; // голова списка (первый элемент в списке)
+        private MyNode<T> mTail; // хвост списка (последний элемент в списке)
 
         // т.е. будет так
         //
@@ -33,23 +31,18 @@ namespace ConsoleApplication
         // 3) Если в списке больше одного элемента MyNode, то на самый первый указывает mHead,
         //    а на самый последний mTail.
 
-        public MyLinkedList()
-        {
-        }
-
         /// <summary>
         /// Добавить элемент в начало списка.
         /// Сложность: O(1).
         /// </summary>
         /// <param name="value">Добавляемый элемент.</param>
-        public void AddFirst(int value)
+        public void AddFirst(T value)
         {
-            MyNode node = new MyNode();
-            MyNode temp = mHead;
+            MyNode<T> node = new MyNode<T>();
+            MyNode<T> temp = mHead;
             node.Value = value;
             node.Next = temp;
-
-            if (mHead == null)
+            if (count == 0)
             {
                 mHead = node;
                 mTail = node;
@@ -68,11 +61,11 @@ namespace ConsoleApplication
         /// Если список пуст, то кидает InvalidOperationException.
         /// Сложность: O(1).
         /// </summary>
-        public int GetFirst()
+        public T GetFirst()
         {
             if (count == 0)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -89,13 +82,13 @@ namespace ConsoleApplication
         {
             if (count == 0)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
-                MyNode current = mHead;
-                current = current.Next;
-                mHead = current;
+                MyNode<T> temp = mHead;
+                temp = temp.Next;
+                mHead = temp;
                 count--;
             }
         }
@@ -105,11 +98,11 @@ namespace ConsoleApplication
         /// Если список пуст, то кидает InvalidOperationException.
         /// Сложность: O(1).
         /// </summary>
-        public int GetLast()
+        public T GetLast()
         {
             if (count == 0)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
@@ -126,13 +119,13 @@ namespace ConsoleApplication
         {
             if (count == 0)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
-                MyNode current = mTail;
-                current = current.Prev;
-                mTail = current;
+                MyNode<T> temp = mTail;
+                temp = temp.Prev;
+                mTail = temp;
                 count--;
             }
         }
@@ -142,11 +135,11 @@ namespace ConsoleApplication
         /// Сложность: O(1).
         /// </summary>
         /// <param name="value">Добавляемый элемент.</param>
-        public void AddLast(int value)
+        public void AddLast(T value)
         {
-            MyNode node = new MyNode();
+            MyNode<T> node = new MyNode<T>();
             node.Value = value;
-            if (mHead == null)
+            if (count == 0)
             {
                 mHead = node;
                 mTail = node;
@@ -155,9 +148,8 @@ namespace ConsoleApplication
             {
                 mTail.Next = node;
                 node.Prev = mTail;
-                mTail = node;
-
             }
+            mTail = node;
             count++;
         }
 
@@ -167,26 +159,22 @@ namespace ConsoleApplication
         /// </summary>
         public int GetCount()
         {
-            if (count == 0)
-            {
-                return 0;
-            }
-            else return count;
+            return count;
         }
     }
 
     ///////////// MyQueue //////////////////
 
-    public class MyQueue
+    public class MyQueue<T>
     {
-        private MyLinkedList mLinkedList = new MyLinkedList(); // очередь делаем на основе MyLinkedList
+        private MyLinkedList<T> mLinkedList = new MyLinkedList<T>(); // очередь делаем на основе MyLinkedList
 
         /// <summary>
         /// Добавляет элемент в конец очереди. 
         /// Сложность: O(1).
         /// </summary>
         /// <param name="value">Добавляемый элемент</param>
-        public void Enqueue(int value)
+        public void Enqueue(T value)
         {
             mLinkedList.AddLast(value);
         }
@@ -196,11 +184,11 @@ namespace ConsoleApplication
         /// Если очеред пуста, то кидает InvalidOperationException.
         /// Сложность: O(1).
         /// </summary>
-        public int Dequeue()
+        public T Dequeue()
         {
-            int firstElement = mLinkedList.GetFirst();
+            T firstElem = mLinkedList.GetFirst();
             mLinkedList.RemoveFirst();
-            return firstElement;
+            return firstElem;
         }
 
         /// <summary>
@@ -208,9 +196,19 @@ namespace ConsoleApplication
         /// Если очеред пуста, то кидает InvalidOperationException.
         /// Сложность: O(1).
         /// </summary>
-        public int Peek()
+        public T Peek()
         {
             return mLinkedList.GetFirst();
+        }
+
+        /// <summary>
+        /// Возвращает последний элемент в очереди.
+        /// Если очередь пуста, то кидает InvalidOperationException.
+        /// Сложность: O(1).
+        /// </summary>
+        public T Last()
+        {
+            return mLinkedList.GetLast();
         }
 
         /// <summary>
@@ -221,46 +219,6 @@ namespace ConsoleApplication
         {
             return mLinkedList.GetCount();
         }
-    }
 
-    /////////////////////////////////
-
-    class Program
-    {
-        static void Assert(bool predic)
-        {
-            if (!predic)
-                throw new InvalidOperationException(); // если мы здесь, значит что-то пошло не так
-        }
-
-        static void Main(string[] args)
-        {
-            // Проверяющий код.
-            // Закомментируйте в начале работы, чтоб он не "валил" приложеине, 
-            // пока вы не закончили реализовывать структуры данных.
-
-            MyQueue queue = new MyQueue();
-            queue.Enqueue(10);
-            queue.Enqueue(11);
-            queue.Enqueue(12);
-            queue.Enqueue(13);
-
-            Assert(queue.GetCount() == 4);
-
-            Assert(queue.Dequeue() == 10);
-            Assert(queue.Dequeue() == 11);
-
-            Assert(queue.GetCount() == 2);
-
-            Assert(queue.Peek() == 12);
-
-            Assert(queue.GetCount() == 2);
-
-            Assert(queue.Dequeue() == 12);
-            Assert(queue.Dequeue() == 13);
-
-            Assert(queue.GetCount() == 0);
-
-        }
     }
 }
