@@ -1,0 +1,9 @@
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\bin\Debug\netstandard2.0\QueueLib.deps.json
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\bin\Debug\netstandard2.0\QueueLib.dll
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\bin\Debug\netstandard2.0\QueueLib.pdb
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.csprojAssemblyReference.cache
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.AssemblyInfoInputs.cache
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.AssemblyInfo.cs
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.csproj.CoreCompileInputs.cache
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.dll
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.pdb

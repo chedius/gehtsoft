@@ -1,0 +1,16 @@
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.csprojAssemblyReference.cache
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.AssemblyInfoInputs.cache
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.AssemblyInfo.cs
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.csproj.CoreCompileInputs.cache
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueUI.exe
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueUI.deps.json
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueUI.runtimeconfig.json
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueUI.runtimeconfig.dev.json
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueUI.dll
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueUI.pdb
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueLib.dll
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\bin\Debug\netcoreapp3.1\QueueLib.pdb
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.csproj.CopyComplete
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.dll
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.pdb
+D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueUI\obj\Debug\netcoreapp3.1\QueueUI.genruntimeconfig.cache

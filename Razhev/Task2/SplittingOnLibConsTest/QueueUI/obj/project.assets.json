@@ -1,0 +1,86 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "QueueLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/QueueLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QueueLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "QueueLib/1.0.0": {
+      "type": "project",
+      "path": "../QueueLib/QueueLib.csproj",
+      "msbuildProject": "../QueueLib/QueueLib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "QueueLib >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\drazhev\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueUI\\QueueUI.csproj",
+      "projectName": "QueueUI",
+      "projectPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueUI\\QueueUI.csproj",
+      "packagesPath": "C:\\Users\\drazhev\\.nuget\\packages\\",
+      "outputPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueUI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\drazhev\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj": {
+              "projectPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
