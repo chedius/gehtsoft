@@ -66,5 +66,18 @@ namespace sending
         {
             Console.WriteLine("False");
         }
+        public void ReadKey()
+        {
+            Console.ReadKey();
+        }
+        public int ReadKeyChar()
+        {
+            return Console.ReadKey().KeyChar;
+        }
+        public string ReadLine()
+        {
+           return Console.ReadLine();
+        }
     }
+
 }
