@@ -7,3 +7,12 @@ D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\D
 D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.csproj.CoreCompileInputs.cache
 D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.dll
 D:\razhev_app\GitHub\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.pdb
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.csprojAssemblyReference.cache
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.AssemblyInfoInputs.cache
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.AssemblyInfo.cs
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.csproj.CoreCompileInputs.cache
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.dll
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\obj\Debug\netstandard2.0\QueueLib.pdb
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\bin\Debug\netstandard2.0\QueueLib.deps.json
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\bin\Debug\netstandard2.0\QueueLib.dll
+D:\C#\gehtsoft\Razhev\Task2\SplittingOnLibConsTest\QueueLib\bin\Debug\netstandard2.0\QueueLib.pdb

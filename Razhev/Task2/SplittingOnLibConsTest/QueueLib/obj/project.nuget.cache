@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Paz0sSCwdrFHLkWG2oUFH/9JYY0OBoUykz78oSdTyv9Jtd7+7Ut10US8KkJzYL026E+8puI0+DaMDR2r18iCeQ==",
+  "dgSpecHash": "sa1YqEXtaaP8bB0ghlszTirPwaof4LmfTjky/Dg60m0+FsCJiTQEvb8U+XJMM0SKAWesuWQBZVi84Zm8gfX1+w==",
   "success": true,
-  "projectFilePath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj",
+  "projectFilePath": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\drazhev\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\drazhev\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Дмитрий\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Дмитрий\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

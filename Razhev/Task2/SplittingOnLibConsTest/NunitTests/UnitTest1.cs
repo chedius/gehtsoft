@@ -6,11 +6,11 @@ namespace NunitTests
     [TestFixture]
     public class Tests
     {
-        private MyQueue queue;
+        private MyQueue<int> queue;
         [SetUp]
         public void Setup()
         {
-           queue = new MyQueue();
+            queue = new MyQueue<int>();
         }
 
         [Test]

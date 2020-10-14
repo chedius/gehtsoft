@@ -3,100 +3,100 @@
 namespace QueueLib
 {
     ///////////// MyNode //////////////////
-        public class MyNode
+    public class MyNode<T>
+    {
+        public T Value { get; set; }
+        public MyNode<T> Next { get; set; }
+        public MyNode<T> Prev { get; set; }
+    }
+
+    ///////////// MyLinkedList //////////////////
+    public class MyLinkedList<T>
+    {
+        private MyNode<T> mHead; // голова списка (первый элемент в списке)
+        private MyNode<T> mTail; // хвост списка (последний элемент в списке)
+        public int count = 0;
+        // т.е. будет так
+        //
+        //   MyNode      <->  MyNode <-> MyNode <->         MyNode
+        //   сюда                                           сюда
+        //   указывает                                      указывает
+        //   mHead                                          mTail
+        //
+
+        // 1) Если список пустой, то mHead = null и mTail = null
+        // 2) Если в списке один элемент MyNode, то на него указывают mHead и mTail,
+        //    т.к. этот один элемент является и первым и последним одновременно.
+        // 3) Если в списке больше одного элемента MyNode, то на самый первый указывает mHead,
+        //    а на самый последний mTail.
+
+        /// <summary>
+        /// Добавить элемент в начало списка.
+        /// Сложность: O(1).
+        /// </summary>
+        /// <param name="value">Добавляемый элемент.</param>
+        public void AddFirst(T value)
         {
-            public int Value { get; set; }
-            public MyNode Next { get; set; }
-            public MyNode Prev { get; set; }
+            MyNode<T> node = new MyNode<T>();
+            MyNode<T> current = new MyNode<T>();
+            node.Value = value;
+            if (mHead == null)
+            {
+                mHead = node;
+                mTail = node;
+            }
+            else
+            {
+                current = mHead;
+                node.Next = current;
+                mHead = node;
+            }
+            count++;
         }
 
-        ///////////// MyLinkedList //////////////////
-        public class MyLinkedList
+        /// <summary>
+        /// Получить элемент из начала списка. Элемент не удаляется из списка.
+        /// Если список пуст, то кидает InvalidOperationException.
+        /// Сложность: O(1).
+        /// </summary>
+        public T GetFirst()
         {
-            private MyNode mHead; // голова списка (первый элемент в списке)
-            private MyNode mTail; // хвост списка (последний элемент в списке)
-            public int count = 0;
-            // т.е. будет так
-            //
-            //   MyNode      <->  MyNode <-> MyNode <->         MyNode
-            //   сюда                                           сюда
-            //   указывает                                      указывает
-            //   mHead                                          mTail
-            //
-
-            // 1) Если список пустой, то mHead = null и mTail = null
-            // 2) Если в списке один элемент MyNode, то на него указывают mHead и mTail,
-            //    т.к. этот один элемент является и первым и последним одновременно.
-            // 3) Если в списке больше одного элемента MyNode, то на самый первый указывает mHead,
-            //    а на самый последний mTail.
-
-            /// <summary>
-            /// Добавить элемент в начало списка.
-            /// Сложность: O(1).
-            /// </summary>
-            /// <param name="value">Добавляемый элемент.</param>
-            public void AddFirst(int value)
+            if (mHead == null)
             {
-                MyNode node = new MyNode();
-                MyNode current = new MyNode();
-                node.Value = value;
-                if (mHead == null)
-                {
-                    mHead = node;
-                    mTail = node;
-                }
-                else
-                {
-                    current = mHead;
-                    node.Next = current;
-                    mHead = node;
-                }        
-                count++;
+                throw new InvalidOperationException();
             }
-
-            /// <summary>
-            /// Получить элемент из начала списка. Элемент не удаляется из списка.
-            /// Если список пуст, то кидает InvalidOperationException.
-            /// Сложность: O(1).
-            /// </summary>
-            public int GetFirst()
+            else
             {
-                if (mHead == null)
-                {
-                    throw new InvalidOperationException();
-                }
-                else
-                {
-                    return mHead.Value;
-                }
+                return mHead.Value;
             }
+        }
 
-            /// <summary>
-            /// Удалить первый элемент из списка.
-            /// Если список пуст, то кидает InvalidOperationException.
-            /// Сложность: O(1).
-            /// </summary>
-            public void RemoveFirst()
+        /// <summary>
+        /// Удалить первый элемент из списка.
+        /// Если список пуст, то кидает InvalidOperationException.
+        /// Сложность: O(1).
+        /// </summary>
+        public void RemoveFirst()
+        {
+            if (mHead == null)
             {
-                if (mHead == null)
-                {
-                    throw new InvalidOperationException();
-                }
-                else
-                {
-                    MyNode current = mHead;
-                    current = current.Next;
-                    mHead = current;
-                    count--;
-                }
+                throw new InvalidOperationException();
             }
+            else
+            {
+                MyNode<T> current = mHead;
+                current = current.Next;
+                mHead = current;
+                count--;
+            }
+        }
 
         /// <summary>
         /// Получить элемент с конца списка. Элемент не удаляется из списка.
         /// Если список пуст, то кидает InvalidOperationException.
         /// Сложность: O(1).
         /// </summary>
-        public int GetLast()
+        public T GetLast()
         {
             if (mHead == null)
             {
@@ -121,7 +121,7 @@ namespace QueueLib
             }
             else
             {
-                MyNode current = mTail;
+                MyNode<T> current = mTail;
                 current = current.Prev;
                 mTail = current.Prev;
                 count--;
@@ -133,9 +133,9 @@ namespace QueueLib
         /// Сложность: O(1).
         /// </summary>
         /// <param name="value">Добавляемый элемент.</param>
-        public void AddLast(int value)
+        public void AddLast(T value)
         {
-            MyNode node = new MyNode();
+            MyNode<T> node = new MyNode<T>();
             node.Value = value;
             if (mHead == null)
             {
@@ -163,16 +163,16 @@ namespace QueueLib
     }
 
     ///////////// MyQueue //////////////////
-    public class MyQueue
+    public class MyQueue<T>
     {
         // очередь делаем на основе MyLinkedList
-        private MyLinkedList mLinkedList = new MyLinkedList();
+        private MyLinkedList<T> mLinkedList = new MyLinkedList<T>();
         /// <summary>
         /// Добавляет элемент в конец очереди. 
         /// Сложность: O(1).
         /// </summary>
         /// <param name="value">Добавляемый элемент</param>
-        public void Enqueue(int value)
+        public void Enqueue(T value)
         {
             mLinkedList.AddLast(value);
         }
@@ -182,9 +182,9 @@ namespace QueueLib
         /// Если очеред пуста, то кидает InvalidOperationException.
         /// Сложность: O(1).
         /// </summary>
-        public int Dequeue()
+        public T Dequeue()
         {
-            int deleteelement = mLinkedList.GetFirst();
+            T deleteelement = mLinkedList.GetFirst();
             mLinkedList.RemoveFirst();
             return deleteelement;
         }
@@ -194,12 +194,12 @@ namespace QueueLib
         /// Если очеред пуста, то кидает InvalidOperationException.
         /// Сложность: O(1).
         /// </summary>
-        public int Peek()
+        public T Peek()
         {
             return mLinkedList.GetFirst();
         }
 
-        public int PeekPeek()
+        public T PeekPeek()
         {
             return mLinkedList.GetLast();
         }

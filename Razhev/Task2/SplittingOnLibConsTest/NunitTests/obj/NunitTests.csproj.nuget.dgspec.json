@@ -1,32 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj": {}
+    "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj": {}
   },
   "projects": {
-    "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj": {
+    "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj",
+        "projectUniqueName": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj",
         "projectName": "NunitTests",
-        "projectPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj",
-        "packagesPath": "C:\\Users\\drazhev\\.nuget\\packages\\",
-        "outputPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\obj\\",
+        "projectPath": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\NunitTests.csproj",
+        "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\NunitTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drazhev\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj": {
-                "projectPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj"
+              "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj": {
+                "projectPath": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj"
               }
             }
           }
@@ -72,22 +74,24 @@
         }
       }
     },
-    "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj": {
+    "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj",
+        "projectUniqueName": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj",
         "projectName": "QueueLib",
-        "projectPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj",
-        "packagesPath": "C:\\Users\\drazhev\\.nuget\\packages\\",
-        "outputPath": "D:\\razhev_app\\GitHub\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\obj\\",
+        "projectPath": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\QueueLib.csproj",
+        "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\gehtsoft\\Razhev\\Task2\\SplittingOnLibConsTest\\QueueLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drazhev\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
