@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\task2.exe
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\task2.deps.json
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\task2.runtimeconfig.json
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\task2.runtimeconfig.dev.json
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\task2.dll
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\task2.pdb
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\Queue.dll
+C:\Users\User\Desktop\geht\task2\task2\bin\Debug\netcoreapp3.1\Queue.pdb
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.csprojAssemblyReference.cache
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.AssemblyInfo.cs
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.csproj.CopyComplete
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.dll
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.pdb
+C:\Users\User\Desktop\geht\task2\task2\obj\Debug\netcoreapp3.1\task2.genruntimeconfig.cache

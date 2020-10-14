@@ -11,48 +11,53 @@ namespace main
     {
         static void Main(string[] args)
         {
-            workerStr work = new workerStr();
-            checker check = new checker();
-            sender msg = new sender();
-            tester test = new tester();
+            WorkerStr work = new WorkerStr();
+            Checker check = new Checker();
+            Sender msg = new Sender();
+            Tester test = new Tester();
             while (true)
             {
-                msg.sendHello();
+                msg.SendHello();
                 int answ = Console.ReadKey().KeyChar;
                 switch (answ)
                 {
                     case '1':
-                        Console.Clear();
-                        msg.sendAbtInput();
+                        msg.Clear();
+                        msg.SendAbtInput();
                         string str = Console.ReadLine();
-                        work.working(str);
+                        work.Working(str);
 
                         break;
 
                     case '2':
-                        Console.Clear();
+                        msg.Clear();
                         string str1 = "first,word,last,life.ЫЫ";
-                        work.working(str1);
+                        work.Working(str1);
                         break;
                     case '3':
-                        Console.Clear();
-                        generator generator = new generator();
-                        tester tester = new tester();
-                        msg.sendHelloTest();
+                        msg.Clear();
+                        Generator generator = new Generator();
+                        Tester tester = new Tester();
+                        msg.SendHelloTest();
                         int ans = Console.ReadKey().KeyChar;
-                        Console.Clear();
+                        msg.Clear();
                         //string str2 = generator.generate(5, "qwertyuioplkjhgfdsazxcvbnm", 31);
                         switch (ans) {
                             case '1':
-                                test.testLong();
+                                test.TestLong();
                                 Console.ReadKey();
-                                Console.Clear();
-                            break;
+                                msg.Clear();
+                                break;
                             case '2':
-                                test.testAbc();
+                                test.TestAbc();
                                 Console.ReadKey();
-                                Console.Clear();
-                            break;
+                                msg.Clear();
+                                break;
+                            case '3':
+                                test.TestLong();
+                                Console.ReadKey();
+                                msg.Clear();
+                                break;
                         }
                     break;
                 }

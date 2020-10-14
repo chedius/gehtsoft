@@ -7,10 +7,10 @@ using wokrWithString;
 
 namespace Tests
 {
-    public class generator
+    public class Generator
     {
         Random rnd = new Random();
-        public string generate(int minLong, int maxLongWord,  string alphabet, int minWords, int maxMuchWord)
+        public string Generate(int minLong, int maxLongWord,  string alphabet, int minWords, int maxMuchWord)
 
         {
             StringBuilder rndStr = new StringBuilder(maxLongWord - 1);
@@ -37,34 +37,62 @@ namespace Tests
                 str += alphabet[Position];
             }
             str += ".";
-            Console.WriteLine("Получилась строка: " + str);
+            Console.WriteLine("The resulting string: " + str);
             return str;
 
         }
     }
 
-    public class tester
+    public class Tester
     {
-        workerStr work = new workerStr();
-        checker check = new checker();
-        sender msg = new sender();
-        generator generator = new generator();
+        WorkerStr work = new WorkerStr();
+        Checker check = new Checker();
+        Sender msg = new Sender();
+        Generator generator = new Generator();
 
 
-        public void testLong()
+        public void TestLong()
         {
-            string str = generator.generate(1,6, "qwertyuioplkjhgfdsazxcvbnm", 1,5);
-            work.working(str);
-            string str1 = generator.generate(1, 5, "qwertyuioplkjhgfdsazxcvbnm", 1, 5);
-            work.working(str1);
+            string str = "one,winter,two.";
+            string[] words = str.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (!check.Check(words, str))
+            {
+                msg.SendTrue();      
+            }
+            else
+            {
+                msg.SendFalse();
+            }
+
         }
-        public void testAbc()
+        public void TestAbc()
         {
-            string str = generator.generate(1,5, "йцукенгшждлорпавячсмитqwertyuioplkjhgfdsazxcvbnm", 1,10);
-            work.working(str);
-            string str1 = generator.generate(1, 5, "qwertyuioplkjhgfdsazxcvbnm", 1, 5);
-            work.working(str1);
+            string str = "one,wnтриr,two.";
+            string[] words = str.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (!check.Check(words, str))
+            {
+                msg.SendTrue();
+            }
+            else
+            {
+                msg.SendFalse();
+            }
+
         }
- 
+        public void TestMuch()
+        {
+            string str = "one,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two,win,two.";
+            string[] words = str.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (!check.Check(words, str))
+            {
+                msg.SendTrue();
+            }
+            else
+            {
+                msg.SendFalse();
+            }
+
+        }
+
     }
 }

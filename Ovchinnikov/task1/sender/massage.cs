@@ -2,14 +2,14 @@
 
 namespace sending
 {
-    public class sender
+    public class Sender
     {
-        public void noFoundedDot()
+        public void NoFoundedDot()
         {
-            Console.WriteLine("Точка не найдена");
+            Console.WriteLine("Dot not found");
         }
 
-        public void sendResult(string[] words)
+        public void SendResult(string[] words)
         {
             for (int i = 0; i < words.Length - 1; i++)
             {
@@ -19,39 +19,52 @@ namespace sending
             Console.Write(words[0] + '.');
             Console.WriteLine();
         }
-        public void sendLong()
+        public void SendLong()
         {
-            Console.WriteLine("Есть слишком длинное слово");
+            Console.WriteLine("There is a word too long");
         }
-        public void sendMuch()
+        public void SendMuch()
         {
-            Console.WriteLine("Cлишком много слов");
+            Console.WriteLine("Too many words");
         }
-        public void sendAbc()
+        public void SendAbc()
         {
-            Console.WriteLine("Есть символы, не являющиеся строчными латинскими буквами");
+            Console.WriteLine("There are characters that are not lowercase Latin letters");
         }
-        public void sendAbtInput()
+        public void SendAbtInput()
         {
-            Console.WriteLine("Введите слова через запятую на латинском алфавите с точкой в конце");
+            Console.WriteLine("Enter words separated by commas in the Latin alphabet with a period at the end");
         }
-        public void sendEmpty()
+        public void SendEmpty()
         {
-            Console.WriteLine("Пустое слово");
+            Console.WriteLine("Empty word");
         }
 
-        public void sendHello()
+        public void SendHello()
         {
-            Console.WriteLine("Выберете способ ввода");
-            Console.WriteLine("1:Ввод с консоли");
-            Console.WriteLine("2:Использовать готовую строку");
-            Console.WriteLine("3:Тесты");
+            Console.WriteLine("Choose input method");
+            Console.WriteLine("1:Console input");
+            Console.WriteLine("2:Use a prepared string");
+            Console.WriteLine("3:Tests");
         }
-        public void sendHelloTest()
+        public void SendHelloTest()
         {
-            Console.WriteLine("Какое свойство хотите протестировать?");
-            Console.WriteLine("1-Длинна слова");
-            Console.WriteLine("2-Алфавит");
+            Console.WriteLine("Which property do you want to test?");
+            Console.WriteLine("1:Length of words");
+            Console.WriteLine("2:Alphabet");
+            Console.WriteLine("3:Much of words");
+        }
+        public void Clear()
+        {
+            Console.Clear();
+        }
+        public void SendTrue()
+        {
+            Console.WriteLine("True");
+        }
+        public void SendFalse()
+        {
+            Console.WriteLine("False");
         }
     }
 }

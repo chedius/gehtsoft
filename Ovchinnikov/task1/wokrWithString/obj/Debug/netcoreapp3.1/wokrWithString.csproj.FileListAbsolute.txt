@@ -1,0 +1,14 @@
+C:\Users\User\Desktop\geht\task1\wokrWithString\bin\Debug\netcoreapp3.1\wokrWithString.deps.json
+C:\Users\User\Desktop\geht\task1\wokrWithString\bin\Debug\netcoreapp3.1\wokrWithString.dll
+C:\Users\User\Desktop\geht\task1\wokrWithString\bin\Debug\netcoreapp3.1\wokrWithString.pdb
+C:\Users\User\Desktop\geht\task1\wokrWithString\bin\Debug\netcoreapp3.1\check.dll
+C:\Users\User\Desktop\geht\task1\wokrWithString\bin\Debug\netcoreapp3.1\sender.dll
+C:\Users\User\Desktop\geht\task1\wokrWithString\bin\Debug\netcoreapp3.1\check.pdb
+C:\Users\User\Desktop\geht\task1\wokrWithString\bin\Debug\netcoreapp3.1\sender.pdb
+C:\Users\User\Desktop\geht\task1\wokrWithString\obj\Debug\netcoreapp3.1\wokrWithString.csprojAssemblyReference.cache
+C:\Users\User\Desktop\geht\task1\wokrWithString\obj\Debug\netcoreapp3.1\wokrWithString.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\geht\task1\wokrWithString\obj\Debug\netcoreapp3.1\wokrWithString.AssemblyInfo.cs
+C:\Users\User\Desktop\geht\task1\wokrWithString\obj\Debug\netcoreapp3.1\wokrWithString.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\geht\task1\wokrWithString\obj\Debug\netcoreapp3.1\wokrWithString.csproj.CopyComplete
+C:\Users\User\Desktop\geht\task1\wokrWithString\obj\Debug\netcoreapp3.1\wokrWithString.dll
+C:\Users\User\Desktop\geht\task1\wokrWithString\obj\Debug\netcoreapp3.1\wokrWithString.pdb

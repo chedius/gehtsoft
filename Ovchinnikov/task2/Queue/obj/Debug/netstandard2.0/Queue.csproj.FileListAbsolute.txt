@@ -1,0 +1,9 @@
+C:\Users\User\Desktop\geht\task2\Queue\bin\Debug\netstandard2.0\Queue.deps.json
+C:\Users\User\Desktop\geht\task2\Queue\bin\Debug\netstandard2.0\Queue.dll
+C:\Users\User\Desktop\geht\task2\Queue\bin\Debug\netstandard2.0\Queue.pdb
+C:\Users\User\Desktop\geht\task2\Queue\obj\Debug\netstandard2.0\Queue.csprojAssemblyReference.cache
+C:\Users\User\Desktop\geht\task2\Queue\obj\Debug\netstandard2.0\Queue.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\geht\task2\Queue\obj\Debug\netstandard2.0\Queue.AssemblyInfo.cs
+C:\Users\User\Desktop\geht\task2\Queue\obj\Debug\netstandard2.0\Queue.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\geht\task2\Queue\obj\Debug\netstandard2.0\Queue.dll
+C:\Users\User\Desktop\geht\task2\Queue\obj\Debug\netstandard2.0\Queue.pdb

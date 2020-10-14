@@ -4,15 +4,15 @@ using sending;
 
 namespace wokrWithString
 {
-    public class workerStr
+    public class WorkerStr
     {
-        checker check = new checker();
-        sender msg = new sender();
-        public void working(string str)
+        Checker check = new Checker();
+        Sender msg = new Sender();
+        public void Working(string str)
         {
             if (str.IndexOf('.') == -1)
             {
-                msg.noFoundedDot();
+                msg.NoFoundedDot();
             }
             else
             {
@@ -20,9 +20,9 @@ namespace wokrWithString
                 str = str.Substring(0, str.IndexOf('.'));
                 string[] words = str.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-                if (check.checkLong(words) && check.checkMuch(words) && check.checkAbc(str) && check.checkEmpty(str))
+                if (check.Check(words, str))
                 {
-                    msg.sendResult(words);
+                    msg.SendResult(words);
                 }
             }
         }

@@ -4,17 +4,31 @@ using sending;
 
 namespace CheckLib
 {
-    public class checker
+    public class Checker
     {
-        chekerProperties checkist = new chekerProperties();
-        sender msg = new sender();
+        ChekerProperties checkist = new ChekerProperties();
+        Sender msg = new Sender();
 
-        public bool checkLong(string[] words)
+        public bool Check(string[] words, string str)
+        {
+            bool result;
+
+            if (CheckLong(words) && CheckMuch(words) && CheckAbc(str) && CheckEmpty(str))
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
+        }
+        public bool CheckLong(string[] words)
         {
             bool flag = true;
-            if (!checkist.longWrd(words))
+            if (!checkist.LongWrd(words))
             {
-                msg.sendLong();
+                msg.SendLong();
                 flag = false;
             }
             else
@@ -23,13 +37,13 @@ namespace CheckLib
             }
             return flag;
         }
-        public bool checkMuch(string[] words)
+        public bool CheckMuch(string[] words)
         {
             bool flag = true;
 
-            if (!checkist.muchWrd(words))
+            if (!checkist.MuchWrd(words))
             {
-                msg.sendMuch();
+                msg.SendMuch();
                 flag = false;
             }
             else
@@ -38,12 +52,12 @@ namespace CheckLib
             }
             return flag;
         }
-        public bool checkAbc(string str)
+        public bool CheckAbc(string str)
         {
             bool flag = true;
             if (!checkist.Abc(str))
             {
-                msg.sendAbc();
+                msg.SendAbc();
                 flag = false;
             }
             else
@@ -52,12 +66,12 @@ namespace CheckLib
             }
             return flag;
         }
-        public bool checkEmpty(string str)
+        public bool CheckEmpty(string str)
         {
             bool flag = true;
-            if (!checkist.empty(str))
+            if (!checkist.Empty(str))
             {
-                msg.sendEmpty();
+                msg.SendEmpty();
                 flag = false;
             }
             else
@@ -67,9 +81,9 @@ namespace CheckLib
             return flag;
         }
     }
-    public class chekerProperties
+    public class ChekerProperties
     {
-        public bool longWrd(string[] words) //true- всё нормально
+        public bool LongWrd(string[] words) //true- всё нормально
         {
             bool result = true;
             for (int i = 0; i < words.Length; i++)
@@ -87,7 +101,7 @@ namespace CheckLib
             }
             return result;
         }
-        public bool muchWrd(string[] words)
+        public bool MuchWrd(string[] words)
         {
             bool result = true;
 
@@ -118,7 +132,7 @@ namespace CheckLib
             }
             return flag;
         }
-        public bool empty(string str)
+        public bool Empty(string str)
         {
 
             bool result = true;
