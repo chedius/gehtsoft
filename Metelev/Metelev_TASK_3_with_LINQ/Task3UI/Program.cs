@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Task3UI
 {
@@ -6,21 +8,20 @@ namespace Task3UI
     {
         static void Main(string[] args)
         {
-            FirstSymbol frs = new FirstSymbol();
+            ReverseOrder rvr = new ReverseOrder();
             Console.WriteLine("Enter the number of strings");
             int num = Convert.ToInt32(Console.ReadLine());
             string str;
-            char letter; 
-            char[] letters = new char[num];
-            for (int i = 1; i<=num;i++)
+            List<string> strList = new List<string>();
+            for (int i = 0; i < num; i++)
             {
                 Console.WriteLine("\nEnter string number " + i);
                 str = Console.ReadLine();
-                letter = frs.Finder(str);
-                letters[num-i] = letter;
+                strList.Add(str);
             }
-            string s = new string(letters);
+            string s = rvr.Reverser(num, strList);
             Console.WriteLine("\nFirst characters of each line in reverse order: " + s);
+
         }
     }
 }
