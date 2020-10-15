@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YYG7PTmaTl6PW5gmEVTYhb1BBNUD6SWJRGsago4XkiBTm2JtzHtPMY8xIckP5LL7+0dcUfMMkcdT8GZOQsG3SQ==",
+  "success": true,
+  "projectFilePath": "D:\\repo\\gehtsoft\\Shegolev\\QueueNUnit\\QueueLib\\QueueLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vshegolev\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\vshegolev\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
