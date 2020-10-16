@@ -11,48 +11,53 @@ namespace main
     {
         static void Main(string[] args)
         {
-            workerStr work = new workerStr();
-            checker check = new checker();
-            sender msg = new sender();
-            tester test = new tester();
+            WorkerStr work = new WorkerStr();
+            Checker check = new Checker();
+            Sender msg = new Sender();
+            Tester test = new Tester();
             while (true)
             {
-                msg.sendHello();
-                int answ = Console.ReadKey().KeyChar;
+                msg.SendHello();
+                int answ = msg.ReadKeyChar();
                 switch (answ)
                 {
                     case '1':
-                        Console.Clear();
-                        msg.sendAbtInput();
-                        string str = Console.ReadLine();
-                        work.working(str);
+                        msg.Clear();
+                        msg.SendAbtInput();
+                        string str = msg.ReadLine();
+                        work.Working(str);
 
                         break;
 
                     case '2':
-                        Console.Clear();
+                        msg.Clear();
                         string str1 = "first,word,last,life.ЫЫ";
-                        work.working(str1);
+                        work.Working(str1);
                         break;
                     case '3':
-                        Console.Clear();
-                        generator generator = new generator();
-                        tester tester = new tester();
-                        msg.sendHelloTest();
-                        int ans = Console.ReadKey().KeyChar;
-                        Console.Clear();
+                        msg.Clear();
+                        Generator generator = new Generator();
+                        Tester tester = new Tester();
+                        msg.SendHelloTest();
+                        int ans = msg.ReadKeyChar();
+                        msg.Clear();
                         //string str2 = generator.generate(5, "qwertyuioplkjhgfdsazxcvbnm", 31);
                         switch (ans) {
                             case '1':
-                                test.testLong();
-                                Console.ReadKey();
-                                Console.Clear();
-                            break;
+                                test.TestLong();
+                                msg.ReadKey();
+                                msg.Clear();
+                                break;
                             case '2':
-                                test.testAbc();
-                                Console.ReadKey();
-                                Console.Clear();
-                            break;
+                                test.TestAbc();
+                                msg.ReadKey();
+                                msg.Clear();
+                                break;
+                            case '3':
+                                test.TestLong();
+                                msg.ReadKey();
+                                msg.Clear();
+                                break;
                         }
                     break;
                 }

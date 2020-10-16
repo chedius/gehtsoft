@@ -1,9 +1,0 @@
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\bin\Debug\netcoreapp3.1\sender.deps.json
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\bin\Debug\netcoreapp3.1\sender.dll
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\bin\Debug\netcoreapp3.1\sender.pdb
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\obj\Debug\netcoreapp3.1\sender.AssemblyInfoInputs.cache
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\obj\Debug\netcoreapp3.1\sender.AssemblyInfo.cs
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\obj\Debug\netcoreapp3.1\sender.csproj.CoreCompileInputs.cache
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\obj\Debug\netcoreapp3.1\sender.dll
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\obj\Debug\netcoreapp3.1\sender.pdb
-C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task1\sender\obj\Debug\netcoreapp3.1\sender.csprojAssemblyReference.cache
