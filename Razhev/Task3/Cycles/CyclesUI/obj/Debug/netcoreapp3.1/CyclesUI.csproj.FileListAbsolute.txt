@@ -1,0 +1,13 @@
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\obj\Debug\netcoreapp3.1\CyclesUI.csprojAssemblyReference.cache
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\obj\Debug\netcoreapp3.1\CyclesUI.AssemblyInfoInputs.cache
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\obj\Debug\netcoreapp3.1\CyclesUI.AssemblyInfo.cs
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\obj\Debug\netcoreapp3.1\CyclesUI.csproj.CoreCompileInputs.cache
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\bin\Debug\netcoreapp3.1\CyclesUI.exe
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\bin\Debug\netcoreapp3.1\CyclesUI.deps.json
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\bin\Debug\netcoreapp3.1\CyclesUI.runtimeconfig.json
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\bin\Debug\netcoreapp3.1\CyclesUI.runtimeconfig.dev.json
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\bin\Debug\netcoreapp3.1\CyclesUI.dll
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\bin\Debug\netcoreapp3.1\CyclesUI.pdb
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\obj\Debug\netcoreapp3.1\CyclesUI.dll
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\obj\Debug\netcoreapp3.1\CyclesUI.pdb
+D:\C#\gehtsoft\Razhev\Task3\Cycles\CyclesUI\obj\Debug\netcoreapp3.1\CyclesUI.genruntimeconfig.cache
