@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task3WithCircle", "task3WithCircle\task3WithCircle.csproj", "{349A3E6A-70A5-416F-88E2-FD0CAFD8248C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "massage", "massage\massage.csproj", "{0C820D1A-A89E-465E-A0C4-A1652A8E6639}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{349A3E6A-70A5-416F-88E2-FD0CAFD8248C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349A3E6A-70A5-416F-88E2-FD0CAFD8248C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349A3E6A-70A5-416F-88E2-FD0CAFD8248C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349A3E6A-70A5-416F-88E2-FD0CAFD8248C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C820D1A-A89E-465E-A0C4-A1652A8E6639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C820D1A-A89E-465E-A0C4-A1652A8E6639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C820D1A-A89E-465E-A0C4-A1652A8E6639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C820D1A-A89E-465E-A0C4-A1652A8E6639}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {258D7B8A-154C-4B0B-98B0-49F0BCD5EEF6}
+	EndGlobalSection
+EndGlobal
