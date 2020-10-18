@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace Task3UI
@@ -8,7 +7,7 @@ namespace Task3UI
     {
         static void Main(string[] args)
         {
-            ReverseOrder rvr = new ReverseOrder();
+            Reverser rvr = new Reverser();
             Console.WriteLine("Enter the number of strings");
             int num = Convert.ToInt32(Console.ReadLine());
             string str;
@@ -19,7 +18,7 @@ namespace Task3UI
                 str = Console.ReadLine();
                 strList.Add(str);
             }
-            string s = rvr.Reverser(num, strList);
+            string s = rvr.ReverseOrder(num, strList);
             Console.WriteLine("\nFirst characters of each line in reverse order: " + s);
 
         }
