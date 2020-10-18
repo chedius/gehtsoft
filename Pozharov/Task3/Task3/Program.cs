@@ -17,9 +17,9 @@ namespace Task3
             char letter = 'C';
             //char[] A = new char[str.Length];
 
-            for (int i = 1; i < num; i++)
+            for (int i = 0; i < num; i++)
             {
-                Console.WriteLine("Write {0} string:", i);
+                Console.WriteLine("Write {0} string:", i + 1);
                 string A = Console.ReadLine();
                 list.Add(A);
                 // A[i] = Convert.ToChar(str);
@@ -30,9 +30,9 @@ namespace Task3
             foreach (string B in list)
             {
 
-                // char[] chars = B.ToCharArray();
-                int i = B.IndexOf(letter);
-                if (i == 1)
+                 char[] chars = B.ToCharArray();
+                int i = B.IndexOf(letter) + 1;
+                if (i == B.Length)
                 {
                     str = B;
                     //Console.WriteLine(B);
@@ -44,20 +44,34 @@ namespace Task3
 
             }
 
-            if (cnt == 1)
+            try
             {
-                Console.WriteLine('C');
+
+                if (cnt == 1)
+                {
+                    Console.WriteLine("C");
+                }
+
+                if (cnt == 0)
+                {
+                    Console.WriteLine("");
+                }
+
+                if (cnt > 1)
+                {
+                    throw new Exception();
+                }
+
             }
 
-            if (cnt == 0) 
+            catch (Exception)
             {
-                Console.WriteLine("");
+                                
+                    Console.WriteLine("Error");
+                
             }
 
-            if (cnt > 1)
-            {
-                Console.WriteLine("Error");
-            }
+           
 
             // if (cnt > 1 )
 
