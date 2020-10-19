@@ -8,18 +8,18 @@ namespace Task3UI
         static void Main(string[] args)
         {
             Reverser rvr = new Reverser();
-            Console.WriteLine("Enter the number of strings");
-            int num = Convert.ToInt32(Console.ReadLine());
+            Printer prt = new Printer();
+            int num;
+            num = prt.GetNum();
             string str;
             List<string> strList = new List<string>();
             for (int i = 0; i < num; i++)
             {
-                Console.WriteLine("\nEnter string number " + i);
-                str = Console.ReadLine();
+                str = prt.GetStr(i);
                 strList.Add(str);
             }
             string s = rvr.ReverseOrder(num, strList);
-            Console.WriteLine("\nFirst characters of each line in reverse order: " + s);
+            prt.PrintRes(s);
 
         }
     }
