@@ -1,0 +1,16 @@
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\task3Linq.exe
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\task3Linq.deps.json
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\task3Linq.runtimeconfig.json
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\task3Linq.runtimeconfig.dev.json
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\task3Linq.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\task3Linq.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\massage.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\bin\Debug\netcoreapp3.1\massage.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.csprojAssemblyReference.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.AssemblyInfoInputs.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.AssemblyInfo.cs
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.csproj.CoreCompileInputs.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.csproj.CopyComplete
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\task3Linq\obj\Debug\netcoreapp3.1\task3Linq.genruntimeconfig.cache

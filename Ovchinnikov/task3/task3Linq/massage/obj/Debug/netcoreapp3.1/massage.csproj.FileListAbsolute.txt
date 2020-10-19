@@ -1,0 +1,9 @@
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\bin\Debug\netcoreapp3.1\massage.deps.json
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\bin\Debug\netcoreapp3.1\massage.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\bin\Debug\netcoreapp3.1\massage.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\obj\Debug\netcoreapp3.1\massage.AssemblyInfoInputs.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\obj\Debug\netcoreapp3.1\massage.AssemblyInfo.cs
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\obj\Debug\netcoreapp3.1\massage.csproj.CoreCompileInputs.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\obj\Debug\netcoreapp3.1\massage.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\obj\Debug\netcoreapp3.1\massage.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3Linq\massage\obj\Debug\netcoreapp3.1\massage.csprojAssemblyReference.cache

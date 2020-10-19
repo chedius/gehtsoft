@@ -1,0 +1,16 @@
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\task3WithCircle.exe
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\task3WithCircle.deps.json
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\task3WithCircle.runtimeconfig.json
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\task3WithCircle.runtimeconfig.dev.json
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\task3WithCircle.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\task3WithCircle.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\massage.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\bin\Debug\netcoreapp3.1\massage.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.csprojAssemblyReference.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.AssemblyInfoInputs.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.AssemblyInfo.cs
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.csproj.CoreCompileInputs.cache
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.csproj.CopyComplete
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.dll
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.pdb
+C:\Users\aovchinnikov\Desktop\git\gehtsoft\Ovchinnikov\task3\task3WithCircle\task3WithCircle\obj\Debug\netcoreapp3.1\task3WithCircle.genruntimeconfig.cache
