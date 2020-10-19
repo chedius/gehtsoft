@@ -23,7 +23,7 @@ namespace task3Linq
                 A.Add(str);
                 
             }
-            SumNum = A.Count(s => s.StartsWith(C) && s.EndsWith(C)); //работает
+            SumNum = A.Count(s => s.StartsWith(C) && s.EndsWith(C) && s.Length > 1); 
             SumLong = A.Sum(s => s.Length);
             msg.SendResults(SumLong, SumNum);
         }
