@@ -1,4 +1,0 @@
-D:\repo\gehtsoft\Shegolev\task2\CompareStringsLib\obj\Debug\netcoreapp3.1\CompareStringsLib.csprojAssemblyReference.cache
-D:\repo\gehtsoft\Shegolev\task2\CompareStringsLib\obj\Debug\netcoreapp3.1\CompareStringsLib.AssemblyInfoInputs.cache
-D:\repo\gehtsoft\Shegolev\task2\CompareStringsLib\obj\Debug\netcoreapp3.1\CompareStringsLib.AssemblyInfo.cs
-D:\repo\gehtsoft\Shegolev\task2\CompareStringsLib\obj\Debug\netcoreapp3.1\CompareStringsLib.csproj.CoreCompileInputs.cache

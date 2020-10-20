@@ -1,9 +1,0 @@
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\obj\Debug\netstandard2.0\QueueLib.csprojAssemblyReference.cache
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\obj\Debug\netstandard2.0\QueueLib.AssemblyInfoInputs.cache
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\obj\Debug\netstandard2.0\QueueLib.AssemblyInfo.cs
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\obj\Debug\netstandard2.0\QueueLib.csproj.CoreCompileInputs.cache
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\bin\Debug\netstandard2.0\QueueLib.deps.json
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\bin\Debug\netstandard2.0\QueueLib.dll
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\bin\Debug\netstandard2.0\QueueLib.pdb
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\obj\Debug\netstandard2.0\QueueLib.dll
-D:\repo\gehtsoft\Shegolev\QueueNUnit\QueueLib\obj\Debug\netstandard2.0\QueueLib.pdb
