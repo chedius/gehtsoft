@@ -5,13 +5,16 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.IO;
  
 namespace ChatServer
 {
     public class ServerObject
-    {
+    {     
         static TcpListener tcpListener; // сервер для прослушивания
         List<ClientObject> clients = new List<ClientObject>(); // все подключения
+
+        
  
         protected internal void AddConnection(ClientObject clientObject)
         {
@@ -72,6 +75,24 @@ namespace ChatServer
                 clients[i].Close(); //отключение клиента
             }
             Environment.Exit(0); //завершение процесса
+        }
+
+        public void SendText(bool isServerRunning)
+        {
+            string path = @"D:\projects\Squad2_TASK_4\Texts.txt";
+            Random rand = new Random();
+            string[] texts = File.ReadAllLines(path);
+            string mes;   
+            while(isServerRunning)
+            {
+                mes = texts[rand.Next(texts.Length)];
+                byte[] data = Encoding.Unicode.GetBytes(mes);
+                for (int i = 0; i < clients.Count; i++)
+                {
+                    clients[i].Stream.Write(data, 0, data.Length);
+                }
+                Thread.Sleep(5000);
+            }
         }
     }
 }
