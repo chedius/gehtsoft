@@ -1,0 +1,1 @@
+start "" "Client\bin\Debug\netcoreapp3.1\Client.exe" 
