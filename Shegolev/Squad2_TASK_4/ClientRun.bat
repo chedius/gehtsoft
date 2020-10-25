@@ -1,2 +1,0 @@
-cd ChatClient
-dotnet run
