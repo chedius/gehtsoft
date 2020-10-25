@@ -77,7 +77,7 @@ namespace ServerHost
 
         public void SendText(bool isServerRunning)
         {
-            string path = @"C:\Users\vadim\source\repos\task4\texts.txt";
+            string path = @"..\texts.txt";
             Random rand = new Random();
             string[] texts = File.ReadAllLines(path);
             string mes;
