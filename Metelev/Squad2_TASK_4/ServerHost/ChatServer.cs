@@ -14,12 +14,10 @@ namespace ChatServer
                 server = new ServerObject();
                 listenThread = new Thread(new ThreadStart(server.Listen));
                 listenThread.Start(); //старт потока
-                bool isServerRunning = true;
-                server.SendText(isServerRunning);
+                server.SendText();
             }
             catch (Exception ex)
             {
-                bool isServerRunning = false;
                 server.Disconnect();
                 Console.WriteLine(ex.Message);
             }

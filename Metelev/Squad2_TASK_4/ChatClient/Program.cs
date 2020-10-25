@@ -2,6 +2,9 @@
 using System.Threading;
 using System.Net.Sockets;
 using System.Text;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
  
 namespace ChatClient
 {
@@ -12,6 +15,9 @@ namespace ChatClient
         private const int port = 8888;
         static TcpClient client;
         static NetworkStream stream;
+        private static int count;
+        private static bool f;
+        private static List <string> TextArr = new List<string>();
  
         static void Main(string[] args)
         {
@@ -22,16 +28,15 @@ namespace ChatClient
             {
                 client.Connect(host, port); //подключение клиента
                 stream = client.GetStream(); // получаем поток
- 
                 string message = userName;
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 stream.Write(data, 0, data.Length);
- 
+
                 // запускаем новый поток для получения данных
                 Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
                 receiveThread.Start(); //старт потока
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                SendMessage();
+                Console.ReadKey();
             }
             catch (Exception ex)
             {
@@ -42,18 +47,6 @@ namespace ChatClient
                 Disconnect();
             }
         }
-        // отправка сообщений
-        static void SendMessage()
-        {
-            Console.WriteLine("Введите сообщение: ");
-             
-            while (true)
-            {
-                string message = Console.ReadLine();
-                byte[] data = Encoding.Unicode.GetBytes(message);
-                stream.Write(data, 0, data.Length);
-            }
-        }
         // получение сообщений
         static void ReceiveMessage()
         {
@@ -61,6 +54,7 @@ namespace ChatClient
             {
                 try
                 {
+                    Console.WriteLine("Запрашивается текст");
                     byte[] data = new byte[64]; // буфер для получаемых данных
                     StringBuilder builder = new StringBuilder();
                     int bytes = 0;
@@ -70,9 +64,38 @@ namespace ChatClient
                         builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                     }
                     while (stream.DataAvailable);
- 
-                    string message = builder.ToString();
-                    Console.WriteLine(message);//вывод сообщения
+                    string text = builder.ToString();
+                    if (text == null) goto exit;
+                    if(!TextArr.Any())
+                    {
+                        count++;
+                        TextArr.Add(text);
+                        GetVowAndCon(text, count);
+                        Console.WriteLine("Текст готов!");
+                    }
+                    foreach(var str in TextArr)
+                    {
+                        if(str == text)
+                        {
+                            Console.WriteLine("Такой текст уже был!");
+                            f = false;
+                            break;
+                        }
+                        else
+                        {
+                            f = true;
+                        }
+                    }
+                    if(f == true)
+                    {
+                        count++;
+                        TextArr.Add(text);
+                        GetVowAndCon(text, count);
+                        Console.WriteLine("Текст готов!");//вывод сообщения
+                    }
+                    exit:
+                    Thread.Sleep(10000);
+                    
                 }
                 catch
                 {
@@ -82,7 +105,26 @@ namespace ChatClient
                 }
             }
         }
- 
+
+        static void GetVowAndCon(string text, int number)
+        {
+            var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
+            var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
+            string vowTxt = new string(text.ToLower().Where(c=>vowels.Contains(c)).ToArray());
+            string conTxt = new string(text.ToLower().Where(c=>consonants.Contains(c)).ToArray());
+            string totalVow = new string(text.ToLower().Count(c=>vowels.Contains(c)) + " ," + vowTxt);
+            string totalCon = new string(text.ToLower().Count(c=>consonants.Contains(c)) + " ," + conTxt);
+            PrintInFile(totalVow, "vowels", number);
+            PrintInFile(totalCon, "consonants", number);
+        }
+        static void PrintInFile(string res, string name, int number)
+        {
+            using (FileStream fstream = new FileStream($"../{name}{number}.txt", FileMode.OpenOrCreate))
+            {
+                byte[] array = System.Text.Encoding.Default.GetBytes(res);
+                fstream.Write(array, 0, array.Length);
+            }
+        }
         static void Disconnect()
         {
             if(stream!=null)

@@ -77,13 +77,13 @@ namespace ChatServer
             Environment.Exit(0); //завершение процесса
         }
 
-        public void SendText(bool isServerRunning)
+        public void SendText()
         {
-            string path = @"D:\projects\Squad2_TASK_4\Texts.txt";
+            string path = @"..\Texts.txt";
             Random rand = new Random();
             string[] texts = File.ReadAllLines(path);
             string mes;   
-            while(isServerRunning)
+            while(true)
             {
                 mes = texts[rand.Next(texts.Length)];
                 byte[] data = Encoding.Unicode.GetBytes(mes);
