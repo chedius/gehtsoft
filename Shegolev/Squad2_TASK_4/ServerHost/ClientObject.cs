@@ -1,17 +1,17 @@
-﻿using System;
+using System;
 using System.Net.Sockets;
 using System.Text;
-
-namespace ServerHost
+ 
+namespace ChatServer
 {
     public class ClientObject
     {
         protected internal string Id { get; private set; }
-        protected internal NetworkStream Stream { get; private set; }
+        protected internal NetworkStream Stream {get; private set;}
         string userName;
         TcpClient client;
         ServerObject server; // объект сервера
-
+ 
         public ClientObject(TcpClient tcpClient, ServerObject serverObject)
         {
             Id = Guid.NewGuid().ToString();
@@ -19,7 +19,7 @@ namespace ServerHost
             server = serverObject;
             serverObject.AddConnection(this);
         }
-
+ 
         public void Process()
         {
             try
@@ -28,7 +28,7 @@ namespace ServerHost
                 // получаем имя пользователя
                 string message = GetMessage();
                 userName = message;
-
+ 
                 message = userName + " вошел в чат";
                 // посылаем сообщение о входе в чат всем подключенным пользователям
                 server.BroadcastMessage(message, this.Id);
@@ -52,7 +52,7 @@ namespace ServerHost
                     }
                 }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -63,7 +63,7 @@ namespace ServerHost
                 Close();
             }
         }
-
+ 
         // чтение входящего сообщения и преобразование в строку
         private string GetMessage()
         {
@@ -76,10 +76,10 @@ namespace ServerHost
                 builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
             }
             while (Stream.DataAvailable);
-
+ 
             return builder.ToString();
         }
-
+ 
         // закрытие подключения
         protected internal void Close()
         {

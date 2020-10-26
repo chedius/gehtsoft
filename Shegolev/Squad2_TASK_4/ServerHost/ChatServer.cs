@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
-
-namespace ServerHost
+ 
+namespace ChatServer
 {
-    class ChatServer
+    class Program
     {
         static ServerObject server; // сервер
         static Thread listenThread; // потока для прослушивания
@@ -14,12 +14,10 @@ namespace ServerHost
                 server = new ServerObject();
                 listenThread = new Thread(new ThreadStart(server.Listen));
                 listenThread.Start(); //старт потока
-                bool isServerRunning = true;
-                server.SendText(isServerRunning);
+                server.SendText();
             }
             catch (Exception ex)
             {
-                bool isServerRunning = false;
                 server.Disconnect();
                 Console.WriteLine(ex.Message);
             }
