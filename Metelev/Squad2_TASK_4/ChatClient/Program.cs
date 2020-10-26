@@ -17,7 +17,7 @@ namespace ChatClient
         static NetworkStream stream;
         private static int count;
         private static bool f;
-        private static List <string> TextArr = new List<string>();
+        private static string[] TextArr = new string[7];
  
         static void Main(string[] args)
         {
@@ -66,36 +66,38 @@ namespace ChatClient
                     while (stream.DataAvailable);
                     string text = builder.ToString();
                     if (text == null) goto exit;
-                    if(!TextArr.Any())
+                    if(TextArr[0] == null)
                     {
+                        TextArr[0] = text;
                         count++;
-                        TextArr.Add(text);
-                        GetVowAndCon(text, count);
+                        GetVowAndCon(TextArr[0], count);
                         Console.WriteLine("Текст готов!");
                     }
-                    foreach(var str in TextArr)
+                    else
                     {
-                        if(str == text)
+                        for(int i = 0; i < 7; i++)
                         {
-                            Console.WriteLine("Такой текст уже был!");
-                            f = false;
-                            break;
+                            if(TextArr[i] == text)
+                            {
+                                Console.WriteLine("Такой текст уже был!");
+                                f = false;
+                                goto exit;
+                            }
+                            else
+                            {
+                                f = true;
+                            }
                         }
-                        else
+                        if(f == true)
                         {
-                            f = true;
+                            TextArr[count] = text;
+                            count++;
+                            GetVowAndCon(TextArr[count], count);
+                            Console.WriteLine("Текст готов!");//вывод сообщения
                         }
-                    }
-                    if(f == true)
-                    {
-                        count++;
-                        TextArr.Add(text);
-                        GetVowAndCon(text, count);
-                        Console.WriteLine("Текст готов!");//вывод сообщения
                     }
                     exit:
-                    Thread.Sleep(10000);
-                    
+                    Thread.Sleep(10000);  
                 }
                 catch
                 {
@@ -106,14 +108,14 @@ namespace ChatClient
             }
         }
 
-        static void GetVowAndCon(string text, int number)
+        static void GetVowAndCon(string mtext, int number)
         {
             var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
             var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
-            string vowTxt = new string(text.ToLower().Where(c=>vowels.Contains(c)).ToArray());
-            string conTxt = new string(text.ToLower().Where(c=>consonants.Contains(c)).ToArray());
-            string totalVow = new string(text.ToLower().Count(c=>vowels.Contains(c)) + " ," + vowTxt);
-            string totalCon = new string(text.ToLower().Count(c=>consonants.Contains(c)) + " ," + conTxt);
+            string vowTxt = new string(mtext.ToLower().Where(c=>vowels.Contains(c)).ToArray());
+            string conTxt = new string(mtext.ToLower().Where(c=>consonants.Contains(c)).ToArray());
+            string totalVow = new string(vowTxt.Count() + " ," + vowTxt);
+            string totalCon = new string(conTxt.Count() + " ," + conTxt);
             PrintInFile(totalVow, "vowels", number);
             PrintInFile(totalCon, "consonants", number);
         }
