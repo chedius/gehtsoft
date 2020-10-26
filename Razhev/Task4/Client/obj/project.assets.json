@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\Task4\\Client\\Client.csproj",
+      "projectUniqueName": "D:\\C#\\gehtsoft\\Razhev\\Task4\\Client\\Client.csproj",
       "projectName": "Client",
-      "projectPath": "D:\\C#\\Task4\\Client\\Client.csproj",
+      "projectPath": "D:\\C#\\gehtsoft\\Razhev\\Task4\\Client\\Client.csproj",
       "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\Task4\\Client\\obj\\",
+      "outputPath": "D:\\C#\\gehtsoft\\Razhev\\Task4\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",

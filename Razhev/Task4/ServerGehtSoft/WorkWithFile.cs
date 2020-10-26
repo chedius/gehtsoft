@@ -8,16 +8,27 @@ namespace ServerGehtSoft
     // Сделал: Ражев Дмитрий
     class WorkWithFile
     {
+        Printer InstancePrinter = new Printer();
+        public string abcolutepath = @"D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\bin\Debug\netcoreapp3.1\movies.txt";
         /// <summary>
         /// Метод ищет путь к файлу фильмов, т.к при скачивании и запуске программы у каждого пользователя может быть разные дирректории то мы возвращаем путь что бы все было автоматизированно.
         /// </summary>
         /// <returns></returns>
         public string GetPath()
         {
-            string filename = @"movies.txt";
-            string fullPath = Path.GetFullPath(filename);
-            Console.WriteLine(fullPath);
-            return fullPath;
+            InstancePrinter.PrintAbsolutePath(abcolutepath);
+            InstancePrinter.PrintRecommendations();
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                return abcolutepath;
+            }
+            else
+            {
+                InstancePrinter.PrintDialog();
+                string path = Console.ReadLine();
+                return path;
+            }
         }
 
         /// <summary>
@@ -39,7 +50,7 @@ namespace ServerGehtSoft
         public string[] ReadFile(string path)
         {
             string str = "";
-            using (StreamReader sr = new StreamReader(path))
+            using (StreamReader sr = new StreamReader(@path))
             {
 
                 str = sr.ReadToEnd();
@@ -91,6 +102,7 @@ namespace ServerGehtSoft
         public string OutputFilms(List<string> films)
         {
             string result = "";
+            string failedsearch = "There are no such films.";
             if (Assert(films))
             {
                 foreach (var i in films)
@@ -101,7 +113,7 @@ namespace ServerGehtSoft
             }
             else
             {
-                result += "There are no such films.";
+                result += failedsearch;
                 return result;
             }
             

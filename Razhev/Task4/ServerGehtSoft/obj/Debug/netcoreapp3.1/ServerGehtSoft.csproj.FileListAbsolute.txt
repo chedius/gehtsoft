@@ -37,3 +37,16 @@ D:\C#\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.csproj.CoreCom
 D:\C#\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.dll
 D:\C#\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.pdb
 D:\C#\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.genruntimeconfig.cache
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\bin\Debug\netcoreapp3.1\ServerGehtSoft.exe
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\bin\Debug\netcoreapp3.1\ServerGehtSoft.deps.json
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\bin\Debug\netcoreapp3.1\ServerGehtSoft.runtimeconfig.json
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\bin\Debug\netcoreapp3.1\ServerGehtSoft.runtimeconfig.dev.json
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\bin\Debug\netcoreapp3.1\ServerGehtSoft.dll
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\bin\Debug\netcoreapp3.1\ServerGehtSoft.pdb
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.csprojAssemblyReference.cache
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.AssemblyInfoInputs.cache
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.AssemblyInfo.cs
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.csproj.CoreCompileInputs.cache
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.dll
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.pdb
+D:\C#\gehtsoft\Razhev\Task4\ServerGehtSoft\obj\Debug\netcoreapp3.1\ServerGehtSoft.genruntimeconfig.cache
