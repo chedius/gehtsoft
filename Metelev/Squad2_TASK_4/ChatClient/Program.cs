@@ -26,17 +26,16 @@ namespace ChatClient
             client = new TcpClient();
             try
             {
-                client.Connect(host, port); //подключение клиента
-                stream = client.GetStream(); // получаем поток
-                string message = userName;
-                byte[] data = Encoding.Unicode.GetBytes(message);
+                client.Connect(host, port);
+                stream = client.GetStream();
+                byte[] data = Encoding.Unicode.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
-
-                // запускаем новый поток для получения данных
-                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
-                receiveThread.Start(); //старт потока
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                Console.ReadKey();
+                while(true)
+                {
+                   ReceiveMessage();
+                   Thread.Sleep(10000); 
+                }
             }
             catch (Exception ex)
             {
@@ -50,37 +49,23 @@ namespace ChatClient
         // получение сообщений
         static void ReceiveMessage()
         {
-            while (true)
-            {
-                try
+                Console.WriteLine("Запрашивается текст");
+                byte[] data = new byte[64];
+                StringBuilder builder = new StringBuilder();
+                int bytes = 0;
+                do
                 {
-                    Console.WriteLine("Запрашивается текст");
-                    byte[] data = new byte[64]; // буфер для получаемых данных
-                    StringBuilder builder = new StringBuilder();
-                    int bytes = 0;
-                    do
-                    {
-                        bytes = stream.Read(data, 0, data.Length);
-                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-                    }
-                    while (stream.DataAvailable);
-                    string text = builder.ToString();
-                    Console.WriteLine("Отправляем текст " + text + " на проверку");
-                    Thread.Sleep(10000); 
-                    CheckText(text); 
+                    bytes = stream.Read(data, 0, data.Length);
+                    builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                 }
-                catch
-                {
-                    Console.WriteLine("Подключение прервано!"); //соединение было прервано
-                    Console.ReadLine();
-                    Disconnect();
-                }
-            }
+                while (stream.DataAvailable);
+                string text = builder.ToString();
+                Console.WriteLine("Отправляем текст " + text + " на проверку");
+                CheckText(text);
         }
 
         static void CheckText(string text)
         {
-            if (text == null) goto exit;
             if(TextArr[0] == null)
             {
                 TextArr[0] = text;
@@ -90,7 +75,7 @@ namespace ChatClient
             }
             else
             {
-                for(int i = 0; i < 6; i++)
+                for(int i = 0; i < count; i++)
                 {
                     if(TextArr[i] == text)
                     {
@@ -108,10 +93,11 @@ namespace ChatClient
                     TextArr[count] = text;
                     count++;
                     GetVowAndCon(TextArr[count], count);
-                    Console.WriteLine("Текст готов!");//вывод сообщения
+                    Console.WriteLine("Текст готов!");
                 }
-            }exit:;
+            }
         }
+
         static void GetVowAndCon(string mtext, int number)
         {
             var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
