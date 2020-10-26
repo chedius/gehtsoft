@@ -15,8 +15,8 @@ namespace ChatClient
         private const int port = 8888;
         static TcpClient client;
         static NetworkStream stream;
-        private static int count;
-        private static bool f;
+        private static int count = 0;
+        private static bool f = true;
         private static string[] TextArr = new string[7];
  
         static void Main(string[] args)
@@ -65,39 +65,9 @@ namespace ChatClient
                     }
                     while (stream.DataAvailable);
                     string text = builder.ToString();
-                    if (text == null) goto exit;
-                    if(TextArr[0] == null)
-                    {
-                        TextArr[0] = text;
-                        count++;
-                        GetVowAndCon(TextArr[0], count);
-                        Console.WriteLine("Текст готов!");
-                    }
-                    else
-                    {
-                        for(int i = 0; i < 7; i++)
-                        {
-                            if(TextArr[i] == text)
-                            {
-                                Console.WriteLine("Такой текст уже был!");
-                                f = false;
-                                goto exit;
-                            }
-                            else
-                            {
-                                f = true;
-                            }
-                        }
-                        if(f == true)
-                        {
-                            TextArr[count] = text;
-                            count++;
-                            GetVowAndCon(TextArr[count], count);
-                            Console.WriteLine("Текст готов!");//вывод сообщения
-                        }
-                    }
-                    exit:
-                    Thread.Sleep(10000);  
+                    Console.WriteLine("Отправляем текст " + text + " на проверку");
+                    Thread.Sleep(10000); 
+                    CheckText(text); 
                 }
                 catch
                 {
@@ -108,6 +78,40 @@ namespace ChatClient
             }
         }
 
+        static void CheckText(string text)
+        {
+            if (text == null) goto exit;
+            if(TextArr[0] == null)
+            {
+                TextArr[0] = text;
+                count++;
+                GetVowAndCon(TextArr[0], count);
+                Console.WriteLine("Текст готов!");
+            }
+            else
+            {
+                for(int i = 0; i < 6; i++)
+                {
+                    if(TextArr[i] == text)
+                    {
+                        Console.WriteLine("Такой текст уже был!");
+                        f = false;
+                        break;
+                    }
+                    else
+                    {
+                        f = true;
+                    }
+                }
+                if(f == true)
+                {
+                    TextArr[count] = text;
+                    count++;
+                    GetVowAndCon(TextArr[count], count);
+                    Console.WriteLine("Текст готов!");//вывод сообщения
+                }
+            }exit:;
+        }
         static void GetVowAndCon(string mtext, int number)
         {
             var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
