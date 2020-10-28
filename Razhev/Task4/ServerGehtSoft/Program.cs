@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 
 namespace ServerGehtSoft
@@ -20,7 +19,6 @@ namespace ServerGehtSoft
                 listener = new TcpListener(IPAddress.Parse(address), port);
                 listener.Start();
                 Console.WriteLine("Server start.");
-
 
                 while (true)
                 {
