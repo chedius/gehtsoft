@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Text.RegularExpressions;
- 
+
 namespace ChatClient
 {
     class Program
@@ -16,9 +16,9 @@ namespace ChatClient
         private const int port = 8888;
         static TcpClient client;
         static NetworkStream stream;
-        private static int count;
+        private static int count = 0;
         private static bool f = true;
-        private static List <string> TextArr = new List<string>();
+        private static string[] TextArr = new string[7];
  
         static void Main(string[] args)
         {
@@ -27,18 +27,18 @@ namespace ChatClient
             client = new TcpClient();
             try
             {
-                
-                client.Connect(host, port); //подключение клиента
-                stream = client.GetStream(); // получаем поток
-                string message = userName;
-                byte[] data = Encoding.Unicode.GetBytes(message);
+                client.Connect(host, port);
+                stream = client.GetStream();
+                byte[] data = Encoding.Unicode.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
-
-                // запускаем новый поток для получения данных
-                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
-                receiveThread.Start(); //старт потока
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                Console.ReadKey();
+                while (count < 6)
+                {
+                    string text = ReceiveMessage();
+                    CheckText(text);
+                    Thread.Sleep(5000);
+                }
+                Console.WriteLine("Все строки успешно получены");
             }
             catch (Exception ex)
             {
@@ -48,85 +48,75 @@ namespace ChatClient
             {
                 Disconnect();
             }
+
+            
+            Console.WriteLine("Все тексты получены");
         }
         // получение сообщений
-        static void ReceiveMessage()
+        static string ReceiveMessage()
         {
-            while (true)
-            {
-                try
+                Console.WriteLine("Запрашивается текст");
+                byte[] data = new byte[64];
+                StringBuilder builder = new StringBuilder();
+                int bytes = 0;
+                do
                 {
-                    
-                    Console.WriteLine("Запрашивается текст");
-                    byte[] data = new byte[64]; // буфер для получаемых данных
-                    StringBuilder builder = new StringBuilder();
-                    int bytes = 0;
-                    do
-                    {
-                        bytes = stream.Read(data, 0, data.Length);
-                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-                    }
-                    while (stream.DataAvailable);
-                    string text = builder.ToString();
-                    Console.WriteLine(text);
-                   // if (text == null) ;
-
-                    //count++;
-                        
-                   /* GetVowAndCon(text, count);
-                    GetUniqWords(text, count);
-                    Console.WriteLine("Текст готов!");*/
-                        
-
-                    foreach (var str in TextArr)
-                    {
-                        if(str == text)
-                        {
-                            Console.WriteLine("Такой текст уже был!");
-                            f = false;
-                            break;
-                        }
-                        else
-                        {
-                            f = true;
-                        }
-                    }
-                    TextArr.Add(text);
-                    if (f == true)
-                    {
-                        count++;
-                        TextArr.Add(text);
-                        GetVowAndCon(text, count);
-                        GetUniqWords(text, count);
-                        Console.WriteLine("Текст готов!");//вывод сообщения
-                    }
-                    Thread.Sleep(10000);
-                    
+                    bytes = stream.Read(data, 0, data.Length);
+                    builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                 }
-                catch
+                while (stream.DataAvailable);
+                string text = builder.ToString();
+                Console.WriteLine("Отправляем текст " + text + " на проверку");
+                return text;
+        }
+
+        static void CheckText(string text)
+        {
+            if(TextArr[0] == null)
+            {
+                TextArr[0] = text;
+                GetVowAndCon(TextArr[0], count);
+                GetUniqWords(TextArr[0], count);
+                count++;
+                Console.WriteLine("Текст готов!");
+            }
+            else
+            {
+                for(int i = 0; i < count; i++)
                 {
-                    Console.WriteLine("Подключение прервано!"); //соединение было прервано
-                    Console.ReadLine();
-                    Disconnect();
+                    if(TextArr[i] == text)
+                    {
+                        Console.WriteLine("Такой текст уже был!");
+                        f = false;
+                        break;
+                    }
+                    else
+                    {
+                        f = true;
+                    }
+                }
+                if(f == true)
+                {
+                    TextArr[count] = text;
+                    GetVowAndCon(TextArr[count], count);
+                    GetUniqWords(TextArr[count], count);
+                   count++;
+                    Console.WriteLine("Текст готов!");
                 }
             }
         }
 
-        static void GetVowAndCon(string text, int number)
+        static void GetVowAndCon(string mtext, int number)
         {
-             var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
-             var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
-             string vowTxt = new string(text.ToLower().Where(c=>vowels.Contains(c)).ToArray());
-             string conTxt = new string(text.ToLower().Where(c=>consonants.Contains(c)).ToArray());
-             string totalVow = new string(text.ToLower().Count(c=>vowels.Contains(c)) + " ," + vowTxt);
-             string totalCon = new string(text.ToLower().Count(c=>consonants.Contains(c)) + " ," + conTxt);
-             PrintInFile(totalVow, "vowels", number);
-             PrintInFile(totalCon, "consonants", number);
-
+            var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
+            var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
+            string vowTxt = new string(mtext.ToLower().Where(c=>vowels.Contains(c)).ToArray());
+            string conTxt = new string(mtext.ToLower().Where(c=>consonants.Contains(c)).ToArray());
+            string totalVow = new string(vowTxt.Count() + " ," + vowTxt);
+            string totalCon = new string(conTxt.Count() + " ," + conTxt);
+            PrintInFile(totalVow, "vowels", number);
+            PrintInFile(totalCon, "consonants", number);
         }
-
-           
-        
         static void GetUniqWords(string text, int number)
         {
             Regex req_exp = new Regex("[^a-zA-Z0-9]");
@@ -156,7 +146,6 @@ namespace ChatClient
                 fstream.Write(array, 0, array.Length);
             }
         }
-
         static void Disconnect()
         {
             if(stream!=null)
