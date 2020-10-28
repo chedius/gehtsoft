@@ -33,8 +33,9 @@ namespace ChatClient
                 Console.WriteLine("Добро пожаловать, {0}", userName);
                 while(true)
                 {
-                   ReceiveMessage();
-                   Thread.Sleep(10000); 
+                   string text = ReceiveMessage();
+                   CheckText(text);
+                   Thread.Sleep(5000); 
                 }
             }
             catch (Exception ex)
@@ -47,7 +48,7 @@ namespace ChatClient
             }
         }
         // получение сообщений
-        static void ReceiveMessage()
+        static string ReceiveMessage()
         {
                 Console.WriteLine("Запрашивается текст");
                 byte[] data = new byte[64];
@@ -61,7 +62,7 @@ namespace ChatClient
                 while (stream.DataAvailable);
                 string text = builder.ToString();
                 Console.WriteLine("Отправляем текст " + text + " на проверку");
-                CheckText(text);
+                return text;
         }
 
         static void CheckText(string text)
@@ -69,8 +70,8 @@ namespace ChatClient
             if(TextArr[0] == null)
             {
                 TextArr[0] = text;
-                count++;
                 GetVowAndCon(TextArr[0], count);
+                count++;
                 Console.WriteLine("Текст готов!");
             }
             else
@@ -91,8 +92,8 @@ namespace ChatClient
                 if(f == true)
                 {
                     TextArr[count] = text;
-                    count++;
                     GetVowAndCon(TextArr[count], count);
+                    count++;
                     Console.WriteLine("Текст готов!");
                 }
             }
