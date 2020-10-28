@@ -19,6 +19,7 @@ namespace ChatClient
         private static int count = 0;
         private static bool f = true;
         private static string[] TextArr = new string[7];
+        private const int numTexts = 7;
  
         static void Main(string[] args)
         {
@@ -32,7 +33,7 @@ namespace ChatClient
                 byte[] data = Encoding.Unicode.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                while (count < 6)
+                while (count < numTexts)
                 {
                     string text = ReceiveMessage();
                     CheckText(text);
