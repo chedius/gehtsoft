@@ -7,7 +7,7 @@ namespace ServerGehtSoft
     // Сделал: Ражев Дмитрий
     class ClientObject
     {
-        
+        public string abcolutepath = @"movies.txt";
         public TcpClient client;
         public ClientObject(TcpClient tcpClient)
         {
@@ -24,7 +24,7 @@ namespace ServerGehtSoft
             {
                 stream = client.GetStream();
                 byte[] data = new byte[256];
-                string path = InstanceWorkWithFile.GetPath();
+             
                 while (true)
                 {
                     StringBuilder builder = new StringBuilder();
@@ -40,7 +40,7 @@ namespace ServerGehtSoft
                     
                     var actors = InstanceWorkWithFile.InputActors(message);
                     
-                    var films = InstanceWorkWithFile.ReadFile(path);
+                    var films = InstanceWorkWithFile.ReadFile(abcolutepath);
                     
                     var foundfilms = InstanceWorkWithFile.SearchFilms(actors, films);
                     var film = InstanceWorkWithFile.SubLines(foundfilms);              
