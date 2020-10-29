@@ -92,7 +92,6 @@ namespace ChatServer
                     clients[i].Stream.Write(data, 0, data.Length);
                 }
                 Thread.Sleep(5000);
-                Array.Clear(data, 0, data.Length - 1);
             }
         }
     }
