@@ -31,12 +31,13 @@ namespace ChatClient
                 byte[] data = Encoding.Unicode.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                while(true)
+                while(count < 7)
                 {
                    string text = ReceiveMessage();
                    CheckText(text);
-                   Thread.Sleep(5000); 
+                   Thread.Sleep(10000); 
                 }
+                Disconnect();
             }
             catch (Exception ex)
             {
