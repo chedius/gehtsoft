@@ -9,32 +9,43 @@ namespace Barbershop
         private static AutoResetEvent gVisitor = new AutoResetEvent(false);
 
         private static int countVisitor = 0; // считать количество посетителей 
-        private static int count = 0;
         private static bool verify = false; //  не занято
-
         public static void Do()
         {
             Thread hairdresser = new Thread(Hairdresser);
             Thread visitor = new Thread(Visitor);
-
             hairdresser.Start();
             Thread.Sleep(100); // Изначально парикмахер спит. Т.к посетителей нет. Ждет пока его разбудят.
 
             visitor.Start();
-
-            hairdresser.Join();
-            visitor.Join();
+            TimerCallback tm = new TimerCallback(VisitorExit);
+            Timer timer = new Timer(tm, null, 0, 15000); //парикмахер обслуживает каждого клиента в течении 15 секунд
+            Console.ReadLine();
         }
-        // Посетители приходят через какое то отпределённое время. Первый посетитель будет парикмахера.
+
+        public static void VisitorExit(object obj)
+        {
+            if(countVisitor >= 1)
+            {
+                countVisitor--;
+                Console.WriteLine($"Парикмахер закончил стричь посетителя. Посетитель уходит.Количество посетителей:{countVisitor}");
+                if(countVisitor == 0)
+                {
+                    Console.WriteLine("Парикмахер спит");
+                }
+            }
+        }
         public static void Visitor()
         {
+            Thread.Sleep(1000);
+            Random rand = new Random();
             do
             {
-                Thread.Sleep(5000);     //Через какое то время приходит новый посетитель.
+                int time = rand.Next(5000,20000); //посетители приходят рандомно в промежуток времени от 5 до 20 сек
                 countVisitor++;      //Пришел первый посетитель. Плюсуем счетчик.
                 Console.WriteLine("Посетитель пришёл.Всего посетителей: {0}", countVisitor);
                 gVisitor.Set(); //Запускаем поток посетителей.
-                //gHairdresser.Set(); //Запускаем поток парикмахера.
+                Thread.Sleep(time);     //Через какое то время приходит новый посетитель.
 
             } while (true);
            
@@ -43,6 +54,7 @@ namespace Barbershop
         public static void Hairdresser() 
         {
             AutoResetEvent[] events = new AutoResetEvent[] { gVisitor };
+            Console.WriteLine("Парикмахер спит.");
 
             while (true)
             {
@@ -59,17 +71,15 @@ namespace Barbershop
                     {
                         //Thread.Sleep(500);
                         Console.WriteLine("Парикмахер просыпается.Приступает к работе.");
-                        countVisitor--;
                         verify = true;
                     }
                     else if (verify == true && countVisitor <= 3) //Если парикмахер занят и количество посетителей меньшее 3 то просим ожидать.
                     {
-                        countVisitor--;
                         Console.WriteLine("Парикмахер занят другим посетителем.Ожидайте..");
                     }
-                    while (verify == true && countVisitor >= 3) //Если парикмахер занят и количество посетителей больше 3 то посетитель уходит т.к нет мест.
+                    else if (verify == true && countVisitor >= 3) //Если парикмахер занят и количество посетителей больше 3 то посетитель уходит т.к нет мест.
                     {
-                        Console.WriteLine("Все места ожидания заняты. Посетитель уходит.Посетители: {0}", countVisitor);
+                        Console.WriteLine("Все места ожидания заняты. Посетитель уходит.Посетители: {0}", countVisitor-1);
                         countVisitor--;
                     }
                 }
@@ -82,6 +92,7 @@ namespace Barbershop
 
         static void Main(string[] args)
         {
+            Console.Clear();
             Do();
         }
     }
