@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Дмитрий\\source\\repos\\Barbershop\\Barbershop\\Barbershop.csproj",
+      "projectUniqueName": "D:\\C#\\gehtsoft\\Razhev\\Task5\\Barbershop\\Barbershop.csproj",
       "projectName": "Barbershop",
-      "projectPath": "C:\\Users\\Дмитрий\\source\\repos\\Barbershop\\Barbershop\\Barbershop.csproj",
+      "projectPath": "D:\\C#\\gehtsoft\\Razhev\\Task5\\Barbershop\\Barbershop.csproj",
       "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Дмитрий\\source\\repos\\Barbershop\\Barbershop\\obj\\",
+      "outputPath": "D:\\C#\\gehtsoft\\Razhev\\Task5\\Barbershop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -16,13 +16,21 @@ namespace Barbershop
             Thread visitor = new Thread(Visitor);
             hairdresser.Start();
             Thread.Sleep(100); // Изначально парикмахер спит. Т.к посетителей нет. Ждет пока его разбудят.
-
+            
             visitor.Start();
             TimerCallback tm = new TimerCallback(VisitorExit);
             Timer timer = new Timer(tm, null, 0, 15000); //парикмахер обслуживает каждого клиента в течении 15 секунд
+
+            Tracking(visitor, hairdresser);
             Console.ReadLine();
         }
-
+        public static void Tracking(Thread thread1, Thread thread2) 
+        {
+            if (Console.ReadKey().Key == ConsoleKey.Escape)
+            {
+                Environment.Exit(0);
+            }
+        }
         public static void VisitorExit(object obj)
         {
             if(countVisitor >= 1)
@@ -32,6 +40,7 @@ namespace Barbershop
                 if(countVisitor == 0)
                 {
                     Console.WriteLine("Парикмахер спит");
+                    verify = false;
                 }
             }
         }
@@ -69,9 +78,9 @@ namespace Barbershop
                     }
                     else if (verify == false && countVisitor != 0) //Если парикмахер не занят и посетителей больше 0 то парикмахер просыпается и приступает к работе.
                     {
-                        //Thread.Sleep(500);
                         Console.WriteLine("Парикмахер просыпается.Приступает к работе.");
                         verify = true;
+                        gHairdresser.Set();
                     }
                     else if (verify == true && countVisitor <= 3) //Если парикмахер занят и количество посетителей меньшее 3 то просим ожидать.
                     {

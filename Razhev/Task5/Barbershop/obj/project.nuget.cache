@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "prhyvSI3aO73txfmcSiEwAOG3M1G2KxVnOJJlngO5tD4ORv1StUDriWCadMVvaJiocF/oaRr1y1sbOSD55Zcmg==",
+  "dgSpecHash": "gUYZQWL6FrVGTIBa5gupJfKvX3BIouina6XK6sVaYX1OKaJqy1HsmzUWEaByXoc1fpjv+4Wb+xAdT4giQwxXPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Дмитрий\\source\\repos\\Barbershop\\Barbershop\\Barbershop.csproj",
+  "projectFilePath": "D:\\C#\\gehtsoft\\Razhev\\Task5\\Barbershop\\Barbershop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Дмитрий\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
