@@ -19,7 +19,6 @@ namespace ChatClient
         private static int count = 0;
         private static bool f = true;
         private static string[] TextArr = new string[7];
-        private const int numTexts = 7;
  
         static void Main(string[] args)
         {
@@ -33,13 +32,13 @@ namespace ChatClient
                 byte[] data = Encoding.Unicode.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                while (count < numTexts)
+                while(count < 7)
                 {
-                    string text = ReceiveMessage();
-                    CheckText(text);
-                    Thread.Sleep(5000);
+                   string text = ReceiveMessage();
+                   CheckText(text);
+                   Thread.Sleep(10000); 
                 }
-                Console.WriteLine("Все строки успешно получены");
+                Disconnect();
             }
             catch (Exception ex)
             {
@@ -49,9 +48,6 @@ namespace ChatClient
             {
                 Disconnect();
             }
-
-            
-            Console.WriteLine("Все тексты получены");
         }
         // получение сообщений
         static string ReceiveMessage()
@@ -101,7 +97,7 @@ namespace ChatClient
                     TextArr[count] = text;
                     GetVowAndCon(TextArr[count], count);
                     GetUniqWords(TextArr[count], count);
-                   count++;
+                    count++;
                     Console.WriteLine("Текст готов!");
                 }
             }
@@ -118,6 +114,7 @@ namespace ChatClient
             PrintInFile(totalVow, "vowels", number);
             PrintInFile(totalCon, "consonants", number);
         }
+
         static void GetUniqWords(string text, int number)
         {
             Regex req_exp = new Regex("[^a-zA-Z0-9]");
@@ -139,6 +136,7 @@ namespace ChatClient
             PrintInFile(result, "uniq", number);
 
         }
+
         static void PrintInFile(string res, string name, int number)
         {
             using (FileStream fstream = new FileStream($"../{name}{number}.txt", FileMode.OpenOrCreate))

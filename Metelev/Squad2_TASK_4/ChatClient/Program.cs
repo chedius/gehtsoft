@@ -5,7 +5,8 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
- 
+using System.Text.RegularExpressions;
+
 namespace ChatClient
 {
     class Program
@@ -31,12 +32,13 @@ namespace ChatClient
                 byte[] data = Encoding.Unicode.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                while(true)
+                while(count < 7)
                 {
                    string text = ReceiveMessage();
                    CheckText(text);
-                   Thread.Sleep(5000); 
+                   Thread.Sleep(10000); 
                 }
+                Disconnect();
             }
             catch (Exception ex)
             {
@@ -71,6 +73,7 @@ namespace ChatClient
             {
                 TextArr[0] = text;
                 GetVowAndCon(TextArr[0], count);
+                GetUniqWords(TextArr[0], count);
                 count++;
                 Console.WriteLine("Текст готов!");
             }
@@ -93,6 +96,7 @@ namespace ChatClient
                 {
                     TextArr[count] = text;
                     GetVowAndCon(TextArr[count], count);
+                    GetUniqWords(TextArr[count], count);
                     count++;
                     Console.WriteLine("Текст готов!");
                 }
@@ -110,6 +114,29 @@ namespace ChatClient
             PrintInFile(totalVow, "vowels", number);
             PrintInFile(totalCon, "consonants", number);
         }
+
+        static void GetUniqWords(string text, int number)
+        {
+            Regex req_exp = new Regex("[^a-zA-Z0-9]");
+            text = req_exp.Replace(text, " ");
+
+            string[] words = text.Split(
+                new char[] { ' ' },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            var word_query = (from string word in words orderby word select word).Distinct();
+            string[] noResult = word_query.ToArray();
+
+            string result = null;
+            for (int i = 0; i < noResult.Length; i++)
+            {
+                result += noResult[i];
+                result += " ";
+            }
+            PrintInFile(result, "uniq", number);
+
+        }
+
         static void PrintInFile(string res, string name, int number)
         {
             using (FileStream fstream = new FileStream($"../{name}{number}.txt", FileMode.OpenOrCreate))
