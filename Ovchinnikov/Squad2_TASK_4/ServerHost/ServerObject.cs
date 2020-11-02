@@ -14,7 +14,10 @@ namespace ChatServer
         static TcpListener tcpListener; // сервер для прослушивания
         List<ClientObject> clients = new List<ClientObject>(); // все подключения
 
-        
+        static string path = @"..\Texts.txt";
+        Random rand = new Random();
+        string[] texts = File.ReadAllLines(path);
+        static string mes;
  
         protected internal void AddConnection(ClientObject clientObject)
         {
@@ -76,22 +79,32 @@ namespace ChatServer
             }
             Environment.Exit(0); //завершение процесса
         }
-
-        public void SendText()
+        public void UpdateText()
         {
-            string path = @"..\Texts.txt";
-            Random rand = new Random();
-            string[] texts = File.ReadAllLines(path);
-            string mes;   
             while(true)
             {
                 mes = texts[rand.Next(texts.Length)];
-                byte[] data = Encoding.Unicode.GetBytes(mes);
-                for (int i = 0; i < clients.Count; i++)
-                {
-                    clients[i].Stream.Write(data, 0, data.Length);
-                }
+                Console.WriteLine($"Текст обновлен: {mes}");
                 Thread.Sleep(5000);
+            }
+        }
+        public void Do()
+        {
+            Thread.Sleep(100);
+            Thread update = new Thread(UpdateText);
+            update.Start();
+            while(true)
+            {
+                Thread.Sleep(10000);
+                SendText(mes);
+            }
+        }
+        public void SendText(string mes)
+        {
+            byte[] data = Encoding.Unicode.GetBytes(mes);
+            for (int i = 0; i < clients.Count; i++)
+            {
+                clients[i].Stream.Write(data, 0, data.Length);
             }
         }
     }
