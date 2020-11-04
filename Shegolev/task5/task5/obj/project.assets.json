@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vadim\\source\\repos\\task5\\task5\\task5.csproj",
-      "projectName": "task5",
-      "projectPath": "C:\\Users\\vadim\\source\\repos\\task5\\task5\\task5.csproj",
+      "projectUniqueName": "C:\\Users\\vadim\\source\\repos\\Task5\\Task5\\Task5.csproj",
+      "projectName": "Task5",
+      "projectPath": "C:\\Users\\vadim\\source\\repos\\Task5\\Task5\\Task5.csproj",
       "packagesPath": "C:\\Users\\vadim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vadim\\source\\repos\\task5\\task5\\obj\\",
+      "outputPath": "C:\\Users\\vadim\\source\\repos\\Task5\\Task5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",
