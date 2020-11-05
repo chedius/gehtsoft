@@ -8,8 +8,11 @@ namespace Barbershop
         private static AutoResetEvent gHairdresser = new AutoResetEvent(false);
         private static AutoResetEvent gVisitor = new AutoResetEvent(false);
 
-        private static int countVisitor = 0; // считать количество посетителей 
+        private static int countVisitor = 0; // считать количество посетителей
+        private static int count; //общее число посетителей
+        private static bool mStop = false;         
         private static bool verify = false; //  не занято
+        private static Timer timer;
         public static void Do()
         {
             Thread hairdresser = new Thread(Hairdresser);
@@ -19,16 +22,20 @@ namespace Barbershop
             
             visitor.Start();
             TimerCallback tm = new TimerCallback(VisitorExit);
-            Timer timer = new Timer(tm, null, 0, 15000); //парикмахер обслуживает каждого клиента в течении 15 секунд
-
-            Tracking(visitor, hairdresser);
-            Console.ReadLine();
+            timer = new Timer(tm, null, 0, 15000); //парикмахер обслуживает каждого клиента в течении 15 секунд
+            Tracking();
         }
-        public static void Tracking(Thread thread1, Thread thread2) 
+        public static void Tracking() 
         {
-            if (Console.ReadKey().Key == ConsoleKey.Escape)
+            while(true)
             {
-                Environment.Exit(0);
+                if (Console.ReadKey().Key == ConsoleKey.Escape)
+                {
+                    timer.Dispose();
+                    Stop();
+                    Console.WriteLine($"\nПарикмахер закончил работу. Всего было посетителей: {count}");
+                    break;
+                }
             }
         }
         public static void VisitorExit(object obj)
@@ -36,7 +43,8 @@ namespace Barbershop
             if(countVisitor >= 1)
             {
                 countVisitor--;
-                Console.WriteLine($"Парикмахер закончил стричь посетителя. Посетитель уходит.Количество посетителей:{countVisitor}");
+                count++;
+                Console.WriteLine($"Парикмахер закончил стричь посетителя. Посетитель уходит. Количество посетителей:{countVisitor}");
                 if(countVisitor == 0)
                 {
                     Console.WriteLine("Парикмахер спит");
@@ -50,6 +58,10 @@ namespace Barbershop
             Random rand = new Random();
             do
             {
+                if (mStop)
+                {
+                    return;
+                }
                 int time = rand.Next(5000,20000); //посетители приходят рандомно в промежуток времени от 5 до 20 сек
                 countVisitor++;      //Пришел первый посетитель. Плюсуем счетчик.
                 Console.WriteLine("Посетитель пришёл.Всего посетителей: {0}", countVisitor);
@@ -67,6 +79,11 @@ namespace Barbershop
 
             while (true)
             {
+                if (mStop)
+                {
+                    break;
+                }
+
                 int which = WaitHandle.WaitAny(events);
 
                 if (which == 0)
@@ -97,6 +114,10 @@ namespace Barbershop
                     break;
                 }
             }
+        }
+        public static void Stop()
+        {
+                mStop = true;
         }
 
         static void Main(string[] args)
