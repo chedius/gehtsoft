@@ -2,14 +2,15 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Configuration;
 
 namespace ServerGehtSoft
 {
     // Сделал: Ражев Дмитрий
     class Program
     {
-        const int port = 3000;
-        const string address = "127.0.0.1";
+        static int port = Convert.ToInt32(ConfigurationManager.AppSettings["port"]);
+        static string address = ConfigurationManager.AppSettings["address"];
         static TcpListener listener;
 
         public void ServerStart()
@@ -37,7 +38,9 @@ namespace ServerGehtSoft
             finally
             {
                 if (listener != null)
+                {
                     listener.Stop();
+                } 
             }
         }
 
