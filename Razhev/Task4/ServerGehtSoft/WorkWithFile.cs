@@ -27,7 +27,7 @@ namespace ServerGehtSoft
         public string[] ReadFile(string path)
         {
             string str = "";
-            using (StreamReader sr = new StreamReader(@path))
+            using (StreamReader sr = new StreamReader(path))
             {
 
                 str = sr.ReadToEnd();
