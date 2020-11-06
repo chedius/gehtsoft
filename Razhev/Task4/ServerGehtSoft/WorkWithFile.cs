@@ -8,22 +8,6 @@ namespace ServerGehtSoft
     // Сделал: Ражев Дмитрий
     class WorkWithFile
     {
-        /// <summary>
-        /// Приходит строка по типу A;B;C; этот метод разбивает слова отделённые символом ; и мы имеем доступ к кажому из них. Всё тоже самое только с Фамилиями актеров.
-        /// </summary>
-        /// <param name="inputactors"></param>
-        /// <returns></returns>
-        public string[] InputActors(string inputactors)
-        {
-            inputactors = inputactors.Replace(';', ' ');
-            string[] actors = inputactors.Split(' ');
-            return actors;
-        }
-        /// <summary>
-        /// Читаем из файла данные. И разбиваем их по переносу строки. Этот метод даёт нам доступ к каждой строке отдельно.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
         public string[] ReadFile(string path)
         {
             string str = "";
@@ -36,78 +20,91 @@ namespace ServerGehtSoft
             string[] films = str.Split('\n');
             return films;
         }
-        /// <summary>
-        /// Этот метод ищет в строке все подстроки. И если они имеются то добавляет их в лист и отправляет.
-        /// </summary>
-        /// <param name="actors"></param>
-        /// <param name="films"></param>
-        /// <returns></returns>
-        public List<string> SearchFilms(string[] actors, string[] films)
+        // Получаем из каждой строки массива фильмов Название фильма (год экранизации)
+        public List<string> FindNameYearFilms(string[] films , out List<string> actorsFilms) 
         {
-            List<string> foundfilms = new List<string>();
-            for (int i = 0; i < films.Length; i++)
+            List<string> nameYearFilm = new List<string>();
+            actorsFilms = new List<string>();
+            for (int i = 0; i < films.Length; i++) 
             {
-                if (actors.All(films[i].Contains))
+                if (!string.IsNullOrEmpty(films[i])) 
                 {
-                    foundfilms.Add(films[i]);
+                    string variable = films[i].Substring(0, films[i].IndexOf(')') + 1);
+                    string variable1 = films[i].Replace(variable,"");
+                    variable1 = variable1.Trim('/');
+                    variable1 = variable1.Replace(",","");
+                    variable1 = variable1.Replace("/", ",");
+                    nameYearFilm.Add(variable);
+                    actorsFilms.Add(variable1);
                 }
             }
-            
-            return foundfilms;
+            return nameYearFilm;
         }
-        /// <summary>
-        /// Данный метод на основе предыдущего берет 0 индекс и первый индекс где встречается символ ) + 1 т.к нам этот символ нужен и вырезает данный участок + запихивает в лист и отправляет.
-        /// </summary>
-        /// <param name="foundfilms"></param>
-        /// <returns></returns>
-        public List<string> SubLines(List<string> foundfilms)
+        // Получаем отдельно Название каждого фильма и год экранизации
+        public List<string> SubNameYearFilms(List<string> nameYearFilms , out List<string> yearFilms) 
         {
-            List<string> films = new List<string>();
-            for (int i = 0; i < foundfilms.Count; i++)
+            List<string> nameFilms = new List<string>();
+            yearFilms = new List<string>();
+            for (int i = 0; i < nameYearFilms.Count; i++) 
             {
-                string film = foundfilms[i].Substring(0, foundfilms[i].IndexOf(')') + 1);
-                films.Add(film);
+                string variable2 = nameYearFilms[i].Substring(0, nameYearFilms[i].IndexOf('(') - 1);
+                nameFilms.Add(variable2);
+                nameYearFilms[i] = nameYearFilms[i].Replace(variable2, "").Trim(' ');
+                nameYearFilms[i] = nameYearFilms[i].TrimStart('(').TrimEnd(')');
+                yearFilms.Add(nameYearFilms[i]);
             }
-            return films;
+            return nameFilms;
         }
 
-        /// <summary>
-        /// Этот метод на основе предыдущего из листа достает все элементы и делает из этого строку. Элементы разбиваются с помощью переноса строки.Или же если лист пуст отправляет сообщение о том что таких фильмов нет.
-        /// </summary>
-        /// <param name="films"></param>
-        /// <returns></returns>
-        public string OutputFilms(List<string> films)
+        public string FindActorsFilm(List<Movie> movies , string[] actors) 
         {
             string result = "";
-            string failedsearch = "There are no such films.";
-            if (Assert(films))
+            for (int i = 0; i < movies.Count; i++)
             {
-                foreach (var i in films)
+                if (actors.All(movies[i].Actors.Contains))
                 {
-                    result += i + '\n';
+                    result += movies[i].Name + " " + "-" + " " + movies[i].Year + '\n' + movies[i].Actors + '\n';
                 }
-                return result;
             }
-            else
+            if (string.IsNullOrEmpty(result))
             {
-                result += failedsearch;
-                return result;
+                result += "Nothing found.";
             }
-            
+            return result;
         }
-        /// <summary>
-        /// Метод првоеряет пуст ли лист фильмов.
-        /// </summary>
-        /// <param name="films"></param>
-        /// <returns></returns>
-        public bool Assert(List<string> films)
+
+        public string FindNameFilm(List<Movie> movies, string name)
         {
-            if (films.Count == 0)
+            string result = "";
+            for (int i = 0; i < movies.Count; i++)
             {
-                return false;
+                if (movies[i].Name.Contains(name))
+                {
+                    result += movies[i].Name + " " + "-" + " " + movies[i].Year + '\n';
+                }
             }
-            else
-                return true;
+            if (string.IsNullOrEmpty(result))
+            {
+                result += "Nothing found.";
+            }
+            return result;
+        }
+
+        public string FindYearFilm(List<Movie> movies, string year)
+        {
+            string result = "";
+            for (int i = 0; i < movies.Count; i++)
+            {
+                if (movies[i].Year.Contains(year))
+                {
+                    result += movies[i].Name + " " + "-" + " " + movies[i].Year + '\n';
+                }
+            }
+            if (string.IsNullOrEmpty(result))
+            {
+                result += "Nothing found.";
+            }
+            return result;
         }
     }
 }

@@ -15,20 +15,46 @@ namespace Client
         /// </summary>
         public void Client()
         {
+            Print InstancePrint = new Print();
             TcpClient client = null;
             try
             {
                 client = new TcpClient(address, port);
                 NetworkStream stream = client.GetStream();
 
-                Console.WriteLine("Enter Name and Surname actor:");
+                string message = "";
+                byte[] data;
                 while (true)
                 {
-                    string message = Console.ReadLine();
-
-                    byte[] data = Encoding.Unicode.GetBytes(message);
-
-                    stream.Write(data, 0, data.Length);
+                    InstancePrint.PrinterMenu();
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            InstancePrint.PrinterCaseOne();
+                            message = Console.ReadLine();
+                            data = Encoding.Unicode.GetBytes(message);
+                            stream.Write(data, 0, data.Length);
+                            break;
+                        case 2:
+                            InstancePrint.PrinterCaseSecond();
+                            message = Console.ReadLine();
+                            data = Encoding.Unicode.GetBytes(message);
+                            stream.Write(data, 0, data.Length);
+                            break;
+                        case 3:
+                            InstancePrint.PrinterCaseThree();
+                            message = Console.ReadLine();
+                            data = Encoding.Unicode.GetBytes(message);
+                            stream.Write(data, 0, data.Length);
+                            break;
+                        case 4:
+                            client.Close();
+                            break;
+                        default:
+                            InstancePrint.PrinterCaseDefault();
+                            break;
+                    }
 
                     data = new byte[256];
                     StringBuilder builder = new StringBuilder();
@@ -48,7 +74,6 @@ namespace Client
             {
                 client.Close();
             }
-
         }
     }
 }
