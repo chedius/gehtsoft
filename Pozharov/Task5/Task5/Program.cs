@@ -7,18 +7,20 @@ namespace Task5
     {
         static List<Fork> fork = new List<Fork>();
         static List<Philosopher> ph = new List<Philosopher>();
+        public static int n;
+        public static int[] times;
 
         public static void Main(string[] args)
         {
             Console.WriteLine("Please enter a quantity of Philosophers:");
-            int n = Convert.ToInt32(Console.ReadLine());
+            n = Convert.ToInt32(Console.ReadLine());
+            times = new int[n];
             Thread[] thArray = new Thread[n]; //пул потоков
             Philosopher ph1 = new Philosopher();
 
             if (n == 1)
             {
                 Console.WriteLine("One philosopher cannot eat with only one fork!");
-
             }
             else
             {
@@ -28,47 +30,63 @@ namespace Task5
                 }
                 for (int i = 0; i < n; i++)
                 {
-                    ph.Add(new Philosopher((i + 1).ToString(), i));
-                    // Thread th = new Thread(new ParameterizedThreadStart(ph[i].Run));
-                    
+                    ph.Add(new Philosopher(i + 1, i));
                     thArray[i] = new Thread(new ParameterizedThreadStart(ph[i].Run));
-                    
+
                 }
                 for (int i = 0; i < n; i++)
                 {
                     thArray[i].Start(fork);
-
-                    //Philosopher.Tracking();
                 }
 
-                for (int i = 0; i < n; i++)
+                while (true)
                 {
-                    ph1.Tracking(thArray[i], n);
+                    if (Console.ReadKey().Key == ConsoleKey.Escape)
+                    {
+                        foreach (var philosopher in ph)
+                        {
+                            philosopher.Stop();
 
+                        }
+
+                        foreach (var thread in thArray)
+                        {
+                            thread.Join();
+                        }
+                        for (int i = 0; i < n; i++)
+                        {
+                            ph[i].GetTimes(i, ph);
+                        }
+                        break;
+                    }
                 }
-                  
-                
-                
-                
-            }
 
+            }
         }
 
     }
 
-    public class Philosopher
+    public class Calculator
+    {
+
+    }
+
+    class Philosopher
     {
         Random rand = new Random(); // рандомная задержка между состояниями философов
         public enum State { Hunger, Eat, Think } // состояния философа
         public State CurrentState { get; set; } // текущее состояние
-        public string Name { get; set; } // имя философа
+        public int Name { get; set; } // имя философа
         public int Count { get; set; } // порядковый номер
         public int Times { get; set; } = 0; //счетчик подходов к еде
-        public Philosopher(string name, int count) // конструктор класса
+
+        private object mSyncObj = new object();
+        private bool mStop = true;
+
+        public Philosopher(int name, int count) // конструктор класса
         {
             Name = name;
             Count = count;
-         //   Times = times;
         }
         public Philosopher()
         {
@@ -78,78 +96,75 @@ namespace Task5
         {
             Start((List<Fork>)obj);
         }
-        
+
         void Start(List<Fork> fork)
         {
             int time = new Random().Next(System.DateTime.Now.Millisecond);
-            //List<int> times;
+            mStop = false;
+
             while (true)
             {
                 Console.WriteLine($"Философ {Name} ждет вилку ({time}мс)");
+                Thread.Sleep(time);
                 CurrentState = State.Hunger;
                 int first = Count;
                 int second = (Count == fork.Count - 1) ? 0 : Count + 1;
-                //int second = (Count == fork.Count - 1) % (fork.Count + 1);
                 fork[first].TakeFork();
                 fork[second].TakeFork();
                 CurrentState = State.Eat;
                 Console.WriteLine($"Философ {Name} обедает");
-                Console.WriteLine($"Вилки с номерами {first} и {second} заняты");
+                Console.WriteLine($"Вилки с номерами {first + 1} и {second + 1} заняты");
                 Thread.Sleep(rand.Next(300, 800));
                 fork[first].PutFork();
                 fork[second].PutFork();
-                //Times++;
-                //times[n] += 1; //.Add(1);
-                //вкидон
+                Times++;
                 CurrentState = State.Think;
                 Console.WriteLine($"Философ {Name} думает");
                 Thread.Sleep(rand.Next(500, 800));
-                
 
+                lock (mSyncObj)
+                {
+                    if (mStop)
+                        break;
+                }
 
             }
         }
-        public void GetTimes(int n)
+
+        public void Stop()
         {
-            Mutex mobj = new Mutex();
-            
-            for (int i = 0; i < n; i++)
+            lock (mSyncObj)
             {
-                mobj.WaitOne();
-                Console.WriteLine("Философ {0} сделал {1} подход к еде", Name, Times);
-                mobj.ReleaseMutex();
+                mStop = true;
             }
-            
         }
 
-        public void Tracking(Thread thread, int n)
+        public void GetTimes(int n, List<Philosopher> ph)
         {
-            if (Console.ReadKey().Key == ConsoleKey.Escape)
-            {
-                Mutex mobj = new Mutex();
-
-               
-                thread.Interrupt();
-                GetTimes(n);
-            }
+            Console.WriteLine("Философ {0} подошёл {1} раз(а)", ph[n].Name, ph[n].Times);
         }
+
     }
+
+
+
 
 
     class Fork
     {
-        Semaphore semaphore = new Semaphore(1, 1);
+            Semaphore semaphore = new Semaphore(1, 1);
 
-        public void TakeFork()
-        {
-            semaphore.WaitOne();
-        }
-        public void PutFork()
-        {
-            semaphore.Release();
-            
-            
-        }
+            public void TakeFork()
+            {
+                semaphore.WaitOne();
+
+            }
+            public void PutFork()
+            {
+                semaphore.Release();
+
+
+            }
     }
 
 }

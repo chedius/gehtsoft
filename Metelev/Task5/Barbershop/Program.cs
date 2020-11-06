@@ -44,10 +44,10 @@ namespace Barbershop
             {
                 countVisitor--;
                 count++;
-                Console.WriteLine($"Парикмахер закончил стричь посетителя. Посетитель уходит. Количество посетителей:{countVisitor}");
+                Console.WriteLine($"Парикмахер закончил стричь посетителя. Посетитель уходит. Количество посетителей: {countVisitor}");
                 if(countVisitor == 0)
                 {
-                    Console.WriteLine("Парикмахер спит");
+                    Console.WriteLine("Парикмахер спит.");
                     verify = false;
                 }
             }
@@ -56,11 +56,11 @@ namespace Barbershop
         {
             Thread.Sleep(1000);
             Random rand = new Random();
-            do
+            while (true)
             {
                 if (mStop)
                 {
-                    return;
+                    break;
                 }
                 int time = rand.Next(5000,20000); //посетители приходят рандомно в промежуток времени от 5 до 20 сек
                 countVisitor++;      //Пришел первый посетитель. Плюсуем счетчик.
@@ -68,7 +68,7 @@ namespace Barbershop
                 gVisitor.Set(); //Запускаем поток посетителей.
                 Thread.Sleep(time);     //Через какое то время приходит новый посетитель.
 
-            } while (true);
+            }
            
         }
        
@@ -101,7 +101,7 @@ namespace Barbershop
                     }
                     else if (verify == true && countVisitor <= 3) //Если парикмахер занят и количество посетителей меньшее 3 то просим ожидать.
                     {
-                        Console.WriteLine("Парикмахер занят другим посетителем.Ожидайте..");
+                        Console.WriteLine("Парикмахер занят другим посетителем.Ожидайте...");
                     }
                     else if (verify == true && countVisitor >= 3) //Если парикмахер занят и количество посетителей больше 3 то посетитель уходит т.к нет мест.
                     {
