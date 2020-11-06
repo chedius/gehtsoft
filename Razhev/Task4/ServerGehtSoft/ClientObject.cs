@@ -32,7 +32,7 @@ namespace ServerGehtSoft
         /// </summary>
         public void Process()
         {
-            WorkWithFile InstanceWorkWithFile = new WorkWithFile();
+            File InstanceFile = new File();
             Movie InstanceMovie = new Movie();
             NetworkStream stream = null;
             try
@@ -52,15 +52,15 @@ namespace ServerGehtSoft
                     while (stream.DataAvailable);
 
                     //string[] массив фильмов ,один элемент массива - это один Название фильма (год экранизации)/Актер/Актер
-                    var films = InstanceWorkWithFile.ReadFile(path);
+                    var films = InstanceFile.ReadFile(path);
                     
                     //получили Название фильмов (год экранизации)
                     List<string> actorsFilms = new List<string>();
-                    var nameYearFilm = InstanceWorkWithFile.FindNameYearFilms(films, out actorsFilms);
+                    var nameYearFilm = InstanceFile.FindNameYearFilms(films, out actorsFilms);
                     
                     //получили отдельно лист с названиями фильмов и с годами их экранизации
                     List<string> yearFilms = new List<string>();
-                    var nameFilms = InstanceWorkWithFile.SubNameYearFilms(nameYearFilm, out yearFilms);
+                    var nameFilms = InstanceFile.SubNameYearFilms(nameYearFilm, out yearFilms);
                     
                     //Массив объектов - его заполнение
                     List<Movie> movies = new List<Movie>();
@@ -74,18 +74,18 @@ namespace ServerGehtSoft
                     if (message.ToCharArray()[message.Length - 1] == '|')
                     {
                         message = message.TrimEnd('|');
-                        result += InstanceWorkWithFile.FindNameFilm(movies, message);
-                    }
+                        result += InstanceFile.FindNameFilm(movies, message);
+                    }s
                     else if (message.ToCharArray()[message.Length - 1] == ';')
                     {
                         message = message.Replace(';', ' ');
                         string[] actors = message.Split(' ');
-                        result += InstanceWorkWithFile.FindActorsFilm(movies, actors);
+                        result += InstanceFile.FindActorsFilm(movies, actors);
                     }
                     else if (message.ToCharArray()[message.Length - 1] == '.')
                     {
                         message = message.TrimEnd('.');
-                        result += InstanceWorkWithFile.FindYearFilm(movies, message);
+                        result += InstanceFile.FindYearFilm(movies, message);
                     }
                     else
                     {

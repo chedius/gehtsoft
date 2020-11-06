@@ -6,7 +6,7 @@ using System.Linq;
 namespace ServerGehtSoft
 {
     // Сделал: Ражев Дмитрий
-    class WorkWithFile
+    class File
     {
         public string[] ReadFile(string path)
         {
