@@ -14,6 +14,7 @@ namespace ChatClient
         static string userName;
         private const string host = "127.0.0.1";
         private const int port = 8888;
+        private static int buf = 256;
         static TcpClient client;
         static NetworkStream stream;
         private static int count = 0;
@@ -22,8 +23,10 @@ namespace ChatClient
  
         static void Main(string[] args)
         {
+            Console.Clear();
             Console.Write("Введите свое имя: ");
             userName = Console.ReadLine();
+            string path = $@"../UsersResults/{userName}";
             client = new TcpClient();
             try
             {
@@ -31,11 +34,41 @@ namespace ChatClient
                 stream = client.GetStream();
                 byte[] data = Encoding.Unicode.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
+                DirectoryInfo dirInfo = new DirectoryInfo(path);
+                if(!dirInfo.Exists)
+                {
+                    dirInfo.Create();
+                }
+                else
+                {
+                    Console.WriteLine("Такое имя занято!");
+                    Disconnect();
+                }
                 Console.WriteLine("Добро пожаловать, {0}", userName);
-                while(count < 7)
+                while(true)
                 {
                    string text = ReceiveMessage();
-                   CheckText(text);
+                   if(CheckText(text))
+                   {
+                        TextArr[count] = text;
+                        string vow = GetVow(TextArr[count]);
+                        string con = GetCon(TextArr[count]);
+                        string uniq = GetUniqWords(TextArr[count]);
+                        PrintInFile(vow,"Vowels", count+1, path);
+                        PrintInFile(con,"Consonants", count+1, path);
+                        PrintInFile(uniq,"UniqWords", count+1, path);
+                        count++;
+                        Console.WriteLine("Текст готов!");
+                        if(count == 7)
+                        {
+                            Console.WriteLine("\nВсе текста успешно обработаны!");
+                            break;
+                        }
+                   }
+                   else
+                   {
+                       Console.WriteLine("Такой текст уже был!");
+                   }
                    Thread.Sleep(10000); 
                 }
                 Disconnect();
@@ -53,7 +86,7 @@ namespace ChatClient
         static string ReceiveMessage()
         {
                 Console.WriteLine("Запрашивается текст");
-                byte[] data = new byte[64];
+                byte[] data = new byte[buf];
                 StringBuilder builder = new StringBuilder();
                 int bytes = 0;
                 do
@@ -67,15 +100,11 @@ namespace ChatClient
                 return text;
         }
 
-        static void CheckText(string text)
+        static bool CheckText(string text)
         {
             if(TextArr[0] == null)
             {
-                TextArr[0] = text;
-                GetVowAndCon(TextArr[0], count);
-                GetUniqWords(TextArr[0], count);
-                count++;
-                Console.WriteLine("Текст готов!");
+                return true;
             }
             else
             {
@@ -83,9 +112,8 @@ namespace ChatClient
                 {
                     if(TextArr[i] == text)
                     {
-                        Console.WriteLine("Такой текст уже был!");
                         f = false;
-                        break;
+                        return false;
                     }
                     else
                     {
@@ -94,28 +122,29 @@ namespace ChatClient
                 }
                 if(f == true)
                 {
-                    TextArr[count] = text;
-                    GetVowAndCon(TextArr[count], count);
-                    GetUniqWords(TextArr[count], count);
-                    count++;
-                    Console.WriteLine("Текст готов!");
+                    return true;
                 }
+                else return false;
             }
         }
 
-        static void GetVowAndCon(string mtext, int number)
+        static string GetVow(string mtext)
         {
             var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
-            var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
             string vowTxt = new string(mtext.ToLower().Where(c=>vowels.Contains(c)).ToArray());
-            string conTxt = new string(mtext.ToLower().Where(c=>consonants.Contains(c)).ToArray());
-            string totalVow = new string(vowTxt.Count() + " ," + vowTxt);
-            string totalCon = new string(conTxt.Count() + " ," + conTxt);
-            PrintInFile(totalVow, "vowels", number);
-            PrintInFile(totalCon, "consonants", number);
+            string totalVow = new string(vowTxt.Count() + " ," + vowTxt);            
+            return totalVow;
         }
 
-        static void GetUniqWords(string text, int number)
+        static string GetCon(string mtext)
+        {
+            var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
+            string conTxt = new string(mtext.ToLower().Where(c=>consonants.Contains(c)).ToArray());
+            string totalCon = new string(conTxt.Count() + " ," + conTxt);
+            return totalCon;
+        }
+
+        static string GetUniqWords(string text)
         {
             Regex req_exp = new Regex("[^a-zA-Z0-9]");
             text = req_exp.Replace(text, " ");
@@ -133,13 +162,13 @@ namespace ChatClient
                 result += noResult[i];
                 result += " ";
             }
-            PrintInFile(result, "uniq", number);
+            return result;
 
         }
 
-        static void PrintInFile(string res, string name, int number)
+        static void PrintInFile(string res, string name, int number, string path)
         {
-            using (FileStream fstream = new FileStream($"../{name}{number}.txt", FileMode.OpenOrCreate))
+            using (FileStream fstream = new FileStream($"{path}/{name}{number}.txt", FileMode.OpenOrCreate))
             {
                 byte[] array = System.Text.Encoding.Default.GetBytes(res);
                 fstream.Write(array, 0, array.Length);

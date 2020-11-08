@@ -16,8 +16,8 @@ namespace ChatServer
 
         static string path = @"..\Texts.txt";
         Random rand = new Random();
-        string[] texts = File.ReadAllLines(path);
         static string mes;
+        private const int port = 8888;
  
         protected internal void AddConnection(ClientObject clientObject)
         {
@@ -36,7 +36,7 @@ namespace ChatServer
         {
             try
             {
-                tcpListener = new TcpListener(IPAddress.Any, 8888);
+                tcpListener = new TcpListener(IPAddress.Any, port);
                 tcpListener.Start();
                 Console.WriteLine("Сервер запущен. Ожидание подключений...");
  
@@ -81,6 +81,7 @@ namespace ChatServer
         }
         public void UpdateText()
         {
+            string[] texts = File.ReadAllLines(path);
             while(true)
             {
                 mes = texts[rand.Next(texts.Length)];
