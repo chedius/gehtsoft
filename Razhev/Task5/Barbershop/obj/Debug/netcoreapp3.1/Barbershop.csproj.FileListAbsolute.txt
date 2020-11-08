@@ -17,10 +17,10 @@ D:\C#\gehtsoft\Razhev\Task5\Barbershop\bin\Debug\netcoreapp3.1\Barbershop.runtim
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\bin\Debug\netcoreapp3.1\Barbershop.runtimeconfig.dev.json
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\bin\Debug\netcoreapp3.1\Barbershop.dll
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\bin\Debug\netcoreapp3.1\Barbershop.pdb
-D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.csprojAssemblyReference.cache
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.AssemblyInfoInputs.cache
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.AssemblyInfo.cs
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.csproj.CoreCompileInputs.cache
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.dll
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.pdb
 D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.genruntimeconfig.cache
+D:\C#\gehtsoft\Razhev\Task5\Barbershop\obj\Debug\netcoreapp3.1\Barbershop.csprojAssemblyReference.cache
