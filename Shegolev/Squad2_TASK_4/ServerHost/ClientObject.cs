@@ -1,17 +1,19 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
- 
+using Configurator;
+
 namespace ChatServer
 {
     public class ClientObject
     {
         protected internal string Id { get; private set; }
-        protected internal NetworkStream Stream {get; private set;}
+        protected internal NetworkStream Stream { get; private set; }
         string userName;
         TcpClient client;
         ServerObject server; // объект сервера
- 
+        public static Config configur = new Config();
+
         public ClientObject(TcpClient tcpClient, ServerObject serverObject)
         {
             Id = Guid.NewGuid().ToString();
@@ -19,7 +21,7 @@ namespace ChatServer
             server = serverObject;
             serverObject.AddConnection(this);
         }
- 
+
         public void Process()
         {
             try
@@ -28,7 +30,7 @@ namespace ChatServer
                 // получаем имя пользователя
                 string message = GetMessage();
                 userName = message;
- 
+
                 message = userName + " вошел в чат";
                 // посылаем сообщение о входе в чат всем подключенным пользователям
                 server.BroadcastMessage(message, this.Id);
@@ -52,7 +54,7 @@ namespace ChatServer
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -63,11 +65,11 @@ namespace ChatServer
                 Close();
             }
         }
- 
+
         // чтение входящего сообщения и преобразование в строку
         private string GetMessage()
         {
-            byte[] data = new byte[64]; // буфер для получаемых данных
+            byte[] data = new byte[configur.buf]; // буфер для получаемых данных
             StringBuilder builder = new StringBuilder();
             int bytes = 0;
             do
@@ -76,10 +78,10 @@ namespace ChatServer
                 builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
             }
             while (Stream.DataAvailable);
- 
+
             return builder.ToString();
         }
- 
+
         // закрытие подключения
         protected internal void Close()
         {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
- 
+
 namespace ChatServer
 {
     class Program
@@ -14,7 +14,7 @@ namespace ChatServer
                 server = new ServerObject();
                 listenThread = new Thread(new ThreadStart(server.Listen));
                 listenThread.Start(); //старт потока
-                server.SendText();
+                server.Do();
             }
             catch (Exception ex)
             {

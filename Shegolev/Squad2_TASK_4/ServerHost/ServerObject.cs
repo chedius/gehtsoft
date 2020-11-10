@@ -6,16 +6,19 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.IO;
- 
+using Configurator;
+
 namespace ChatServer
 {
     public class ServerObject
-    {     
+    {
         static TcpListener tcpListener; // сервер для прослушивания
         List<ClientObject> clients = new List<ClientObject>(); // все подключения
 
-        
- 
+        Random rand = new Random();
+        static string mes;
+        public static Config configu = new Config();
+
         protected internal void AddConnection(ClientObject clientObject)
         {
             clients.Add(clientObject);
@@ -33,33 +36,33 @@ namespace ChatServer
         {
             try
             {
-                tcpListener = new TcpListener(IPAddress.Any, 8888);
+                tcpListener = new TcpListener(IPAddress.Any, configu.port);
                 tcpListener.Start();
                 Console.WriteLine("Сервер запущен. Ожидание подключений...");
- 
+
                 while (true)
                 {
                     TcpClient tcpClient = tcpListener.AcceptTcpClient();
- 
+
                     ClientObject clientObject = new ClientObject(tcpClient, this);
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Disconnect();
             }
         }
- 
+
         // трансляция сообщения подключенным клиентам
         protected internal void BroadcastMessage(string message, string id)
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
             for (int i = 0; i < clients.Count; i++)
             {
-                if (clients[i].Id!= id) // если id клиента не равно id отправляющего
+                if (clients[i].Id != id) // если id клиента не равно id отправляющего
                 {
                     clients[i].Stream.Write(data, 0, data.Length); //передача данных
                 }
@@ -69,29 +72,40 @@ namespace ChatServer
         protected internal void Disconnect()
         {
             tcpListener.Stop(); //остановка сервера
- 
+
             for (int i = 0; i < clients.Count; i++)
             {
                 clients[i].Close(); //отключение клиента
             }
             Environment.Exit(0); //завершение процесса
         }
-
-        public void SendText()
+        public void UpdateText()
         {
-            string path = @"..\Texts.txt";
-            Random rand = new Random();
-            string[] texts = File.ReadAllLines(path);
-            string mes;   
-            while(true)
+            string[] texts = File.ReadAllLines(configu.TextPath);
+            while (true)
             {
                 mes = texts[rand.Next(texts.Length)];
-                byte[] data = Encoding.Unicode.GetBytes(mes);
-                for (int i = 0; i < clients.Count; i++)
-                {
-                    clients[i].Stream.Write(data, 0, data.Length);
-                }
+                Console.WriteLine($"Текст обновлен: {mes}");
                 Thread.Sleep(5000);
+            }
+        }
+        public void Do()
+        {
+            Thread.Sleep(100);
+            Thread update = new Thread(UpdateText);
+            update.Start();
+            while (true)
+            {
+                Thread.Sleep(10000);
+                SendText(mes);
+            }
+        }
+        public void SendText(string mes)
+        {
+            byte[] data = Encoding.Unicode.GetBytes(mes);
+            for (int i = 0; i < clients.Count; i++)
+            {
+                clients[i].Stream.Write(data, 0, data.Length);
             }
         }
     }

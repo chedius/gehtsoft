@@ -6,38 +6,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Text.RegularExpressions;
- 
+using Configurator;
+
 namespace ChatClient
 {
     class Program
     {
-        static string userName;
-        private const string host = "127.0.0.1";
-        private const int port = 8888;
         static TcpClient client;
         static NetworkStream stream;
-        private static int count;
-        private static bool f;
-        private static List <string> TextArr = new List<string>();
- 
+        private static int count = 0;
+        private static bool f = true;
+        private static string[] TextArr = new string[7];
+
         static void Main(string[] args)
         {
+            Config config = new Config();
+
+            Console.Clear();
             Console.Write("Введите свое имя: ");
-            userName = Console.ReadLine();
+            config.userName = Console.ReadLine();
+            string path = config.GetPath(config.userName);
             client = new TcpClient();
             try
             {
-                client.Connect(host, port); //подключение клиента
-                stream = client.GetStream(); // получаем поток
-                string message = userName;
-                byte[] data = Encoding.Unicode.GetBytes(message);
+                client.Connect(config.host, config.port);
+                stream = client.GetStream();
+                byte[] data = Encoding.Unicode.GetBytes(config.userName);
                 stream.Write(data, 0, data.Length);
-
-                // запускаем новый поток для получения данных
-                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
-                receiveThread.Start(); //старт потока
-                Console.WriteLine("Добро пожаловать, {0}", userName);
-                Console.ReadKey();
+                DirectoryInfo dirInfo = new DirectoryInfo(path);
+                if (!dirInfo.Exists)
+                {
+                    dirInfo.Create();
+                }
+                else
+                {
+                    Console.WriteLine("Такое имя занято!");
+                    Disconnect();
+                }
+                Console.WriteLine("Добро пожаловать, {0}", config.userName);
+                while (true)
+                {
+                    string text = ReceiveMessage();
+                    if (CheckText(text))
+                    {
+                        TextArr[count] = text;
+                        string vow = GetVow(TextArr[count]);
+                        string con = GetCon(TextArr[count]);
+                        string uniq = GetUniqWords(TextArr[count]);
+                        PrintInFile(vow, "Vowels", count + 1, path);
+                        PrintInFile(con, "Consonants", count + 1, path);
+                        PrintInFile(uniq, "UniqWords", count + 1, path);
+                        count++;
+                        Console.WriteLine("Текст готов!");
+                        if (count == 7)
+                        {
+                            Console.WriteLine("\nВсе текста успешно обработаны!");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Такой текст уже был!");
+                    }
+                    Thread.Sleep(10000);
+                }
+                Disconnect();
             }
             catch (Exception ex)
             {
@@ -49,77 +82,69 @@ namespace ChatClient
             }
         }
         // получение сообщений
-        static void ReceiveMessage()
+        static string ReceiveMessage()
         {
-            while (true)
+            Config configg = new Config();
+            Console.WriteLine("Запрашивается текст");
+            byte[] data = new byte[configg.buf];
+            StringBuilder builder = new StringBuilder();
+            int bytes = 0;
+            do
             {
-                try
+                bytes = stream.Read(data, 0, data.Length);
+                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+            }
+            while (stream.DataAvailable);
+            string text = builder.ToString();
+            Console.WriteLine("Отправляем текст " + text + " на проверку");
+            return text;
+        }
+
+        static bool CheckText(string text)
+        {
+            if (TextArr[0] == null)
+            {
+                return true;
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
                 {
-                    Console.WriteLine("Запрашивается текст");
-                    byte[] data = new byte[64]; // буфер для получаемых данных
-                    StringBuilder builder = new StringBuilder();
-                    int bytes = 0;
-                    do
+                    if (TextArr[i] == text)
                     {
-                        bytes = stream.Read(data, 0, data.Length);
-                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                        f = false;
+                        return false;
                     }
-                    while (stream.DataAvailable);
-                    string text = builder.ToString();
-                    if (text == null) goto exit;
-                    if(!TextArr.Any())
+                    else
                     {
-                        count++;
-                        TextArr.Add(text);
-                        GetVowAndCon(text, count);
-                        Console.WriteLine("Текст готов!");
+                        f = true;
                     }
-                    foreach(var str in TextArr)
-                    {
-                        if(str == text)
-                        {
-                            Console.WriteLine("Такой текст уже был!");
-                            f = false;
-                            break;
-                        }
-                        else
-                        {
-                            f = true;
-                        }
-                    }
-                    if(f == true)
-                    {
-                        count++;
-                        TextArr.Add(text);
-                        GetVowAndCon(text, count);
-                        GetUniqWords(text, count);
-                        Console.WriteLine("Текст готов!");//вывод сообщения
-                    }
-                    exit:
-                    Thread.Sleep(10000);
-                    
                 }
-                catch
+                if (f == true)
                 {
-                    Console.WriteLine("Подключение прервано!"); //соединение было прервано
-                    Console.ReadLine();
-                    Disconnect();
+                    return true;
                 }
+                else return false;
             }
         }
 
-        static void GetVowAndCon(string text, int number)
+        static string GetVow(string mtext)
         {
             var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
-            var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
-            string vowTxt = new string(text.ToLower().Where(c=>vowels.Contains(c)).ToArray());
-            string conTxt = new string(text.ToLower().Where(c=>consonants.Contains(c)).ToArray());
-            string totalVow = new string(text.ToLower().Count(c=>vowels.Contains(c)) + " ," + vowTxt);
-            string totalCon = new string(text.ToLower().Count(c=>consonants.Contains(c)) + " ," + conTxt);
-            PrintInFile(totalVow, "vowels", number);
-            PrintInFile(totalCon, "consonants", number);
+            string vowTxt = new string(mtext.ToLower().Where(c => vowels.Contains(c)).ToArray());
+            string totalVow = new string(vowTxt.Count() + " ," + vowTxt);
+            return totalVow;
         }
-        static void GetUniqWords(string text, int number)
+
+        static string GetCon(string mtext)
+        {
+            var consonants = new HashSet<char> { 'q', 'w', 'r', 't', 'y', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
+            string conTxt = new string(mtext.ToLower().Where(c => consonants.Contains(c)).ToArray());
+            string totalCon = new string(conTxt.Count() + " ," + conTxt);
+            return totalCon;
+        }
+
+        static string GetUniqWords(string text)
         {
             Regex req_exp = new Regex("[^a-zA-Z0-9]");
             text = req_exp.Replace(text, " ");
@@ -130,30 +155,30 @@ namespace ChatClient
 
             var word_query = (from string word in words orderby word select word).Distinct();
             string[] noResult = word_query.ToArray();
-            //string newres = result.ToString();
+
             string result = null;
             for (int i = 0; i < noResult.Length; i++)
             {
                 result += noResult[i];
                 result += " ";
             }
-            PrintInFile(result, "uniq", number);
+            return result;
 
         }
-        static void PrintInFile(string res, string name, int number)
+
+        static void PrintInFile(string res, string name, int number, string path)
         {
-            using (FileStream fstream = new FileStream($"../{name}{number}.txt", FileMode.OpenOrCreate))
+            using (FileStream fstream = new FileStream($"{path}/{name}{number}.txt", FileMode.OpenOrCreate))
             {
                 byte[] array = System.Text.Encoding.Default.GetBytes(res);
                 fstream.Write(array, 0, array.Length);
             }
         }
-
         static void Disconnect()
         {
-            if(stream!=null)
+            if (stream != null)
                 stream.Close();//отключение потока
-            if(client!=null)
+            if (client != null)
                 client.Close();//отключение клиента
             Environment.Exit(0); //завершение процесса
         }
